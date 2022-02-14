@@ -9,11 +9,10 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
 function CustomNavBar() {
-    return(
-    <div className='App'>
+    return(<>
     <Navbar className="navbar" expand="lg">
     <Container>
-      <Navbar.Brand href="#home"><Image width={40} height={40} src='pictures/logo.png'></Image></Navbar.Brand>
+      <Navbar.Brand href="#"><Image width={40} height={40} src='pictures/logo.png'></Image></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
@@ -56,18 +55,16 @@ function CustomNavBar() {
             <Image width={30} height={30} src='pictures/search-button.png' >
             </Image>
           </Button>
-          </Form>
-        </Nav>
-        <Nav>
           <Button className='account-button' variant="warning" href="#action/account">
             <Image width={30} height={30} src='pictures/login.png'>
             </Image>
           </Button>
+          </Form>
         </Nav>
       </Navbar.Collapse>
     </Container>
   </Navbar>
-  </div>
+  </>
   );  
   }
   
