@@ -12,11 +12,11 @@ function CustomNavBar() {
     return(<>
     <Navbar className="navbar" expand="lg">
     <Container>
-      <Navbar.Brand href="#"><Image width={40} height={40} src='pictures/logo.png'></Image></Navbar.Brand>
+      <Navbar.Brand href="accueil"><Image width={40} height={40} src='pictures/logo.png'></Image></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#accueil">Accueil</Nav.Link>
+          <Nav.Link href="accueil">Accueil</Nav.Link>
           <NavDropdown title="Bédéthèque" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/2.1">BDs</NavDropdown.Item>
             <NavDropdown.Item href="#action/2.2">Mangas</NavDropdown.Item>
@@ -24,7 +24,7 @@ function CustomNavBar() {
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/2.4">Occasions</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Mechandising" id="basic-nav-dropdown" >
+          <NavDropdown title="Merchandising" id="basic-nav-dropdown" >
               <NavDropdown title="Figurines" id="basic-nav-dropdown"drop="end">
                 <NavDropdown.Item href="#action/3.1">BDs</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Mangas</NavDropdown.Item>
@@ -39,9 +39,9 @@ function CustomNavBar() {
                 <NavDropdown.Item href="#action/4.6">Gadgets</NavDropdown.Item>
               </NavDropdown>
           </NavDropdown>
-          <Nav.Link href="#curiosite">Curiosités</Nav.Link>
-          <Nav.Link href="#propos">À propos</Nav.Link>
-          <Nav.Link href="#contact">Contact</Nav.Link>
+          <Nav.Link href="curiosite">Curiosités</Nav.Link>
+          <Nav.Link href="propos">À propos</Nav.Link>
+          <Nav.Link href="contact">Contact</Nav.Link>
         </Nav>
         <Nav>
           <Form className="d-flex">
