@@ -1,23 +1,48 @@
-# Dev-Web-2022
-Template de repo pour le projet Dev Web 2022
+# Titre du projet
 
-## Comment copier ce Wiki? 
+Ce projet a été développé dans le cadre scolaire.
+Il s'agit d'un site web pour une librairie nommé 'Jaune 2'
 
--- ATTENTION : Wiki non définitif, attendre le feu vert des enseignants avant de faire la copie!! --
+## Pour commencer
 
-Pour récupérer le template et l'utiliser dans le cadre de votre projet, vous allez devoir faire un "fork" de ce repo.  Cependant, le wiki n'est pas copié automatiquement.  Suivez donc la procédure ci-dessous : 
+Ce projet utilise la Framework ``React`` pour le Frontend et `` `` pour le Backend
 
-1.  Créez un fork de ce repository.  Ce sera votre repo de projet, avec une URL de type `https://github.com/<username>/<repo-name>`.  
-2.  Créez un wiki dans ce nouveau repo, avec une Home page vide par exemple. 
-3.  Clonez le repo git du wiki original sur votre machine :  `git clone https://github.com/EphecLLN/Dev-Web-2022.wiki.git`
-4.  Pour "pousser" le wiki présent sur votre machine vers votre repository de projet, vous allez changer le pointeur "remote" de votre copie locale : 
-    `git remote add fork https://github.com/<username>/<repo-name>.wiki.git`
-6.  Forcez à présent la copie du wiki sur votre machine vers votre repository de projet.  Cela écrasera le wiki vide que vous aviez créé plus tôt avec le template :   `git push -f fork master`
+### Pré-requis
 
-## Utilisation
+- Editeur de texte
+
+### Installation
+
+Clonez le Github avec ``git clone https://github.com/ImNeow/Dev-Web-2022``
+
+Executez la commande ``npm install react-scripts`` pour installer le package utilisé
+
+## Démarrage
+
+Executez la commande ``npm start`` pour commencer le développement
+
+## Fabriqué avec
+
+* [Virtual Studio Code](https://code.visualstudio.com/) - IDE  
+* [Create React App](https://github.com/facebook/create-react-app) - Outils  
 
 
 
-Il vous est demandé de respecter la table des matières du projet, afin que les enseignants puissent facilement retrouver les informations qu'ils cherchent.  Si vous souhaitez effectuer un changement dans sa structure, parlez-en d'abord avec votre coach.  
+## Versions  
+**Dernière version :** 0.1.0  
+Liste des versions : [Cliquer pour afficher](https://github.com/ImNeow/Dev-Web-2022/branches)  
 
-Si vous trouvez que les pages sont trop longues, vous pouvez en créer de nouvelles, mais vous devez alors vous assurez que les liens sont mis à jour dans la table des matières. 
+
+## Auteurs
+
+* **Kevin Keurvels** _alias_ [@KeviinKeurvels](https://github.com/KeviinKeurvels)
+* **Tommy Riquet** _alias_ [@ImNeow](https://github.com/ImNeow)
+* **Marina Quadu** _alias_ [@mquadu](https://github.com/mquadu)
+* **Quentin Laruelle** _alias_ [@QuentinLaruelle](https://github.com/QuentinLaruelle)
+
+Lisez la liste des [contributeurs](https://github.com/ImNeow/Dev-Web-2022/contributors) pour voir qui à aidé au projet !
+
+## License
+
+Ce projet est sous licence ``GNU GENERAL PUBLIC LICENSE`` - voir le fichier [LICENSE.md](https://github.com/ImNeow/Dev-Web-2022/blob/V0.1.0/LICENSE) pour plus d'informations
+
