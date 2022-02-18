@@ -1,4 +1,4 @@
-# Titre du projet
+# Site Web Jaune 2
 
 Ce projet a été développé dans le cadre scolaire.
 Il s'agit d'un site web pour une librairie nommé 'Jaune 2'
