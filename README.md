@@ -36,7 +36,7 @@ Liste des versions : [Cliquer pour afficher](https://github.com/TommyRiquet/Dev3
 ## Auteurs
 
 * **Kevin Keurvels** _alias_ [@KeviinKeurvels](https://github.com/KeviinKeurvels)
-* **Tommy Riquet** _alias_ [@ImNeow](https://github.com/TommyRiquet)
+* **Tommy Riquet** _alias_ [@TommyRiquet](https://github.com/TommyRiquet)
 * **Marina Quadu** _alias_ [@mquadu](https://github.com/mquadu)
 * **Quentin Laruelle** _alias_ [@QuentinLaruelle](https://github.com/QuentinLaruelle)
 
