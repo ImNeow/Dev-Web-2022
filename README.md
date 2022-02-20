@@ -13,7 +13,7 @@ Ce projet utilise la Framework ``React`` pour le Frontend et `` `` pour le Backe
 
 ### Installation
 
-Clonez le Github avec ``git clone https://github.com/ImNeow/Dev-Web-2022``
+Clonez le Github avec ``git clone https://github.com/TommyRiquet/Dev3-GP11-Jaune2``
 
 Executez la commande ``npm install`` pour installer le package utilisé
 
@@ -30,19 +30,19 @@ Executez la commande ``npm start`` pour commencer le développement
 
 ## Versions  
 **Dernière version :** 0.1.0  
-Liste des versions : [Cliquer pour afficher](https://github.com/ImNeow/Dev-Web-2022/branches)  
+Liste des versions : [Cliquer pour afficher](https://github.com/TommyRiquet/Dev3-GP11-Jaune2/branches)  
 
 
 ## Auteurs
 
 * **Kevin Keurvels** _alias_ [@KeviinKeurvels](https://github.com/KeviinKeurvels)
-* **Tommy Riquet** _alias_ [@ImNeow](https://github.com/ImNeow)
+* **Tommy Riquet** _alias_ [@ImNeow](https://github.com/TommyRiquet)
 * **Marina Quadu** _alias_ [@mquadu](https://github.com/mquadu)
 * **Quentin Laruelle** _alias_ [@QuentinLaruelle](https://github.com/QuentinLaruelle)
 
-Lisez la liste des [contributeurs](https://github.com/ImNeow/Dev-Web-2022/contributors) pour voir qui à aidé au projet !
+Lisez la liste des [contributeurs](https://github.com/TommyRiquet/Dev3-GP11-Jaune2/contributors) pour voir qui à aidé au projet !
 
 ## License
 
-Ce projet est sous licence ``GNU GENERAL PUBLIC LICENSE`` - voir le fichier [LICENSE.md](https://github.com/ImNeow/Dev-Web-2022/blob/V0.1.0/LICENSE) pour plus d'informations
+Ce projet est sous licence ``GNU GENERAL PUBLIC LICENSE`` - voir le fichier [LICENSE.md](https://github.com/TommyRiquet/Dev3-GP11-Jaune2/blob/V0.1.0/LICENSE) pour plus d'informations
 
