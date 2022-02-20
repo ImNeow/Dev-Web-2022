@@ -12,25 +12,25 @@ function CustomNavBar() {
         <Nav className="me-auto">
           <Nav.Link href="accueil">Accueil</Nav.Link>
           <NavDropdown title="Bédéthèque" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/2.1">BDs</NavDropdown.Item>
-            <NavDropdown.Item href="#action/2.2">Mangas</NavDropdown.Item>
-            <NavDropdown.Item href="#action/2.3">Comics</NavDropdown.Item>
+            <NavDropdown.Item href="bedetheque">BDs</NavDropdown.Item>
+            <NavDropdown.Item href="bedetheque">Mangas</NavDropdown.Item>
+            <NavDropdown.Item href="bedetheque">Comics</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/2.4">Occasions</NavDropdown.Item>
+            <NavDropdown.Item href="bedetheque">Occasions</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Merchandising" id="basic-nav-dropdown" >
               <NavDropdown title="Figurines" id="basic-nav-dropdown"drop="end">
-                <NavDropdown.Item href="#action/3.1">BDs</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Mangas</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Comics</NavDropdown.Item>
+                <NavDropdown.Item href="merchandising">BDs</NavDropdown.Item>
+                <NavDropdown.Item href="merchandising">Mangas</NavDropdown.Item>
+                <NavDropdown.Item href="merchandising">Comics</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Divers" id="dropdown-button-drop-end" drop='end'>
-                <NavDropdown.Item href="#action/4.1">Décoration</NavDropdown.Item>
-                <NavDropdown.Item href="#action/4.2">Montres</NavDropdown.Item>
-                <NavDropdown.Item href="#action/4.3">Ex-Libris</NavDropdown.Item>
-                <NavDropdown.Item href="#action/4.4">Posters/Affiche</NavDropdown.Item>
-                <NavDropdown.Item href="#action/4.5">Cartes postales</NavDropdown.Item>
-                <NavDropdown.Item href="#action/4.6">Gadgets</NavDropdown.Item>
+                <NavDropdown.Item href="divers">Décoration</NavDropdown.Item>
+                <NavDropdown.Item href="divers">Montres</NavDropdown.Item>
+                <NavDropdown.Item href="divers">Ex-Libris</NavDropdown.Item>
+                <NavDropdown.Item href="divers">Posters/Affiche</NavDropdown.Item>
+                <NavDropdown.Item href="divers">Cartes postales</NavDropdown.Item>
+                <NavDropdown.Item href="divers">Gadgets</NavDropdown.Item>
               </NavDropdown>
           </NavDropdown>
           <Nav.Link href="curiosite">Curiosités</Nav.Link>
