@@ -15,7 +15,7 @@ Ce projet utilise la Framework ``React`` pour le Frontend et `` `` pour le Backe
 
 Clonez le Github avec ``git clone https://github.com/ImNeow/Dev-Web-2022``
 
-Executez la commande ``npm install react-scripts`` pour installer le package utilisé
+Executez la commande ``npm install`` pour installer le package utilisé
 
 ## Démarrage
 
