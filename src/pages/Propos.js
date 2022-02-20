@@ -7,7 +7,7 @@ const Propos = () => {
         {/* Beginning of the carousel*/} 
             <Container>
                 <Row className="justify-content-md-center mb-4">
-                    <Col md="auto">
+                    <Col md="5">
                         <CustomCarousel />
                     </Col>
                 </Row>

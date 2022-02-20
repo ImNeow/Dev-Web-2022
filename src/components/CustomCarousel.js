@@ -1,9 +1,9 @@
 import React from 'react';
 import { Carousel } from "react-bootstrap";
 
-const imgCarrouselNames = ["store1.webp", "store2.webp", "store3.webp", "store4.webp",
-                             "store5.webp", "store6.webp", "store7.webp", "store8.webp",
-                             "store9.webp", "store10.webp", "store11.webp"];
+const imgCarrouselNames = ["store1.jpg", "store2.jpg", "store3.jpg", "store4.jpg",
+                             "store5.jpg", "store6.jpg", "store7.jpg", "store8.jpg",
+                             "store9.jpg", "store10.jpg", "store11.jpg"];
 const CustomCarousel = () => {
     return (
         <Carousel>
@@ -15,10 +15,10 @@ const CustomCarousel = () => {
                         src={"pictures/storeCarousel/"+myPicture} 
                         alt="First slide"
                         />
-                        <Carousel.Caption>
+                        {/*<Carousel.Caption>
                         <h3>First slide label</h3>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
+                        </Carousel.Caption>*/}
                     </Carousel.Item>
                 );
             })}
