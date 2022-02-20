@@ -1,9 +1,9 @@
 body{
-  background-color: #BDBDBD;
+  background-color: rgb(221, 221, 221);
 }
 
 .content{
-background-color: rgb(221, 221, 221);
+background-color: rgb(255, 253, 236);
 height:900px;
 padding-top: 3%;
 }
