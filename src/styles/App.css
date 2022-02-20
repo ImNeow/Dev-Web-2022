@@ -1,3 +1,13 @@
+body{
+  background-color: #BDBDBD;
+}
+
+.content{
+background-color: rgb(221, 221, 221);
+height:900px;
+padding-top: 3%;
+}
+
 .App {
   text-align: center;
 }
