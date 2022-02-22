@@ -49,7 +49,7 @@ function CustomNavBar() {
             <Image width={30} height={30} src='pictures/search-button.png' >
             </Image>
           </Button>
-          <Button className='account-button' variant="warning" href="#action/account">
+          <Button className='account-button' variant="warning" href="account">
             <Image width={30} height={30} src='pictures/login.png'>
             </Image>
           </Button>

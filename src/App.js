@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 import Bedetheque from './pages/Bedetheque';
 import Merchandising from './pages/Merchandising';
 import Divers from './pages/Divers';
+import Connect  from './pages/Connect'
 
 function App() {
   return<>
@@ -27,6 +28,7 @@ function App() {
       <Route path="/curiosite" element={<Curiosite/>}/>
       <Route path="/propos" element={<Propos/>}/>
       <Route path="/contact" element={<Contact/>}/>
+      <Route path="/account" element={<Connect />}/>
     </Routes>
   </BrowserRouter>
   </Container>
