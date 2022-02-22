@@ -32,7 +32,7 @@ const Connect = () => {
             <br />
             <Row className="justify-content-md-center">
                 <Col md="auto">
-                    <a href='/incription'>Vous n'avez pas encore de compte ? Cliquez ici pour vous en créer un !</a>
+                    <a href='/registration'>Vous n'avez pas encore de compte ? Cliquez ici pour vous en créer un !</a>
                 </Col>
             </Row>
         </Container>

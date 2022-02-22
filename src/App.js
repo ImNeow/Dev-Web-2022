@@ -14,6 +14,7 @@ import Bedetheque from './pages/Bedetheque';
 import Merchandising from './pages/Merchandising';
 import Divers from './pages/Divers';
 import Connect  from './pages/Connect'
+import Registration from './pages/Registration';
 
 function App() {
   return<>
@@ -29,6 +30,7 @@ function App() {
       <Route path="/propos" element={<Propos/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/account" element={<Connect />}/>
+      <Route path="/registration" element={<Registration />}/>
     </Routes>
   </BrowserRouter>
   </Container>
