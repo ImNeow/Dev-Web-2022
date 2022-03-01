@@ -4,8 +4,9 @@ body{
 
 .content{
 background-color: rgb(255, 253, 236);
-height:900px;
-padding-top: 3%;
+height:auto;
+padding: 3%;
+min-height: calc(100vh - 205px);
 }
 
 .App {
