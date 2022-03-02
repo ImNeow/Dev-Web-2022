@@ -1,0 +1,15 @@
+.sub-button{
+    background-color:rgb(255, 253, 236);
+    color: black;
+    border: 0px;
+}
+.sub-button:hover{
+    background-color: #f6a90f;
+    transform: 200ms ease-in;
+}
+
+.sub-input{
+    border: 0px;
+    border-radius: 2px;
+    background-color: rgb(255, 253, 236);
+  }

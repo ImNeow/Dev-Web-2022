@@ -42,14 +42,14 @@ function CustomNavBar() {
             <FormControl
               type="search"
               placeholder="Recherche..."
-              className="me-2"
+              className="me-2 InputSearch"
               aria-label="Search"
             />
-            <Button className='search-button' variant="warning" href="#action/search">
+            <Button className='search-button' href="#action/search">
             <Image width={30} height={30} src='pictures/search-button.png' >
             </Image>
           </Button>
-          <Button className='account-button' variant="warning" href="account">
+          <Button className='account-button' href="account">
             <Image width={30} height={30} src='pictures/login.png'>
             </Image>
           </Button>

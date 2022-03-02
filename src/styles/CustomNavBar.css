@@ -5,3 +5,25 @@
 .account-button{
 margin-left: 1em;
 }
+
+.search-button{
+  background-color:rgb(255, 253, 236);
+  border: 0px;
+}
+.search-button:hover{
+  background-color: #f6a90f;
+  transform: 200ms ease-in;
+}
+
+.account-button{
+  background-color:rgb(255, 253, 236);
+  border: 0px;
+}
+.account-button:hover{
+  background-color: #f6a90f;
+  transform: 200ms ease-in;
+}
+.InputSearch{
+  border: 0px;
+  background-color: rgb(255, 253, 236);
+}

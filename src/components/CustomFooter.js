@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import '../styles/CustomFooter.css'
 
 import {
     Box,
@@ -9,6 +10,7 @@ import {
     FooterLink,
     Heading,
   } from "./FooterStyles";
+  
 
 const CustomFooter = () => {
     return (
@@ -25,11 +27,11 @@ const CustomFooter = () => {
             </Column>
             <Column>
                 <Heading>Newsletter</Heading>
-                <input placeholder='exemple@gmail.com'></input>
+                <input className='sub-input' placeholder='exemple@gmail.com'></input>
             </Column>
             <Column>
-                <p>Ne manquez aucune info</p>
-                <Button variant='dark'>S'abonner</Button>
+                <span style={{marginBottom:'20px'}}>Ne manquez aucune info</span>
+                <Button className='sub-button'>S'abonner</Button>
             </Column>
           </Row>
         </Container>
