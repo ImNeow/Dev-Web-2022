@@ -21,7 +21,7 @@ const CustomFooter = () => {
             </Column>
             <Column>
               <Heading>Social</Heading>
-              <FooterLink href="https://www.facebook.com/jaunewavre">Facebook</FooterLink>
+              <FooterLink href="https://www.facebook.com/jaunewavre" target="_blank">Facebook</FooterLink>
             </Column>
             <Column>
                 <Heading>Newsletter</Heading>
