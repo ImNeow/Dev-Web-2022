@@ -2,7 +2,7 @@ import styled from 'styled-components';
    
 export const Box = styled.div`
   padding: 20px 60px;
-  background: #ffe429;
+  background: rgb( 33,37,41);
   position: relative;
   bottom: 0;
   width: 100%;
@@ -41,7 +41,7 @@ export const Row = styled.div`
 `;
    
 export const FooterLink = styled.a`
-  color: black;
+  color: #FFE429;
   margin-bottom: 20px;
   font-size: 18px;
   text-decoration: none;
@@ -54,7 +54,7 @@ export const FooterLink = styled.a`
    
 export const Heading = styled.p`
   font-size: 24px;
-  color: black
+  color: #FFE429;
   margin-bottom: 40px;
   font-weight: bold;
 `;

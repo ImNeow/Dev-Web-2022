@@ -1,9 +1,9 @@
 body{
-  background-color: rgb(221, 221, 221);
+  background-color: #FFE429;
 }
 
 .content{
-background-color: rgb(255, 253, 236);
+background-color: #FFE429;
 height:auto;
 padding: 3%;
 min-height: calc(100vh - 205px);

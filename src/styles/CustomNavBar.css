@@ -1,6 +1,12 @@
-.navbar{
-    background-color : #ffe429;
-  }
+.NavbarLink{
+    color: rgb(255, 253, 236)!important; 
+}
+#basic-nav-dropdown{
+    color: rgb(255, 253, 236)!important; 
+}
+#dropdown-button-drop-end{
+  color: rgb(255, 253, 236); 
+}
 
 .account-button{
 margin-left: 1em;
@@ -11,7 +17,7 @@ margin-left: 1em;
   border: 0px;
 }
 .search-button:hover{
-  background-color: #f6a90f;
+  background-color: #ffe429;
   transform: 200ms ease-in;
 }
 
@@ -20,10 +26,11 @@ margin-left: 1em;
   border: 0px;
 }
 .account-button:hover{
-  background-color: #f6a90f;
+  background-color: #ffe429;
   transform: 200ms ease-in;
 }
 .InputSearch{
   border: 0px;
   background-color: rgb(255, 253, 236);
 }
+

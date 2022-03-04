@@ -4,12 +4,12 @@
     border: 0px;
 }
 .sub-button:hover{
-    background-color: #f6a90f;
+    background-color: #FFE429;
     transform: 200ms ease-in;
 }
 
 .sub-input{
     border: 0px;
     border-radius: 2px;
-    background-color: rgb(255, 253, 236);
+    background-color: #FFE429;
   }

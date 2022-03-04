@@ -4,27 +4,27 @@ import {Navbar,Nav,Container,NavDropdown,Form,FormControl,Button,Image} from 're
 
 function CustomNavBar() {
     return(<>
-    <Navbar className="navbar" expand="lg">
+    <Navbar bg='dark' className="navbar" expand="lg" >
     <Container>
-      <Navbar.Brand href="accueil"><Image width={40} height={40} src='pictures/logo.png'></Image></Navbar.Brand>
+      <Navbar.Brand href="accueil"><Image width={40} height={40} src='pictures/logo-original.png'></Image></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="accueil">Accueil</Nav.Link>
-          <NavDropdown title="Bédéthèque" id="basic-nav-dropdown">
+          <Nav.Link className="NavbarLink" href="accueil">Accueil</Nav.Link>
+          <NavDropdown menuVariant="dark" title="Bédéthèque" id="basic-nav-dropdown">
             <NavDropdown.Item href="bedetheque">BDs</NavDropdown.Item>
             <NavDropdown.Item href="bedetheque">Mangas</NavDropdown.Item>
             <NavDropdown.Item href="bedetheque">Comics</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="bedetheque">Occasions</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Merchandising" id="basic-nav-dropdown" >
-              <NavDropdown title="Figurines" id="basic-nav-dropdown"drop="end">
+          <NavDropdown menuVariant="dark" title="Merchandising" id="basic-nav-dropdown" >
+              <NavDropdown menuVariant="dark" title="Figurines" id="dropdown-button-drop-end"  drop="end">
                 <NavDropdown.Item href="merchandising">BDs</NavDropdown.Item>
                 <NavDropdown.Item href="merchandising">Mangas</NavDropdown.Item>
                 <NavDropdown.Item href="merchandising">Comics</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="Divers" id="dropdown-button-drop-end" drop='end'>
+              <NavDropdown menuVariant="dark" title="Divers" id="dropdown-button-drop-end" drop='end'>
                 <NavDropdown.Item href="divers">Décoration</NavDropdown.Item>
                 <NavDropdown.Item href="divers">Montres</NavDropdown.Item>
                 <NavDropdown.Item href="divers">Ex-Libris</NavDropdown.Item>
@@ -33,9 +33,9 @@ function CustomNavBar() {
                 <NavDropdown.Item href="divers">Gadgets</NavDropdown.Item>
               </NavDropdown>
           </NavDropdown>
-          <Nav.Link href="curiosite">Curiosités</Nav.Link>
-          <Nav.Link href="propos">À propos</Nav.Link>
-          <Nav.Link href="contact">Contact</Nav.Link>
+          <Nav.Link className="NavbarLink" href="curiosite">Curiosités</Nav.Link>
+          <Nav.Link className="NavbarLink" href="propos">À propos</Nav.Link>
+          <Nav.Link className="NavbarLink" href="contact">Contact</Nav.Link>
         </Nav>
         <Nav>
           <Form className="d-flex">
