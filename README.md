@@ -5,7 +5,7 @@ Il s'agit d'un site web pour une librairie nommé 'Jaune 2'
 
 ## Pour commencer
 
-Ce projet utilise la Framework ``React`` pour le Frontend et `` `` pour le Backend
+Ce projet utilise la Framework ``React`` pour le Frontend et ``Node JS`` pour le Backend
 
 ### Pré-requis
 
