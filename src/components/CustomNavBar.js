@@ -18,19 +18,16 @@ function CustomNavBar() {
             <NavDropdown.Divider />
             <NavDropdown.Item href="bedetheque">Occasions</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown menuVariant="dark" title="Merchandising" id="basic-nav-dropdown" >
-              <NavDropdown menuVariant="dark" title="Figurines" id="dropdown-button-drop-end"  drop="end">
-                <NavDropdown.Item href="merchandising">BDs</NavDropdown.Item>
-                <NavDropdown.Item href="merchandising">Mangas</NavDropdown.Item>
-                <NavDropdown.Item href="merchandising">Comics</NavDropdown.Item>
-              </NavDropdown>
+          <NavDropdown menuVariant="dark" title="Objets" id="basic-nav-dropdown" >
+              <NavDropdown.Item href="objets">Statuettes</NavDropdown.Item>
+              <NavDropdown.Item href="objets">Posters</NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown menuVariant="dark" title="Divers" id="dropdown-button-drop-end" drop='end'>
-                <NavDropdown.Item href="divers">Décoration</NavDropdown.Item>
-                <NavDropdown.Item href="divers">Montres</NavDropdown.Item>
-                <NavDropdown.Item href="divers">Ex-Libris</NavDropdown.Item>
-                <NavDropdown.Item href="divers">Posters/Affiche</NavDropdown.Item>
-                <NavDropdown.Item href="divers">Cartes postales</NavDropdown.Item>
-                <NavDropdown.Item href="divers">Gadgets</NavDropdown.Item>
+                <NavDropdown.Item href="objets">Montres</NavDropdown.Item>
+                <NavDropdown.Item href="objets">Vaiselles</NavDropdown.Item>
+                <NavDropdown.Item href="objets">Jeu de Cartes</NavDropdown.Item>
+                <NavDropdown.Item href="objets">Cartes postales</NavDropdown.Item>
+                <NavDropdown.Item href="objets">Gadgets</NavDropdown.Item>
               </NavDropdown>
           </NavDropdown>
           <Nav.Link className="NavbarLink" href="curiosite">Curiosités</Nav.Link>

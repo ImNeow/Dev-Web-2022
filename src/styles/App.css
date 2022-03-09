@@ -6,7 +6,7 @@ body{
 background-color: #FFE429;
 height:auto;
 padding: 3%;
-min-height: calc(100vh - 205px);
+min-height: calc(100vh - 12.45em);
 }
 
 .App {

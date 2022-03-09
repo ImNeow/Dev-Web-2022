@@ -60,6 +60,19 @@ const Bedetheque = () => {
       <Card.Title>Tintin , Coke en Stock</Card.Title>
     </Card.Body>
   </Card>
+  <Card>
+    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Body>
+      <Card.Title>Tintin au Tibet</Card.Title>
+    </Card.Body>
+  </Card>
+
+  <Card>
+    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Body>
+      <Card.Title>Tintin au Tibet</Card.Title>
+    </Card.Body>
+  </Card>
 </CardGroup>
 <br></br>
 <CardGroup>
@@ -74,19 +87,24 @@ const Bedetheque = () => {
     <Card.Body>
       <Card.Title>Tintin et les Cigares du Pharaon</Card.Title>
     </Card.Body>
-    <Card.Footer>
-      <small className="text-muted">Last updated 3 mins ago</small>
-    </Card.Footer>
   </Card>
   <Card>
     <Card.Img variant="top" src="https://www.bdaddik.com/950-large_default/album-de-tintin-le-lotus-bleu-edition-fac-simile-couleurs-1946.jpg" />
     <Card.Body>
       <Card.Title>Tintin et le Lotus Bleu</Card.Title>
-      <Card.Text>
-      Le Lotus bleu (ou Les aventures de Tintin, reporter, en Extrême-Orient) est le cinquième album de la série de bande dessinée Les Aventures de Tintin 
-      et Milou, prépublié en noir et blanc du 9 août 1934 au 17 octobre 1935 dans les pages du Petit Vingtième, supplément du journal Le Vingtième Siècle. 
-      La version couleur et actuelle de l'album est parue en 1946. Le Lotus bleu est classé à la 18e place des 100 meilleurs livres du xxe siècle.
-      </Card.Text>
+    </Card.Body>
+  </Card>
+  <Card>
+    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Body>
+      <Card.Title>Tintin au Tibet</Card.Title>
+    </Card.Body>
+  </Card>
+
+  <Card>
+    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Body>
+      <Card.Title>Tintin au Tibet</Card.Title>
     </Card.Body>
   </Card>
 </CardGroup>
