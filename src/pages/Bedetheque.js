@@ -22,6 +22,21 @@ const Bedetheque = () => {
       <Card.Title>Tintin au Congo</Card.Title>
     </Card.Body>
   </Card>
+
+  <Card>
+    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Body>
+      <Card.Title>Tintin au Tibet</Card.Title>
+    </Card.Body>
+  </Card>
+
+  <Card>
+    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Body>
+      <Card.Title>Tintin au Tibet</Card.Title>
+    </Card.Body>
+  </Card>
+  
 </CardGroup>
 <br></br>
 <CardGroup>

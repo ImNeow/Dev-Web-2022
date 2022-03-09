@@ -30,7 +30,7 @@ const CustomFooter = () => {
                 <input className='sub-input' placeholder='exemple@gmail.com'></input>
             </Column>
             <Column>
-                <span style={{marginBottom:'18px ', color:'#FFE429'}}>Ne manquez aucune info</span>
+                <span style={{marginBottom:'18px ', color:'rgb(255, 253, 236)'}}>Ne manquez aucune info</span>
                 <Button className='sub-button'>S'abonner</Button>
             </Column>
           </Row>
