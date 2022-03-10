@@ -2,36 +2,36 @@ import { Card,Button,CardGroup } from "react-bootstrap"
 
 const Bedetheque = () => {
     return <div>
-        <CardGroup>
+<CardGroup>
   <Card>
-    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Img variant="top" src="https://cdn001.tintin.com/public/tintin/img/static/tintin-au-pays-de-l-or-noir/tintin-au-pays-de-l-or-noir-fr.jpg" />
     <Card.Body>
       <Card.Title>Tintin au Tibet</Card.Title>
     </Card.Body>
   </Card>
   
   <Card>
-    <Card.Img variant="top" src="https://www.bdaddik.com/1170-thickbox_default/album-les-aventures-de-tintin-t3-tintin-en-amerique.jpg" />
+    <Card.Img variant="top" src="https://cdn001.tintin.com/public/tintin/img/static/objectif-lune/objectif-lune-fr.jpg" />
     <Card.Body>
-      <Card.Title>Tintin en America</Card.Title>
+      <Card.Title>Tintin en Amerique</Card.Title>
     </Card.Body>
   </Card>
   <Card>
-    <Card.Img variant="top" src="https://www.bd-tek.com/images/album/7/7874-70494,tintin-tome-2-tintin-au-congo-b20.jpg" />
+    <Card.Img variant="top" src="https://cdn001.tintin.com/public/tintin/img/static/on-a-marche-sur-la-lune/on-a-marche-sur-la-lune.jpg" />
     <Card.Body>
       <Card.Title>Tintin au Congo</Card.Title>
     </Card.Body>
   </Card>
 
   <Card>
-    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Img  variant="top" src="https://cdn001.tintin.com/public/tintin/img/static/l-affaire-tournesol/l-affaire-tournesol-fr.jpg" />
     <Card.Body>
       <Card.Title>Tintin au Tibet</Card.Title>
     </Card.Body>
   </Card>
 
   <Card>
-    <Card.Img variant="top" src="http://orangemetallique.boutique/boutique/image/cache/catalog/Album%20r%C3%A9gulier/20%20-%20Tintin%20au%20Tibet-980x980.jpg" />
+    <Card.Img  variant="top" src="https://cdn001.tintin.com/public/tintin/img/static/vol-714-pour-sydney/vol-714-pour-sydney-fr.jpg" />
     <Card.Body>
       <Card.Title>Tintin au Tibet</Card.Title>
     </Card.Body>
