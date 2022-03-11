@@ -15,7 +15,7 @@ Ce projet utilise la Framework ``React`` pour le Frontend et ``Node JS`` pour le
 
 Clonez le Github avec ``git clone https://github.com/TommyRiquet/Dev3-GP11-Jaune2``
 
-Executez la commande ``npm install`` pour installer le package utilisé
+Executez la commande ``npm install`` pour installer le(s) package(s) utilisé(s)
 
 ## Démarrage
 
