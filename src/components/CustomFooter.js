@@ -10,10 +10,9 @@ import {
     FooterLink,
     Heading,
   } from "../styles/FooterStyles";
-  
 
 const CustomFooter = () => {
-    return (
+    return (<>
         <Box>
         <Container>
           <Row>
@@ -36,6 +35,9 @@ const CustomFooter = () => {
           </Row>
         </Container>
       </Box>
+      </>
     );
 };
+
+
 export default CustomFooter;

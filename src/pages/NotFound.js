@@ -20,7 +20,7 @@ const NotFound = () => {
                     src={"pictures/easter-egg/angry-marsupilami.gif"}
                     style={{
                         right:0,
-                        bottom: "10%",
+                        bottom: "13%",
                         position:'fixed',
                 }}
     >
