@@ -17,7 +17,11 @@ const Propos = () => {
                     <Col style={{textAlign : 'left', fontWeight : 'bold'}}>1984</Col>
                 </Row>
                     <p className="apropos"/>C'est l'année de notre vrai démarrage. Quelques tables de jardin achetées en solde, quelques timides piles de nouveautés et nous voilà partis pour une aventure qui n'a cessé d'évoluer au fil des années. 
-                    15 ans dans le nord-est de Bruxelles, puis en 1999, déménagement à Wavre dans notre petit magasin de 60 m². <br/><br/>
+                    15 ans dans le nord-est de Bruxelles. <br/><br/>
+                <Row >
+                    <Col style={{textAlign : 'left', fontWeight : 'bold'}}>1999</Col>
+                </Row> 
+                    Déménagement à Wavre dans notre petit magasin de 60 m². <br/><br/>
                 <Row >
                     <Col style={{textAlign : 'left', fontWeight : 'bold'}}>2006</Col>
                 </Row>
@@ -25,7 +29,7 @@ const Propos = () => {
                 <Row >
                     <Col style={{textAlign : 'left', fontWeight : 'bold'}}>2014</Col>
                 </Row>
-                    <p className="apropos"/>Nous récupérons l'étage de notre magasin (encore 300 m²) pour enfin trouver de la place pour tout ce que nous accumulons depuis plus de 30 ans !<br/><br/>
+                    <p className="apropos"/>Nous récupérons l'étage de notre magasin (encore 300 m²) pour enfin trouver de la place pour tout ce que nous accumulons depuis plus de 30 ans !<br/>
                     Nous pouvons actuellement proposer toutes les nouveautés (BD - Mangas - Comics), un très grand rayon d'occasions et maintenant un énorme choix d'albums rares ou épuisés !<br/><br/>
                 <Row >
                     <Col style={{textAlign : 'left', fontWeight : 'bold'}}>2017</Col>
