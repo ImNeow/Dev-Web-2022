@@ -21,7 +21,7 @@ Executez la commande ``npm install`` pour installer le(s) package(s) utilisé(s)
 
 Executez la commande ``npm start`` pour commencer le développement
 
-## Fabriqué avec
+## Elaboré à patir de 
 
 * [Virtual Studio Code](https://code.visualstudio.com/) - IDE  
 * [Create React App](https://github.com/facebook/create-react-app) - Outils  
