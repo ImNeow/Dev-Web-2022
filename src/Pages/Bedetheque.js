@@ -52,9 +52,7 @@ const Bedetheque = () => {
 <br></br>
 <CardGroup>
   <Card>
-    <Card.Img variant="top" src="https://www.bdaddik.com/10678-large_default/album-les-aventures-de-tintin-t11-le-secret-de-la-licorne.jpg
-
-" />
+    <Card.Img variant="top" src="https://www.bdaddik.com/10678-large_default/album-les-aventures-de-tintin-t11-le-secret-de-la-licorne.jpg" />
     <Card.Body>
       <Card.Title>Les Aventures de Tintin et le Secret de la Licorne</Card.Title>
     </Card.Body>
