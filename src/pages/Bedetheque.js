@@ -1,6 +1,17 @@
-import { Card,Button,CardGroup } from "react-bootstrap"
+import { Card,CardGroup } from "react-bootstrap"
+import { useEffect, useState} from 'react'
 
 const Bedetheque = () => {
+  const [initialState, setInitialState] = useState([])
+
+  useEffect(()=>{
+    fetch("/api/getImages").then(res =>{
+      if(res.ok){
+        return res.json()
+      }
+    }).then(jsonResponse => console.log(jsonResponse))
+  },[])
+
     return <div>
 <CardGroup>
   <Card>

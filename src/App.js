@@ -1,23 +1,23 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/App.css';
+import './Assets/Styles/App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
 
-import CustomNavBar from './components/CustomNavBar';
-import CustomFooter from './components/CustomFooter';
+import CustomNavBar from './Components/CustomNavBar';
+import CustomFooter from './Components/CustomFooter';
 
-import Accueil from './pages/Accueil';
-import Curiosite from './pages/Curiosite';
-import Propos from './pages/Propos';
-import Contact from './pages/Contact';
-import Bedetheque from './pages/Bedetheque';
-import Objets from './pages/Objets';
-import Divers from './pages/Divers';
-import Connect  from './pages/Connect'
-import Registration from './pages/Registration';
-import CGV from './pages/CGV'
-import NotFound from './pages/NotFound';
+import Accueil from './Pages/Accueil';
+import Curiosite from './Pages/Curiosite';
+import Propos from './Pages/Propos';
+import Contact from './Pages/Contact';
+import Bedetheque from './Pages/Bedetheque';
+import Objets from './Pages/Objets';
+import Divers from './Pages/Divers';
+import Connect  from './Pages/Connect'
+import Registration from './Pages/Registration';
+import CGV from './Pages/CGV'
+import NotFound from './Pages/NotFound';
 
 function App() {
   return<>

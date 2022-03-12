@@ -21,8 +21,10 @@ const NotFound = () => {
                     style={{
                         right:0,
                         bottom: "13%",
-                        position:'fixed',
-                }}
+                        position:'fixed'
+                    
+                        }}
+                    alt={"marsup-gif"}
     >
             </img>
             )}

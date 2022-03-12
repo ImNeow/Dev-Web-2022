@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import '../styles/CustomFooter.css'
+import '../Assets/Styles/CustomFooter.css'
 
 import {
     Box,
@@ -9,7 +9,7 @@ import {
     Column,
     FooterLink,
     Heading,
-  } from "../styles/FooterStyles";
+  } from "../Assets/Styles/FooterStyles";
 
 const CustomFooter = () => {
     return (<>

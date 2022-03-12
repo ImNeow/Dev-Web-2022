@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import CustomCarousel from "../components/CustomCarousel";
+import CustomCarousel from "../Components/CustomCarousel";
 const Propos = () => {
     
     return (
