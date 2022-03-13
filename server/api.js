@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const Imageschema = require('./models/Image');
+const BDschema = require('./models/BD');
 
 const port = process.env.PORT
 const uri = process.env.ATLAS_URI
@@ -11,23 +11,20 @@ mongoose.connect(uri, { useNewUrlParser: true })
     const app = express();
     console.log('Connected to DB')
 
-    const schemaImage = new mongoose.Schema({
-        link: String,
-        name: String
+    const BDschema = new mongoose.Schema({
+        name: String,
+        link: String
     })
 
-    const image = mongoose.model('bd_images', schemaImage);
+    const BD = mongoose.model('bd_images', BDschema);
 
     app.get("/api/getImages", async (req, resp) =>{
-        
-        image.find({},(err, res)=>{
+        console.log(req)
+        BD.find({},(err, res)=>{
             if (err) return handleError(err);
-            resp.send(res)
+            resp.send(res);
         })
-        
-
     })
-
 
     app.listen(port, () =>{
         console.log("Server listening on port "+port)
