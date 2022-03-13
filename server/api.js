@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
+
 const BDschema = require('./models/BD');
 
 const port = process.env.PORT
@@ -19,7 +20,6 @@ mongoose.connect(uri, { useNewUrlParser: true })
     const BD = mongoose.model('bd_images', BDschema);
 
     app.get("/api/getImages", async (req, resp) =>{
-        console.log(req)
         BD.find({},(err, res)=>{
             if (err) return handleError(err);
             resp.send(res);
