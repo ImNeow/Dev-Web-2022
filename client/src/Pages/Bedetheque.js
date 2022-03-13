@@ -5,6 +5,7 @@ const Bedetheque = () => {
   const [listBD, setlistBD] = useState([])
   const nbrBDPerRow = 5; /*Min : 1 , Max : 6*/
 
+
   useEffect(()=>{
     fetch("/api/getImages").then(res =>{
       if(res.ok){
@@ -32,6 +33,7 @@ const Bedetheque = () => {
           })  
         }
         </Row>
+
     </div>
     }
     export default Bedetheque
