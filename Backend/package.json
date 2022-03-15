@@ -1,18 +1,18 @@
 {
-  "name": "Jaune2Backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "myapp",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node api.js"
+    "start": "node ./bin/www"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
     "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "mongoose": "^6.2.5"
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "mongoose": "^6.2.6",
+    "morgan": "~1.9.1"
   }
 }

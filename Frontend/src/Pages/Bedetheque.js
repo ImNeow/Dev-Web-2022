@@ -7,7 +7,7 @@ const Bedetheque = () => {
 
 
   useEffect(()=>{
-    fetch("/api/getImages").then(res =>{
+    fetch("/books/getBooks").then(res =>{
       if(res.ok){
         return res.json()
       }
