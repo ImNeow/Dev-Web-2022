@@ -13,11 +13,15 @@ router.get('/getBooks', function(req, res, next) {
 });
 
 router.route('/addBook').post((req, res) =>{
+
+const NewType = req.body.type;
 const Newname = req.body.name;
 const Newlink = req.body.link;
+
 console.log(req)
 
 const newBook = new Book({
+  type : NewType,
   name : Newname,
   link : Newlink
 });

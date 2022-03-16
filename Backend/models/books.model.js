@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 
 const bookSchema = new mongoose.Schema({
-    name: { type : String} ,
+    type: { type : String},
+    name: { type : String},
     link: { type : String}
 })
 
