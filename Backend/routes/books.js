@@ -4,7 +4,9 @@ let Book = require('../models/books.model')
 
 
 router.get('/getBooks', function(req, res, next) {
-    Book.find({type:req.query.type},(err, DBres)=>{
+    const type = req.query.type
+
+    Book.find({type:type},(err, DBres)=>{
         if (err) return handleError(err);
         res.send(DBres);
     })

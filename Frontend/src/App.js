@@ -13,7 +13,6 @@ import Propos from './Pages/Propos';
 import Contact from './Pages/Contact';
 import Bedetheque from './Pages/Bedetheque';
 import Objets from './Pages/Objets';
-import Divers from './Pages/Divers';
 import Connect  from './Pages/Connect'
 import Registration from './Pages/Registration';
 import CGV from './Pages/CGV'
@@ -26,11 +25,20 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/accueil" element={<Accueil/>}/>
-        <Route path="/bedetheque/BD" element={<Bedetheque type="BD"/>}/>
-        <Route path="/bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>
-        <Route path="/bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
-        <Route path="/objets" element={<Objets/>}/>
-        <Route path="/divers" element={<Divers/>}/>
+
+        <Route path="bedetheque/BD" element={<Bedetheque type="BD"/>}/>
+        <Route path="bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>
+        <Route path="bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
+        <Route path="bedetheque/occasion" element={<Bedetheque type="Occasion"/>}/>
+
+        <Route path="/objets/statuette" element={<Objets type="statuette"/>}/>
+        <Route path="/objets/poster" element={<Objets type="poster"/>}/>
+        <Route path="/objets/montre" element={<Objets type="montre"/>}/>
+        <Route path="/objets/vaiselle" element={<Objets type="vaiselle"/>}/>
+        <Route path="/objets/jeudecarte" element={<Objets type="jeudecarte"/>}/>
+        <Route path="/objets/cartepostale" element={<Objets type="cartepostal"/>}/>
+        <Route path="/objets/gadget" element={<Objets type="gadget"/>}/>
+
         <Route path="/curiosite" element={<Curiosite/>}/>
         <Route path="/propos" element={<Propos/>}/>
         <Route path="/contact" element={<Contact/>}/>

@@ -4,15 +4,17 @@ import { useEffect, useState} from 'react'
 const Bedetheque = (props) => {
   const [listBD, setlistBD] = useState([])
   const nbrBDPerRow = 5; /*Min : 1 , Max : 6*/
+  const type= props.type
 
 
   useEffect(()=>{
-    fetch("/books/getBooks?type="+props.type).then(res =>{
+    fetch("/books/getBooks?type="+type).then(res =>{
       if(res.ok){
         return res.json()
       }
     }).then(jsonResponse => {
       setlistBD(jsonResponse)
+      console.log(jsonResponse)
     })
   },[])
   
