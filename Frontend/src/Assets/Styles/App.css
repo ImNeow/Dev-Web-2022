@@ -19,3 +19,8 @@ min-height: calc(100vh - 12.45em);
   background-color:#FFE429;
   text-align: center;
 }
+
+.priceBD{
+  font-size: 15px;
+  color: red;
+}

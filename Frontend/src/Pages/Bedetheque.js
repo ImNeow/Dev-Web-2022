@@ -1,5 +1,6 @@
 import { Card,Row, Col } from "react-bootstrap"
 import { useEffect, useState} from 'react'
+import "../Assets/Styles/App.css"
 
 const Bedetheque = (props) => {
   const [listBD, setlistBD] = useState([])
@@ -22,12 +23,22 @@ const Bedetheque = (props) => {
         <Row xs={1} md={nbrBDPerRow}>
         {
           listBD.map((myBD,index) => {
+            let nameBD= " ";
+              if(myBD.name.length>27){
+                nameBD = myBD.name.substr(0,25)+"...";
+              }
+              else{
+                nameBD = myBD.name;
+              }
             return (
               <Col key={"Col"+index}>
                 <Card key={index}>
                   <Card.Img variant="top" src={myBD.link}/>
                   <Card.Body>
-                    <Card.Title>{myBD.name}</Card.Title>
+                  <Card.Title style={{fontSize:"22.5px"}}>{nameBD}</Card.Title>
+                    <Card.Text className="priceBD">
+                      7.50€
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
