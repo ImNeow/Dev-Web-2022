@@ -26,7 +26,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/accueil" element={<Accueil/>}/>
-        <Route path="/bedetheque" element={<Bedetheque/>}/>
+        <Route path="/bedetheque/BD" element={<Bedetheque type="BD"/>}/>
+        <Route path="/bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>
+        <Route path="/bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
         <Route path="/objets" element={<Objets/>}/>
         <Route path="/divers" element={<Divers/>}/>
         <Route path="/curiosite" element={<Curiosite/>}/>

@@ -12,9 +12,9 @@ function CustomNavBar() {
         <Nav className="me-auto">
           <Nav.Link className="NavbarLink" href="accueil">Accueil</Nav.Link>
           <NavDropdown menuVariant="dark" title="Bédéthèque" id="basic-nav-dropdown">
-            <NavDropdown.Item href="bedetheque">BDs</NavDropdown.Item>
-            <NavDropdown.Item href="bedetheque">Mangas</NavDropdown.Item>
-            <NavDropdown.Item href="bedetheque">Comics</NavDropdown.Item>
+            <NavDropdown.Item href="bedetheque/BD">BDs</NavDropdown.Item>
+            <NavDropdown.Item href="bedetheque/Manga">Mangas</NavDropdown.Item>
+            <NavDropdown.Item href="bedetheque/Comic">Comics</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="bedetheque">Occasions</NavDropdown.Item>
           </NavDropdown>

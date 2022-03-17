@@ -1,13 +1,13 @@
 import { Card,Row, Col } from "react-bootstrap"
 import { useEffect, useState} from 'react'
 
-const Bedetheque = () => {
+const Bedetheque = (props) => {
   const [listBD, setlistBD] = useState([])
   const nbrBDPerRow = 5; /*Min : 1 , Max : 6*/
 
 
   useEffect(()=>{
-    fetch("/books/getBooks").then(res =>{
+    fetch("/books/getBooks?type="+props.type).then(res =>{
       if(res.ok){
         return res.json()
       }
