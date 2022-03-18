@@ -31,18 +31,20 @@ const Bedetheque = (props) => {
         {
           listBD.map((myBD,index) => {
             let nameBD= " ";
-            
-              nameBD = myBD.name;
+            nameBD = myBD.name;
 
             return (
-              <Col key={"Col"+index}>
+              <Col key={"Col"+index} style={{marginBottom:'5px'}}>
+                <a href='http://youtube.com' style={{textDecoration:'none'}}>
                 <Card key={index}>
                   <Card.Img variant="top" src={myBD.link}/>
-                  <Card.Body>
-                    <Card.Title style={{minHeight:"2em",fontSize:"22.5px"}}>{nameBD}</Card.Title>
+                  <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
+                    <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{nameBD}</Card.Title>
                     <Card.Text  className="priceBD">7.50€</Card.Text>
                   </Card.Body>
                 </Card>
+
+                </a>
               </Col>
             )
           })  

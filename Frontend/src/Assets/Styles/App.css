@@ -19,8 +19,56 @@ min-height: calc(100vh - 12.45em);
   background-color:#FFE429;
   text-align: center;
 }
+.card:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .priceBD{
   font-size: 15px;
   color: red;
+  text-decoration: none !important;
+}
+
+.anim{
+  animation-name:  marsup-anim ;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+
+  position: absolute;
+  top: -100%;
+}
+
+@keyframes marsup-anim {
+  0% {top: -100%;}
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+
+  25% {
+    transform: translateX(-30px) rotate(6deg);
+    top: 40px;
+  }
+
+  45% {
+    transform: translateX(15px) rotate(-6deg);
+  }
+
+  55% {
+    transform: translateX(-15px) rotate(3.6deg);
+  }
+
+  65% {
+    transform: translateX(9px) rotate(-2.4deg);
+  }
+
+  80% {
+    transform: translateX(-6px) rotate(1.2deg);
+    top: 40px;
+  }
+  100%{
+    top: -100%;
+  }
 }
