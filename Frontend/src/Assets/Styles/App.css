@@ -30,6 +30,7 @@ min-height: calc(100vh - 12.45em);
 }
 
 .anim{
+  z-index: 1;
   animation-name:  marsup-anim ;
   animation-duration: 10s;
   animation-timing-function: linear;

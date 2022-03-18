@@ -9,7 +9,7 @@ const Bedetheque = (props) => {
 
 
   useEffect(()=>{
-    fetch("/books/getBooks?type="+type).then(res =>{
+    fetch("/books/Books?type="+type).then(res =>{
       if(res.ok){
         return res.json()
       }
