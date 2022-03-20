@@ -18,6 +18,7 @@ import Connect  from './Pages/Connect'
 import Registration from './Pages/Registration';
 import CGV from './Pages/CGV'
 import NotFound from './Pages/NotFound';
+import Detail from './Pages/Detail';
 
 import marsup from './Assets/Images/marsupilami-down.png'
 
@@ -36,6 +37,8 @@ function App() {
         <Route path="bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>
         <Route path="bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
         <Route path="bedetheque/occasion" element={<Bedetheque type="Occasion"/>}/>
+
+        <Route path="/detail" element={<Detail/>}/>
 
         <Route path="/objets/statuette" element={<Objets type="statuette"/>}/>
         <Route path="/objets/poster" element={<Objets type="poster"/>}/>

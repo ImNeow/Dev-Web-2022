@@ -35,7 +35,7 @@ const Bedetheque = (props) => {
 
             return (
               <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                <a href='http://youtube.com' style={{textDecoration:'none'}}>
+                <a href='/detail' style={{textDecoration:'none'}}>
                 <Card key={index}>
                   <Card.Img variant="top" src={myBD.link}/>
                   <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>

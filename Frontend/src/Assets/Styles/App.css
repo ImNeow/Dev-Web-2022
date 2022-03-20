@@ -41,6 +41,8 @@ min-height: calc(100vh - 12.45em);
   top: -100%;
 }
 
+
+
 @keyframes marsup-anim {
   0% {top: -100%;}
   100% {
@@ -72,4 +74,10 @@ min-height: calc(100vh - 12.45em);
   100%{
     top: -100%;
   }
+}
+
+
+#titleDetail{
+  font-size: 45px;
+  text-align: center;
 }
