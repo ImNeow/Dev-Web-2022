@@ -20,7 +20,8 @@ min-height: calc(100vh - 12.45em);
   text-align: center;
 }
 .card:hover{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.5s;
+  box-shadow: 0 4px 8px 0 rgb(233, 205, 81), 0 6px 20px 0 rgb(233, 205, 81);
 }
 
 .priceBD{
