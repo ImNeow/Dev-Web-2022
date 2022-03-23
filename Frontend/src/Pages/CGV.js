@@ -4,10 +4,11 @@ const CGV = () => {
     return <div className="cgv">
 <Container>    
     <Row className="justify-content-md-center mb-4">
-                <Col md="auto">
-                <h2>Conditions Générales de Vente</h2>
-                </Col>
+        <Col md="auto">
+            <h2>Conditions Générales de Vente</h2>
+        </Col>
     </Row>
+    
     <Row>
         <Col>  
             <h5>Ceci sont les Conditions Générales de Vente de la librairie Jaune 2 :</h5>

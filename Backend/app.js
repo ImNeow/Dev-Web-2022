@@ -31,6 +31,7 @@ connection.once('open', ()=>{
   console.log('MongoDB connected')
 })
 
+/* Routing */
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books',booksRouter);

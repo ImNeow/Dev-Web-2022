@@ -24,7 +24,6 @@ const Detail = () => {
                     <Button variant="warning" style={{minWidth:"100%", fontSize:"20px", fontWeight:"bolder"}}>Réserver le livre</Button>
                 </Col>
             </Row>
-            
         </div>
     );
 };

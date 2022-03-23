@@ -3,8 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Assets/Styles/App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
-import Media from 'react-media';
-
 import CustomNavBar from './Components/CustomNavBar';
 import CustomFooter from './Components/CustomFooter';
 
@@ -20,23 +18,20 @@ import CGV from './Pages/CGV'
 import NotFound from './Pages/NotFound';
 import Detail from './Pages/Detail';
 
-import marsup from './Assets/Images/marsupilami-down.png'
 
 function App() {
 
-
   return<>
   <CustomNavBar/>
-  <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<img className='anim' src={marsup} ></img>)}/>
-  <Container className='content'>
+  <div className='content'>
     <BrowserRouter>
       <Routes>
         <Route path="/accueil" element={<Accueil/>}/>
 
-        <Route path="bedetheque/BD" element={<Bedetheque type="BD"/>}/>
-        <Route path="bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>
-        <Route path="bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
-        <Route path="bedetheque/occasion" element={<Bedetheque type="Occasion"/>}/>
+        <Route path="/bedetheque/BD" element={<Bedetheque type="BD"/>}/>
+        <Route path="/bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>
+        <Route path="/bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
+        <Route path="/bedetheque/occasion" element={<Bedetheque type="Occasion"/>}/>
 
         <Route path="/detail" element={<Detail/>}/>
 
@@ -65,7 +60,7 @@ function App() {
         />
       </Routes>
     </BrowserRouter>
-  </Container>
+  </div>
   <CustomFooter/>
 
   </>

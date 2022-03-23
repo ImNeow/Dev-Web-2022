@@ -3,7 +3,8 @@ var router = express.Router();
 let Book = require('../models/books.model')
 
 
-router.get('/books', function(req, res, next) {
+/* GET /books/ */
+router.get('/', function(req, res, next) {
 
     /* Récupération des arguments dans la requete*/
     const type = req.query.type
@@ -14,29 +15,29 @@ router.get('/books', function(req, res, next) {
     Book.find({type:type},(err, DBres)=>{
         if (err) return handleError(err);
         res.send(DBres);
-})
-    
+    })
 });
 
-router.route('/books').post((req, res) =>{
 
-const NewType = req.body.type;
-const Newname = req.body.name;
-const Newlink = req.body.link;
+/* POST /books/ */
+router.route('/').post((req, res) =>{
+  
+  /* Récupération des arguments dans la requete */
+  const newType = req.body.type;
+  const newName = req.body.name;
+  const newLink = req.body.link;
 
-console.log(req)
+  /* Construction du nouveau livre sur base du schéma */
+  const newBook = new Book({
+    type : newType,
+    name : newName,
+    link : newLink
+  });
 
-const newBook = new Book({
-  type : NewType,
-  name : Newname,
-  link : Newlink
-});
-
-console.log(newBook)
-
-newBook.save()
-.then(() => res.json('Book ajouté'))
-.catch(err => res.status(400).json('Error ' + err)) 
+  /* Envoie du nouveau livre à la DB */
+  newBook.save()
+  .then(() => res.json('Book ajouté'))
+  .catch(err => res.status(400).json('Error ' + err)) 
 })
 
 module.exports = router;

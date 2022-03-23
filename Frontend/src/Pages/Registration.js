@@ -4,7 +4,12 @@ import { useState } from 'react';
 
 const Registration = () => {
     const [validated, setValidated] = useState(false);  
+    
     const handleSubmit = (event) => {
+        /*Cette fonction vérifie si le champ est rempli
+        PRE : l'évènement qui envoie le formulaire
+        POST : /
+        */ 
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
