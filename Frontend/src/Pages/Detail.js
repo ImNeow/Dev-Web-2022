@@ -1,16 +1,36 @@
 import React from 'react';
-import {Row, Col, Button } from "react-bootstrap"
-import { renderMatches } from 'react-router-dom';
+import {Row, Col, Button ,Image} from "react-bootstrap"
+import { useEffect, useState} from 'react'
 import "../Assets/Styles/App.css"
+import   {useParams} from "react-router-dom";
+
 
 const Detail = () => {
+    let { id } = useParams();
+    const [book, setBook] = useState("");
+
+    useEffect(()=>{
+        /* Cette fonction fait une demande à l'API pour récupérer un seul livre
+        PRE : /
+        POST : /
+        */
+        fetch("/books/"+id).then(res =>{
+          if(res.ok){
+            return res.json()
+          }
+        }).then(jsonResponse => {
+          setBook(jsonResponse)
+          console.log(jsonResponse)
+        })
+      },[])
+      
     return (
         <div>
-            <h1 id='titleDetail'>Tintin et les Picaros</h1>
+            <h1 id='titleDetail'>{book.name }</h1>
             <hr/>
             <Row md="auto">
                 <Col md='6'>
-                    <img src='pictures/tintin_detail_tempo.jpg' alt='Image du livre' style={{maxWidth:"70%"}} />
+                    <Image src={book.link} alt='Image du livre' style={{maxWidth:"60%"}} />
                 </Col>
                 <Col md='6' style={{marginTop:"5%"}}>
                     <h4 style={{textDecoration:"underline", margin: "15px  0"}}>Description</h4>
