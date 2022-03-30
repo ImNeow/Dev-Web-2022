@@ -33,7 +33,7 @@ function App() {
         <Route path="/bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
         <Route path="/bedetheque/occasion" element={<Bedetheque type="Occasion"/>}/>
 
-        <Route path="/detail" element={<Detail/>}/>
+        <Route path="/detail/:id" element={<Detail/>}/>
 
         <Route path="/objets/statuette" element={<Objets type="statuette"/>}/>
         <Route path="/objets/poster" element={<Objets type="poster"/>}/>

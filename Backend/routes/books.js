@@ -8,9 +8,7 @@ router.get('/', function(req, res, next) {
 
     /* Récupération des arguments dans la requete*/
     const type = req.query.type
-    const id = req.query.id
-    const name= req.query.name
-    
+
     /*Requête à la DB*/
     Book.find({type:type},(err, DBres)=>{
         if (err) return handleError(err);
@@ -18,6 +16,15 @@ router.get('/', function(req, res, next) {
     })
 });
 
+router.get('/:id' , function(req,res,next) {
+
+  const id = req.params.id
+
+  Book.findById(id , (err,DBres)=>{
+    res.send(DBres)
+  })
+
+});
 
 /* POST /books/ */
 router.route('/').post((req, res) =>{
