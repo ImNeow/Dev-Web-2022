@@ -17,7 +17,7 @@ const Bedetheque = (props) => {
     PRE : /
     POST : /
     */
-    fetch("/books/Books?type="+type).then(res =>{
+    fetch("/books/?type="+type).then(res =>{
       if(res.ok){
         return res.json()
       }
