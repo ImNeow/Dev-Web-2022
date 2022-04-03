@@ -17,6 +17,7 @@ import Registration from './Pages/Registration';
 import CGV from './Pages/CGV'
 import NotFound from './Pages/NotFound';
 import Detail from './Pages/Detail';
+import Search from './Pages/Search';
 
 
 function App() {
@@ -33,8 +34,6 @@ function App() {
         <Route path="/bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
         <Route path="/bedetheque/occasion" element={<Bedetheque type="Occasion"/>}/>
 
-        <Route path="/detail/:id" element={<Detail/>}/>
-
         <Route path="/objets/statuette" element={<Objets type="statuette"/>}/>
         <Route path="/objets/poster" element={<Objets type="poster"/>}/>
         <Route path="/objets/montre" element={<Objets type="montre"/>}/>
@@ -44,6 +43,10 @@ function App() {
         <Route path="/objets/gadget" element={<Objets type="gadget"/>}/>
 
         <Route path="/curiosite" element={<Curiosite/>}/>
+
+        <Route path="/detail/:id" element={<Detail/>}/>
+
+        <Route path="/search/:name" element={<Search/>}/>
         <Route path="/propos" element={<Propos/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/account" element={<Connect/>}/>
@@ -55,7 +58,7 @@ function App() {
         element={<Navigate to="/accueil" />}
         />
         <Route
-        path="*"
+        path="/ds"
         element={<Navigate to="/PageNotFound" />}
         />
       </Routes>

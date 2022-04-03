@@ -1,11 +1,15 @@
 import "../Assets/Styles/CustomNavBar.css"
 import {Navbar,Nav,Container,NavDropdown,Form,FormControl,Button,Image} from 'react-bootstrap';
+import { useState } from "react";
 import logo from "../Assets/Images/logo-original.png"
 import searchbutton from "../Assets/Images/search-button.png"
 import accountbutton from "../Assets/Images/login.png"
 
 function CustomNavBar() {
-    return(<>
+    
+  const [searchInput, setSearchInput] = useState("")
+  
+  return(<>
     <Navbar bg='dark' className="navbar" expand="lg" >
     <Container>
       <Navbar.Brand href="/accueil"><Image width={40} height={40} src={logo}></Image></Navbar.Brand>
@@ -37,17 +41,19 @@ function CustomNavBar() {
           <Nav.Link className="NavbarLink" href="/contact">Contact</Nav.Link>
         </Nav>
         <Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" id='inputSearch'>
             <FormControl
               type="search"
               placeholder="Recherche..."
               className="me-2 InputSearch"
               aria-label="Search"
+              value={searchInput.val}
+              onChange={event => setSearchInput(event.target.value)}
             />
-            <Button className='search-button' href="/search">
-            <Image width={30} height={30} src={searchbutton} >
-            </Image>
-          </Button>
+            <Button id='searchButton' className='search-button' href={"/search/"+searchInput}>
+              <Image width={30} height={30} src={searchbutton} >
+              </Image>
+            </Button>
           <Button className='account-button' href="/account">
             <Image width={30} height={30} src={accountbutton}>
             </Image>

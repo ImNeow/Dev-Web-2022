@@ -3,17 +3,53 @@ var router = express.Router();
 let Book = require('../models/books.model')
 
 
-/* GET /books/ */
+/* 
+    GET /books/ 
+*/
 router.get('/', function(req, res, next) {
 
-    /* Récupération des arguments dans la requete*/
     const type = req.query.type
-
+    const name = req.query.name
+    const isbn = req.query.isbn
+  
     /*Requête à la DB*/
-    Book.find({type:type},(err, DBres)=>{
+    Book.find({},(err, DBres)=>{
         if (err) return handleError(err);
         res.send(DBres);
     })
+});
+
+router.get('/search/:name', function(req, res, next) {
+
+  const name = req.params.name
+
+  /*Requête à la DB*/
+  Book.find({name:{ "$regex": name, "$options": "i" }},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+  })
+});
+
+router.get('/BD', function(req, res, next) {
+  /*Requête à la DB*/
+  Book.find({type:'BD'},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+  })
+});
+router.get('/Comic', function(req, res, next) {
+  /*Requête à la DB*/
+  Book.find({type:'Comic'},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+  })
+});
+router.get('/Manga', function(req, res, next) {
+  /*Requête à la DB*/
+  Book.find({type:'Manga'},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+  })
 });
 
 router.get('/:id' , function(req,res,next) {
@@ -26,7 +62,10 @@ router.get('/:id' , function(req,res,next) {
 
 });
 
-/* POST /books/ */
+
+/* 
+    POST /books/
+*/
 router.route('/').post((req, res) =>{
   
   /* Récupération des arguments dans la requete */

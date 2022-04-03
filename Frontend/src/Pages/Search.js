@@ -1,6 +1,7 @@
 import { Card,Row, Col , Container } from "react-bootstrap"
 import { useEffect, useState} from 'react'
 import Media from 'react-media';
+import   {useParams} from "react-router-dom";
 
 import "../Assets/Styles/App.css"
 
@@ -9,7 +10,7 @@ import marsup from '../Assets/Images/marsupilami-down.png'
 const Bedetheque = (props) => {
   const [listBD, setlistBD] = useState([])
   const [nbrBookPerRow, setnbrBookPerRow] = useState(5); /*Min : 1 , Max : 6*/
-  const type= props.type
+  let { name } = useParams();
 
 
   useEffect(()=>{
@@ -17,7 +18,7 @@ const Bedetheque = (props) => {
     PRE : /
     POST : /
     */
-    fetch("/books/"+type).then(res =>{
+    fetch("/books/search/"+name).then(res =>{
       if(res.ok){
         return res.json()
       }
