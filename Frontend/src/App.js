@@ -44,7 +44,9 @@ function App() {
 
         <Route path="/curiosite" element={<Curiosite/>}/>
 
-        <Route path="/detail/:id" element={<Detail/>}/>
+        <Route path="/detail/books/:id" element={<Detail type="books"/>}/>
+        <Route path="/detail/objet/:id" element={<Detail type="objet"/>}/>
+        <Route path="/detail/curiosite/:id" element={<Detail type="curiosite"/>}/>
 
         <Route path="/search/:name" element={<Search/>}/>
         <Route path="/propos" element={<Propos/>}/>

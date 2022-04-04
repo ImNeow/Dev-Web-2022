@@ -23,7 +23,6 @@ const Bedetheque = (props) => {
       }
     }).then(jsonResponse => {
       setlistBD(jsonResponse)
-      console.log(jsonResponse)
     })
   },[])
 
@@ -46,7 +45,7 @@ const Bedetheque = (props) => {
                       nameBD = myBD.name;
                       return (
                         <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                          <a href={'/detail/'+myBD._id} style={{textDecoration:'none'}}>
+                          <a href={'/detail/books/'+myBD._id} style={{textDecoration:'none'}}>
                             <Card key={myBD._id}>
                               <Card.Img variant="top" src={myBD.link}/>
                               <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>

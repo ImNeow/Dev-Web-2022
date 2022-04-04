@@ -7,11 +7,10 @@ import "../Assets/Styles/App.css"
 
 import marsup from '../Assets/Images/marsupilami-down.png'
 
-const Bedetheque = (props) => {
+const Search = () => {
   const [listBD, setlistBD] = useState([])
   const [nbrBookPerRow, setnbrBookPerRow] = useState(5); /*Min : 1 , Max : 6*/
   let { name } = useParams();
-
 
   useEffect(()=>{
     /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
@@ -24,7 +23,6 @@ const Bedetheque = (props) => {
       }
     }).then(jsonResponse => {
       setlistBD(jsonResponse)
-      console.log(jsonResponse)
     })
   },[])
 
@@ -40,6 +38,11 @@ const Bedetheque = (props) => {
     return <div className="ListContent">
               <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<img className='anim' src={marsup} ></img>)}/>
               <Container>
+              <Row className="justify-content-md-center mb-4">
+                    <Col md="auto">
+                        <h1> Recherche pour '{name}'</h1>
+                    </Col>
+                </Row>
                 <Row xs={1} md={nbrBookPerRow}>
                   {
                     listBD.map((myBD,index) => {
@@ -52,7 +55,7 @@ const Bedetheque = (props) => {
                               <Card.Img variant="top" src={myBD.link}/>
                               <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
                                 <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{nameBD}</Card.Title>
-                                <Card.Text  className="priceBD">7.50€</Card.Text>
+                                <Card.Text  className="priceBD">{myBD.price}</Card.Text>
                               </Card.Body>
                             </Card>
                           </a>
@@ -64,4 +67,4 @@ const Bedetheque = (props) => {
               </Container>
             </div>
     }
-    export default Bedetheque
+    export default Search
