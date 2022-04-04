@@ -105,10 +105,10 @@
                     <mxGeometry x="70" y="220" width="20" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="54" value="&lt;font style=&quot;font-size: 10px&quot;&gt;1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Verdana;fontColor=#00CCCC;" vertex="1" parent="1">
-                    <mxGeometry x="100" y="50" width="20" height="20" as="geometry"/>
+                    <mxGeometry x="130" y="50" width="20" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="55" value="&lt;font style=&quot;font-size: 10px&quot;&gt;1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Verdana;fontColor=#00CCCC;" vertex="1" parent="1">
-                    <mxGeometry x="330" y="50" width="20" height="20" as="geometry"/>
+                    <mxGeometry x="360" y="50" width="20" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="56" value="&lt;font style=&quot;font-size: 10px&quot;&gt;*&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Verdana;fontColor=#00CCCC;" vertex="1" parent="1">
                     <mxGeometry x="410" y="220" width="20" height="20" as="geometry"/>
