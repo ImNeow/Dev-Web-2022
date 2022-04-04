@@ -12,6 +12,7 @@ const uri = process.env.ATLAS_URI
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
+var objetsRouter = require('./routes/objets');
 
 var app = express();
 
@@ -35,6 +36,7 @@ connection.once('open', ()=>{
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books',booksRouter);
+app.use('/objets',objetsRouter);
 
 
 // catch 404 and forward to error handler

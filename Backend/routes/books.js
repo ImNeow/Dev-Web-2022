@@ -7,10 +7,6 @@ let Book = require('../models/books.model')
     GET /books/ 
 */
 router.get('/', function(req, res, next) {
-
-    const type = req.query.type
-    const name = req.query.name
-    const isbn = req.query.isbn
   
     /*Requête à la DB*/
     Book.find({},(err, DBres)=>{

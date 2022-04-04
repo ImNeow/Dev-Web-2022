@@ -37,9 +37,9 @@ function App() {
         <Route path="/objets/statuette" element={<Objets type="statuette"/>}/>
         <Route path="/objets/poster" element={<Objets type="poster"/>}/>
         <Route path="/objets/montre" element={<Objets type="montre"/>}/>
-        <Route path="/objets/vaiselle" element={<Objets type="vaiselle"/>}/>
+        <Route path="/objets/vaisselle" element={<Objets type="vaisselle"/>}/>
         <Route path="/objets/jeudecarte" element={<Objets type="jeudecarte"/>}/>
-        <Route path="/objets/cartepostale" element={<Objets type="cartepostal"/>}/>
+        <Route path="/objets/cartepostale" element={<Objets type="cartepostale"/>}/>
         <Route path="/objets/gadget" element={<Objets type="gadget"/>}/>
 
         <Route path="/curiosite" element={<Curiosite/>}/>
