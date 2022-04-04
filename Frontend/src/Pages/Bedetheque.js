@@ -51,7 +51,7 @@ const Bedetheque = (props) => {
                               <Card.Img variant="top" src={myBD.link}/>
                               <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
                                 <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{nameBD}</Card.Title>
-                                <Card.Text  className="priceBD">7.50€</Card.Text>
+                                <Card.Text  className="priceBD">{myBD.price}€</Card.Text>
                               </Card.Body>
                             </Card>
                           </a>

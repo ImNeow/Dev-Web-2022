@@ -72,12 +72,20 @@ router.route('/').post((req, res) =>{
   const newType = req.body.type;
   const newName = req.body.name;
   const newLink = req.body.link;
+  const newDescription = req.body.description;
+  const newPrice = req.body.price;
+  const newAuthor = req.body.author;
+  const newPublisher = req.body.publisher;
 
   /* Construction du nouveau livre sur base du schéma */
   const newBook = new Book({
     type : newType,
     name : newName,
-    link : newLink
+    link : newLink,
+    description : newDescription,
+    price : newPrice,
+    author : newAuthor,
+    publisher : newPublisher
   });
 
   /* Envoie du nouveau livre à la DB */
