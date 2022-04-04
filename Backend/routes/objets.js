@@ -70,4 +70,14 @@ router.get('/gadget', function(req, res, next) {
   })
 });
 
+router.get('/:id' , function(req,res,next) {
+
+  const id = req.params.id
+
+  Objet.findById(id , (err,DBres)=>{
+    res.send(DBres)
+  })
+
+});
+
 module.exports = router;

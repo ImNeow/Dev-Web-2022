@@ -8,7 +8,8 @@ import   {useParams} from "react-router-dom";
 const Detail = (props) => {
     let { id } = useParams();
     const [item, setItem] = useState("");
-    const[price, setPrice] = useState(""); 
+    const[price, setPrice] = useState("");
+    const[ReservingSentence, setReservingSentence] = useState("");  
     const type = props.type
 
     useEffect(()=>{
@@ -27,15 +28,17 @@ const Detail = (props) => {
             setItem(jsonResponse)
             console.log(jsonResponse)
             setPrice("Prix : "+jsonResponse.price+"€")
+            setReservingSentence("Reserver le Livre")
           })
         }else if(type == "objet"){
-          fetch("/objet/"+id).then(res =>{
+          fetch("/objets/"+id).then(res =>{
             if(res.ok){
               return res.json()
             }
           }).then(jsonResponse => {
             setItem(jsonResponse)
             setPrice("Prix : "+jsonResponse.price+"€")
+            setReservingSentence("Reserver l'Objet")
           })
         }else 
       
@@ -46,6 +49,8 @@ const Detail = (props) => {
             }
           }).then(jsonResponse => {
             setItem(jsonResponse)
+            setReservingSentence("Reserver la Curiosité")
+
           })
         }
         },[])
@@ -64,7 +69,7 @@ const Detail = (props) => {
                     <p>{item.description}
                     </p>
                     <h4 style={{margin: "15px  0"}}><span style={{color: "red"}}>{price}</span></h4>
-                    <Button variant="warning" style={{minWidth:"100%", fontSize:"20px", fontWeight:"bolder"}}>Réserver le livre</Button>
+                    <Button variant="warning" style={{minWidth:"100%", fontSize:"20px", fontWeight:"bolder"}}>{ReservingSentence}</Button>
                 </Col>
             </Row>
         </div>

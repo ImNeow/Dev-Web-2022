@@ -46,7 +46,7 @@ const Objets = (props) => {
                       nameObjet = myObjet.name;
                       return (
                         <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                          <a href={'/detail/'+myObjet._id} style={{textDecoration:'none'}}>
+                          <a href={'/detail/objet/'+myObjet._id} style={{textDecoration:'none'}}>
                             <Card key={myObjet._id}>
                               <Card.Img variant="top" src={myObjet.link}/>
                               <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
