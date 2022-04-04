@@ -30,7 +30,7 @@ function CustomNavBar() {
               <NavDropdown.Divider />
               <NavDropdown menuVariant="dark" title="Divers" id="dropdown-button-drop-end" drop='end'>
                 <NavDropdown.Item href="/objets/montre">Montres</NavDropdown.Item>
-                <NavDropdown.Item href="/objets/vaiselle">Vaiselles</NavDropdown.Item>
+                <NavDropdown.Item href="/objets/vaisselle">Vaisselles</NavDropdown.Item>
                 <NavDropdown.Item href="/objets/jeudecarte">Jeu de Cartes</NavDropdown.Item>
                 <NavDropdown.Item href="/objets/cartepostale">Cartes postales</NavDropdown.Item>
                 <NavDropdown.Item href="/objets/gadget">Gadgets</NavDropdown.Item>
