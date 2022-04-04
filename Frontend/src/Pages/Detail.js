@@ -36,7 +36,7 @@ const Detail = () => {
                     <h4 style={{textDecoration:"underline", margin: "15px  0"}}>Description</h4>
                     <p>{book.description}
                     </p>
-                    <h4 style={{margin: "15px  0"}}>Prix : <span style={{color: "red"}}>7.50€</span></h4>
+                    <h4 style={{margin: "15px  0"}}>Prix : <span style={{color: "red"}}>{book.price}€</span></h4>
                     <Button variant="warning" style={{minWidth:"100%", fontSize:"20px", fontWeight:"bolder"}}>Réserver le livre</Button>
                 </Col>
             </Row>
