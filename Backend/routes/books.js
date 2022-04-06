@@ -84,7 +84,7 @@ router.route('/').post((req, res) =>{
     publisher : newPublisher
   });
 
-  /* Envoie du nouveau livre à la DB */
+  /* Envoi du nouveau livre à la DB */
   newBook.save()
   .then(() => res.json('Book ajouté'))
   .catch(err => res.status(400).json('Error ' + err)) 

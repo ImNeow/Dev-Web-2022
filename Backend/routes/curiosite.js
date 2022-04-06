@@ -42,7 +42,7 @@ router.route('/').post((req, res) =>{
         description : newDescription,
     });
 
-    /* Envoie du nouveau livre à la DB */
+    /* Envoi du nouveau livre à la DB */
     newCuriosite.save()
     .then(() => res.json('Curiosite ajouté'))
     .catch(err => res.status(400).json('Error ' + err)) 
