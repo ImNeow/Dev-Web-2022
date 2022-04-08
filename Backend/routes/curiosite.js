@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
         res.send(DBres);
     })
 });
-
 router.get('/:id' , function(req,res,next) {
 
     const id = req.params.id
@@ -23,6 +22,8 @@ router.get('/:id' , function(req,res,next) {
     })
   
   });
+
+
 
 /* 
     POST /curiosite/

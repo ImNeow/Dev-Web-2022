@@ -1,11 +1,8 @@
 import { Card,Row, Col , Container } from "react-bootstrap"
 import { useEffect, useState} from 'react'
-import Media from 'react-media';
 import   {useParams} from "react-router-dom";
 
 import "../Assets/Styles/App.css"
-
-import marsup from '../Assets/Images/marsupilami-down.png'
 
 const Search = () => {
   const [listBD, setlistBD] = useState([])
@@ -36,7 +33,6 @@ const Search = () => {
   
 
     return <div className="ListContent">
-              <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<img className='anim' src={marsup} ></img>)}/>
               <Container>
               <Row className="justify-content-md-center mb-4">
                     <Col md="auto">

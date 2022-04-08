@@ -14,7 +14,151 @@ router.get('/', function(req, res, next) {
         res.send(DBres);
     })
 });
+router.get('/:id' , function(req,res,next) {
 
+  const id = req.params.id
+
+  Book.findById(id , (err,DBres)=>{
+    res.send(DBres)
+  })
+
+});
+
+
+/* 
+    GET /books/BD
+*/
+router.get('/BD', function(req, res, next) {
+  /*Requête à la DB*/
+  Book.find({type:'BD'},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+  })
+});
+router.get('/BD/:filter', function(req, res, next) {
+  const filter = req.params.filter
+  switch(filter){
+    case 'alphaAsc':
+      Book.find({type:'BD'}).sort({'name':'asc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+      break;
+    case 'alphaDesc':
+      Book.find({type:'BD'}).sort({'name':'desc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+        break;
+    case 'priceAsc':
+      Book.find({type:'BD'}).sort({'price':'asc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+      break;
+      case 'priceDesc':
+        Book.find({type:'BD'}).sort({'price':'desc'}).exec(function(err,docs){
+          if (err) return handleError(err);
+          res.send(docs)
+        });
+        break;
+    default:
+      return handleError(err);
+  }
+
+});
+
+/* 
+    GET /books/Comic
+*/
+router.get('/Comic', function(req, res, next) {
+  /*Requête à la DB*/
+  Book.find({type:'Comic'},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+  })
+});
+router.get('/Comic/:filter', function(req, res, next) {
+  const filter = req.params.filter
+  switch(filter){
+    case 'alphaAsc':
+      Book.find({type:'Comic'}).sort({'name':'asc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+      break;
+    case 'alphaDesc':
+      Book.find({type:'Comic'}).sort({'name':'desc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+      break;
+    case 'priceAsc':
+      Book.find({type:'Comic'}).sort({'price':'asc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+      break;
+      case 'priceDesc':
+        Book.find({type:'Comic'}).sort({'price':'desc'}).exec(function(err,docs){
+          if (err) return handleError(err);
+          res.send(docs)
+        });
+        break;
+    default:
+      return handleError(err);
+  }
+
+});
+
+
+/* 
+    GET /books/Manga
+*/
+router.get('/Manga', function(req, res, next) {
+  /*Requête à la DB*/
+  Book.find({type:'Manga'},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+  })
+});
+router.get('/Manga/:filter', function(req, res, next) {
+  const filter = req.params.filter
+  switch(filter){
+    case 'alphaAsc':
+      Book.find({type:'Manga'}).sort({'name':'asc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+      break;
+    case 'alphaDesc':
+      Book.find({type:'Manga'}).sort({'name':'desc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+      break;
+    case 'priceAsc':
+      Book.find({type:'Manga'}).sort({'price':'asc'}).exec(function(err,docs){
+        if (err) return handleError(err);
+        res.send(docs)
+      });
+      break;
+      case 'priceDesc':
+        Book.find({type:'Manga'}).sort({'price':'desc'}).exec(function(err,docs){
+          if (err) return handleError(err);
+          res.send(docs)
+        });
+        break;
+    default:
+      return handleError(err);
+  }
+
+});
+
+
+/* 
+    GET /books/search/
+*/
 router.get('/search/:name', function(req, res, next) {
 
   const name = req.params.name
@@ -26,37 +170,6 @@ router.get('/search/:name', function(req, res, next) {
   })
 });
 
-router.get('/BD', function(req, res, next) {
-  /*Requête à la DB*/
-  Book.find({type:'BD'},(err, DBres)=>{
-      if (err) return handleError(err);
-      res.send(DBres);
-  })
-});
-router.get('/Comic', function(req, res, next) {
-  /*Requête à la DB*/
-  Book.find({type:'Comic'},(err, DBres)=>{
-      if (err) return handleError(err);
-      res.send(DBres);
-  })
-});
-router.get('/Manga', function(req, res, next) {
-  /*Requête à la DB*/
-  Book.find({type:'Manga'},(err, DBres)=>{
-      if (err) return handleError(err);
-      res.send(DBres);
-  })
-});
-
-router.get('/:id' , function(req,res,next) {
-
-  const id = req.params.id
-
-  Book.findById(id , (err,DBres)=>{
-    res.send(DBres)
-  })
-
-});
 
 
 /* 
@@ -89,5 +202,6 @@ router.route('/').post((req, res) =>{
   .then(() => res.json('Book ajouté'))
   .catch(err => res.status(400).json('Error ' + err)) 
 })
+
 
 module.exports = router;

@@ -4,13 +4,22 @@ import Media from 'react-media';
 
 import "../Assets/Styles/App.css"
 
+import '../Assets/Styles/Animation.css'
 import marsup from '../Assets/Images/marsupilami-down.png'
+import dbz from '../Assets/Images/dbzcloud.png'
+
+
+const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-XXX","XXX"]};
 
 const Bedetheque = (props) => {
   const [listBD, setlistBD] = useState([])
   const [nbrBookPerRow, setnbrBookPerRow] = useState(5); /*Min : 1 , Max : 6*/
   const type= props.type
 
+  const animationClassname = Animation[type][0]
+  const animationSrc = Animation[type][1]
+
+  console.log(animationClassname,animationSrc)
 
   useEffect(()=>{
     /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
@@ -35,9 +44,13 @@ const Bedetheque = (props) => {
   }, []);
   
 
-    return <div className="ListContent">
-              <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<img className='anim' src={marsup} ></img>)}/>
-              <Container>
+    return<>
+      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className={animationClassname} src={animationSrc} ></img></div>)}/>
+
+    <div className="ListContent">
+              
+                
+              <Container className="containerContent">
                 <Row xs={1} md={nbrBookPerRow}>
                   {
                     listBD.map((myBD,index) => {
@@ -61,5 +74,6 @@ const Bedetheque = (props) => {
                 </Row>
               </Container>
             </div>
+            </> 
     }
     export default Bedetheque
