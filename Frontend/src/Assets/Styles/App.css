@@ -3,6 +3,7 @@ body{
 }
 
 .content{
+position: relative;
 background-color: #FFE429;
 height:auto;
 padding: 0%;
@@ -10,6 +11,8 @@ min-height: calc(100vh - 12.45em);
 }
 
 .ListContent{
+position: inherit;
+z-index: 1;
 padding-top: 3%;
 }
 
@@ -36,6 +39,7 @@ padding-top: 3%;
 
 
 .filter{
+  display: flex;
   float: right;
   margin-bottom:20px;
   border-radius:5px;

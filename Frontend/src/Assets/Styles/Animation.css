@@ -1,5 +1,5 @@
 .animContainer{
-  z-index: 0;
+  z-index: auto;
   overflow:hidden;
   position: absolute;
   width: 100%;
@@ -8,7 +8,6 @@
 
 /*MARSUPILAMI ANIMATION*/
 .anim-marsup{
-    z-index: 1;
     animation-name:  marsup-anim ;
     animation-duration: 100s; /*100s*/
     animation-timing-function: linear;
@@ -52,7 +51,6 @@
 
 /*DBZ CLOUD ANIMATION*/
 .anim-dbz{
-  z-index: 0;
   animation-name:  dbzcloud-anim ;
   animation-duration: 10s; /*10s*/
   animation-timing-function: linear;
@@ -77,7 +75,6 @@
 
 /*SignalBat Animation*/
 .anim-signalbat{
-  z-index: 0;
   animation-name:  signalbat-anim ;
   animation-duration: 5s; /*10s*/
   animation-timing-function: linear;
