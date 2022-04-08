@@ -1,6 +1,14 @@
 import { Container,  Row, Col, Form, Button } from 'react-bootstrap'
 
 const Connect = () => {
+    const sendForm = (event) =>{
+        /*Cette fonction va vérifier que les informations sur l'utilisateur coincident avec les informations dans la DB
+        PRE : les informations envoyé par le formulaire
+        POST : /
+        */ 
+       event.preventDefault();
+        console.log(event);
+    }
     return (
     <div className="Connect">
         <Container>   
@@ -10,7 +18,7 @@ const Connect = () => {
                     <h2>Connexion</h2>
                 </Col>
             </Row>
-            <Form >
+            <Form onSubmit={sendForm}>
                 <Row className="justify-content-md-center mb-4">
                     <Col xs lg="6">
                         <Form.Label htmlFor="email">Adresse e-mail</Form.Label>
