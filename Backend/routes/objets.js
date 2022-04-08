@@ -301,7 +301,6 @@ router.get('/gadget/:filter', function(req, res, next) {
 
 });
 
-
 router.get('/:id' , function(req,res,next) {
 
   const id = req.params.id
@@ -311,5 +310,6 @@ router.get('/:id' , function(req,res,next) {
   })
 
 });
+
 
 module.exports = router;
