@@ -5,7 +5,7 @@ body{
 .content{
 background-color: #FFE429;
 height:auto;
-padding-top: 0%;
+padding: 3%;
 min-height: calc(100vh - 12.45em);
 }
 
@@ -40,6 +40,63 @@ padding-top: 3%;
   font-size: 15px;
   color: red;
   text-decoration: none !important;
+}
+
+.anim{
+  z-index: 1;
+  animation-name:  marsup-anim ;
+  animation-duration: 100s; /*100s*/
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 30s;  /*30s*/
+
+  position: absolute;
+  top: -100%;
+}
+
+.filter{
+  float: right;
+  margin-bottom:20px;
+  border-radius:5px;
+  padding:0.5%;
+  text-align:center;
+  background-color:rgb(255, 253, 236);
+}
+
+
+
+@keyframes marsup-anim {
+  0% {top: -100%;}
+  10% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+
+  2.5% {
+    transform: translateX(-30px) rotate(6deg);
+    top: 40px;
+  }
+
+  4.5% {
+    transform: translateX(15px) rotate(-6deg);
+  }
+
+  5.5% {
+    transform: translateX(-15px) rotate(3.6deg);
+  }
+
+  6.5% {
+    transform: translateX(9px) rotate(-2.4deg);
+  }
+
+  8% {
+    transform: translateX(-6px) rotate(1.2deg);
+    top: 40px;
+  }
+  10%{
+    top: -100%;
+  }
 }
 
 
