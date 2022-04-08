@@ -19,8 +19,6 @@ const Bedetheque = (props) => {
   const animationClassname = Animation[type][0]
   const animationSrc = Animation[type][1]
 
-  console.log(animationClassname,animationSrc)
-
   useEffect(()=>{
     /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
     PRE : /
