@@ -19,7 +19,7 @@ const Detail = (props) => {
         */
         
       
-       if(type == "books"){
+       if(type === "books"){
           fetch("/books/"+id).then(res =>{
             if(res.ok){
               return res.json()
@@ -30,7 +30,7 @@ const Detail = (props) => {
             setPrice("Prix : "+jsonResponse.price+"€")
             setReservingSentence("Reserver le Livre")
           })
-        }else if(type == "objet"){
+        }else if(type === "objet"){
           fetch("/objets/"+id).then(res =>{
             if(res.ok){
               return res.json()
@@ -42,7 +42,7 @@ const Detail = (props) => {
           })
         }else 
       
-        if(type == "curiosite"){
+        if(type === "curiosite"){
           fetch("/curiosite/"+id).then(res =>{
             if(res.ok){
               return res.json()
@@ -61,8 +61,8 @@ const Detail = (props) => {
             <h1 id='titleDetail'>{item.name }</h1>
             <hr/>
             <Row md="auto">
-                <Col md='6'>
-                    <Image src={item.link} alt='Image du livre' style={{maxWidth:"60%"}} />
+                <Col md='6' style={{textAlign:"center"}} >
+                    <Image src={item.link} alt='Image du livre' style={{maxWidth:"40%"}} />
                 </Col>
                 <Col md='6' style={{marginTop:"5%"}}>
                     <h4 style={{textDecoration:"underline", margin: "15px  0"}}>Description</h4>

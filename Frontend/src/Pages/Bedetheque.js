@@ -7,9 +7,10 @@ import "../Assets/Styles/App.css"
 import '../Assets/Styles/Animation.css'
 import marsup from '../Assets/Images/marsupilami-down.png'
 import dbz from '../Assets/Images/dbzcloud.png'
+import batsignal from '../Assets/Images/batsignal.png'
 
 
-const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-XXX","XXX"]};
+const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-signalbat",batsignal]};
 
 const Bedetheque = (props) => {
   const [listBD, setlistBD] = useState([])
@@ -43,12 +44,18 @@ const Bedetheque = (props) => {
   
 
     return<>
-      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className={animationClassname} src={animationSrc} ></img></div>)}/>
+    <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className={animationClassname} src={animationSrc} ></img></div>)}/>
 
     <div className="ListContent">
               
                 
               <Container className="containerContent">
+              <select className="filter">
+              <option selected>Nom: A-Z</option>
+              <option>Nom: Z-A</option>
+              <option>Prix: par ordre croissant</option>
+              <option>Prix: par ordre décroissant</option>
+              </select>
                 <Row xs={1} md={nbrBookPerRow}>
                   {
                     listBD.map((myBD,index) => {

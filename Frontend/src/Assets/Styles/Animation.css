@@ -54,10 +54,10 @@
 .anim-dbz{
   z-index: 0;
   animation-name:  dbzcloud-anim ;
-  animation-duration: 5s; /*100s*/
+  animation-duration: 10s; /*10s*/
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
+  animation-fill-mode: normal;
   animation-delay: 0s;  /*30s*/
 
   position: absolute;
@@ -66,7 +66,42 @@
   0% {
     transform: translateX(-100%);
   }
-  100% {
+  50% {
     transform: translateX(300%);
+  }
+  100%{
+    transform: translateX(300%);
+  }
+}
+
+
+/*SignalBat Animation*/
+.anim-signalbat{
+  z-index: 0;
+  animation-name:  signalbat-anim ;
+  animation-duration: 5s; /*10s*/
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: normal;
+  animation-delay: 0s;  /*30s*/
+
+  position: absolute;
+}
+@keyframes signalbat-anim {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+  40%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
   }
 }

@@ -9,8 +9,20 @@ padding-top: 0%;
 min-height: calc(100vh - 12.45em);
 }
 
+.ListContent{
+padding-top: 3%;
+}
+
 .App {
   text-align: center;
+}
+
+.filter{
+  margin-bottom:20px;
+  border-radius:5px;
+  padding:0.5%;
+  text-align:center;
+  background-color:rgb(255, 253, 236);
 }
 
 .card{
