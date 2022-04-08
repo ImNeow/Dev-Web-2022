@@ -2,8 +2,10 @@ import React from 'react';
 import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 import { useState } from 'react';
 import axios from "axios";
-import Redirect from "react"
+import bcrypt from 'bcryptjs'
 
+// SALT should be created ONE TIME upon sign up
+const salt = bcrypt.genSaltSync(10)
 
 const Registration = () => {
     const [validated, setValidated] = useState(false);  
@@ -18,8 +20,8 @@ const Registration = () => {
             event.stopPropagation();
         }
         else{
-            sendForm(event);
-            
+            sendForm(event);  
+
         }
         setValidated(true);
         
@@ -30,13 +32,19 @@ const Registration = () => {
         PRE : les informations envoyé par le formulaire
         POST : /
         */ 
+       let passwordSecu = hashPassword(event.target[3].value)
         const user ={
             lastname: event.target[1].value,
             firstname: event.target[0].value,
-            password: event.target[3].value,
+            password: passwordSecu,
             email: event.target[2].value,
             newsletter:event.target[5].checked
         };
+        function hashPassword(password) {
+            return bcrypt.hashSync(password, salt) // hash created previously created upon sign up
+    
+        }
+        
         
         axios
         .post("/users/", user)
