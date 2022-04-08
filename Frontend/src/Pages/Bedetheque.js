@@ -49,6 +49,12 @@ const Bedetheque = (props) => {
               
                 
               <Container className="containerContent">
+              <select className="filter">
+              <option selected>Nom: A-Z</option>
+              <option>Nom: Z-A</option>
+              <option>Prix: par ordre croissant</option>
+              <option>Prix: par ordre décroissant</option>
+              </select>
                 <Row xs={1} md={nbrBookPerRow}>
                   {
                     listBD.map((myBD,index) => {
