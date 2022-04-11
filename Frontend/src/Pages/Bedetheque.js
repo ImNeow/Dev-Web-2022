@@ -43,7 +43,7 @@ const Bedetheque = (props) => {
     */
     let cards = ''
     
-    resp.map((myBD,index) => {
+    resp.map((myBD,index)=>{
       let nameBD= " ";
       nameBD = myBD.name;
         cards += "<div class='col' key='Col'+"+index+" style='margin-bottom:5px'><a href='/detail/books/"+myBD._id+"' style='text-decoration:none;color:black'><div class='card' key="+myBD._id+"><img class='card-img' variant='top' src='"+myBD.link+"'/><div class='card-body' style='background-color:hsl(52, 97%, 55%)'><div class='card-title' style='min-height:2em,font-size:20px,color:black'>"+nameBD+"</div><div class='card-text priceBD'>"+myBD.price+"€</div></div></div></a></div>"

@@ -1,10 +1,10 @@
-import { Card,Row, Col , Container } from "react-bootstrap"
+import { Row, Col , Container } from "react-bootstrap"
 import { useEffect, useState} from 'react'
 
 import "../Assets/Styles/App.css"
 
 const Objets = (props) => {
-  const [listObjets, setlistObjets] = useState([])
+  const [filtre, setFiltre] = useState('alphaAsc');
   const [nbrObjetsPerRow, setnbrObjetsPerRow] = useState(5); /*Min : 1 , Max : 6*/
   const type= props.type
 
@@ -14,15 +14,29 @@ const Objets = (props) => {
     PRE : /
     POST : /
     */
-    fetch("/objets/"+type).then(res =>{
+    fetch("/objets/"+type+"/"+filtre).then(res =>{
       if(res.ok){
         return res.json()
       }
     }).then(jsonResponse => {
-      setlistObjets(jsonResponse)
-      console.log(jsonResponse)
+      refreshListObjets(jsonResponse)
     })
-  },[])
+  })
+
+  function refreshListObjets(resp){
+    /* Cette fonction permet de reactualiser la liste des livres affichée en fonction du filtre
+    PRE : la réponse de la DB
+    POST : /
+    */
+    let cards = ''
+    
+    resp.map((myObjet,index)=>{
+      let nameObjet= " ";
+      nameObjet = myObjet.name;
+        cards += "<div class='col' key='Col'+"+index+" style='margin-bottom:5px'><a href='/detail/books/"+myObjet._id+"' style='text-decoration:none;color:black'><div class='card' key="+myObjet._id+"><img class='card-img' variant='top' src='"+myObjet.link+"'/><div class='card-body' style='background-color:hsl(52, 97%, 55%)'><div class='card-title' style='min-height:2em,font-size:20px,color:black'>"+nameObjet+"</div><div class='card-text priceBD'>"+myObjet.price+"€</div></div></div></a></div>"
+      })
+    document.getElementById('cards').innerHTML = cards
+  }
 
 
   useEffect(() => {
@@ -35,26 +49,18 @@ const Objets = (props) => {
 
     return <div className="ListContent">
               <Container>
-                <Row xs={1} md={nbrObjetsPerRow}>
-                  {
-                    listObjets.map((myObjet,index) => {
-                      let nameObjet= " ";
-                      nameObjet = myObjet.name;
-                      return (
-                        <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                          <a href={'/detail/objet/'+myObjet._id} style={{textDecoration:'none'}}>
-                            <Card key={myObjet._id}>
-                              <Card.Img variant="top" src={myObjet.link}/>
-                              <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
-                                <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{nameObjet}</Card.Title>
-                                <Card.Text  className="priceObjet">{myObjet.price}€</Card.Text>
-                              </Card.Body>
-                            </Card>
-                          </a>
-                        </Col>
-                      )
-                    })  
-                  }
+                <Row>
+                  <Col>
+                    <select id="filterSelect" defaultValue={"alphaAsc"} className="filter" onChange={e => setFiltre(e.target.selectedOptions[0].value)}>
+                      <option value="alphaAsc" >Nom: A-Z</option>
+                      <option value="alphaDesc" >Nom: Z-A</option>
+                      <option value="priceAsc" >Prix: par ordre croissant</option>
+                      <option value="priceDesc" >Prix: par ordre décroissant</option>
+                    </select>
+                  </Col>
+                </Row>
+                <Row id='cards' xs={1} md={nbrObjetsPerRow}>
+                  
                 </Row>
               </Container>
             </div>
