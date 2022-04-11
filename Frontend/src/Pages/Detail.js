@@ -1,8 +1,9 @@
 import React from 'react';
 import {Row, Col, Button ,Image} from "react-bootstrap"
-import { useEffect, useState} from 'react'
-import "../Assets/Styles/App.css"
+import {useState} from 'react'
 import   {useParams} from "react-router-dom";
+
+import "../Assets/Styles/App.css"
 
 
 const Detail = (props) => {
@@ -12,50 +13,45 @@ const Detail = (props) => {
     const[ReservingSentence, setReservingSentence] = useState("");  
     const[LinkImage, setLinkImage] = useState("");  
     const type = props.type;
+    const [loaded,setLoaded] = useState(false)
 
-    useEffect(()=>{
-        /* Cette fonction fait une demande à l'API pour récupérer un seul livre
-        PRE : /
-        POST : /
-        */
-        
-      
-       if(type === "books"){
-          fetch("/books/"+id).then(res =>{
-            if(res.ok){
-              return res.json()
-            }
-          }).then(jsonResponse => {
+    if(!loaded){
+      if(type === "books"){
+        fetch("/books/"+id).then(res =>{
+          if(res.ok){
+            return res.json()
+          }
+        }).then(jsonResponse => {
             setItem(jsonResponse)
             setLinkImage(jsonResponse.link);
             setPrice("Prix : "+jsonResponse.price+"€")
             setReservingSentence("Reserver le Livre")
-          })
-        }else if(type === "objet"){
-          fetch("/objets/"+id).then(res =>{
-            if(res.ok){
-              return res.json()
-            }
-          }).then(jsonResponse => {
+        })
+      }else if(type === "objet"){
+        fetch("/objets/"+id).then(res =>{
+          if(res.ok){
+            return res.json()
+          }
+        }).then(jsonResponse => {
             setItem(jsonResponse)
             setLinkImage(jsonResponse.link);
             setPrice("Prix : "+jsonResponse.price+"€")
             setReservingSentence("Reserver l'Objet")
-          })
-        }else 
-      
-        if(type === "curiosite"){
-          fetch("/curiosite/"+id).then(res =>{
-            if(res.ok){
-              return res.json()
-            }
-          }).then(jsonResponse => {
+        })
+      }else 
+    
+      if(type === "curiosite"){
+        fetch("/curiosite/"+id).then(res =>{
+          if(res.ok){
+            return res.json()
+          }
+        }).then(jsonResponse => {
             setItem(jsonResponse)
             setReservingSentence("Reserver la Curiosité")
-
-          })
-        }
-        },[])
+        })
+      }
+      setLoaded(true)
+    }
           
     
     return (

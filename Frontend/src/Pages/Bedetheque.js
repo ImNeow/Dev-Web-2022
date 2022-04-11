@@ -33,6 +33,7 @@ const Bedetheque = (props) => {
       }
     }).then(jsonResponse => {
       refreshListBooks(jsonResponse)
+      console.log(jsonResponse)
     })
   })
 
