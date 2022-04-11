@@ -312,4 +312,34 @@ router.get('/:id' , function(req,res,next) {
 });
 
 
+
+
+/* 
+    POST /objets/
+*/
+router.route('/').post((req, res) =>{
+  
+  /* Récupération des arguments dans la requete */
+  const newName = req.body.name;
+  const newLink = req.body.link;
+  const newType = req.body.type;
+  const newDescription = req.body.description;
+  const newPrice = req.body.price;
+
+  /* Construction du nouveau Objet sur base du schéma */
+  const newObjet = new Objet({
+    name : newName,
+    link : newLink,
+    type : newType,
+    description : newDescription,
+    price : newPrice
+  });
+
+  /* Envoi du nouveau Objet à la DB */
+  newObjet.save()
+  .then(() => res.json('Objet ajouté'))
+  .catch(err => res.status(400).json('Error ' + err)) 
+})
+
+
 module.exports = router;
