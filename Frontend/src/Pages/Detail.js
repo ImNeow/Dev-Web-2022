@@ -10,7 +10,8 @@ const Detail = (props) => {
     const [item, setItem] = useState("");
     const[price, setPrice] = useState("");
     const[ReservingSentence, setReservingSentence] = useState("");  
-    const type = props.type
+    const[LinkImage, setLinkImage] = useState("");  
+    const type = props.type;
 
     useEffect(()=>{
         /* Cette fonction fait une demande à l'API pour récupérer un seul livre
@@ -26,7 +27,7 @@ const Detail = (props) => {
             }
           }).then(jsonResponse => {
             setItem(jsonResponse)
-            console.log(jsonResponse)
+            setLinkImage(jsonResponse.link);
             setPrice("Prix : "+jsonResponse.price+"€")
             setReservingSentence("Reserver le Livre")
           })
@@ -37,6 +38,7 @@ const Detail = (props) => {
             }
           }).then(jsonResponse => {
             setItem(jsonResponse)
+            setLinkImage(jsonResponse.link);
             setPrice("Prix : "+jsonResponse.price+"€")
             setReservingSentence("Reserver l'Objet")
           })
@@ -62,7 +64,7 @@ const Detail = (props) => {
             <hr/>
             <Row md="auto">
                 <Col md='6' style={{textAlign:"center"}} >
-                    <Image src={item.link} alt='Image du livre' style={{maxWidth:"40%"}} />
+                    <Image src={LinkImage} alt='Image du livre' style={{maxWidth:"40%"}} />
                 </Col>
                 <Col md='6' style={{marginTop:"5%"}}>
                     <h4 style={{textDecoration:"underline", margin: "15px  0"}}>Description</h4>

@@ -33,7 +33,7 @@ const Objets = (props) => {
     resp.map((myObjet,index)=>{
       let nameObjet= " ";
       nameObjet = myObjet.name;
-        cards += "<div class='col' key='Col'+"+index+" style='margin-bottom:5px'><a href='/detail/books/"+myObjet._id+"' style='text-decoration:none;color:black'><div class='card' key="+myObjet._id+"><img class='card-img' variant='top' src='"+myObjet.link+"'/><div class='card-body' style='background-color:hsl(52, 97%, 55%)'><div class='card-title' style='min-height:2em,font-size:20px,color:black'>"+nameObjet+"</div><div class='card-text priceBD'>"+myObjet.price+"€</div></div></div></a></div>"
+        cards += "<div class='col' key='Col'+"+index+" style='margin-bottom:5px'><a href='/detail/objets/"+myObjet._id+"' style='text-decoration:none;color:black'><div class='card' key="+myObjet._id+"><img class='card-img' variant='top' src='"+myObjet.link+"'/><div class='card-body' style='background-color:hsl(52, 97%, 55%)'><div class='card-title' style='min-height:2em,font-size:20px,color:black'>"+nameObjet+"</div><div class='card-text priceBD'>"+myObjet.price+"€</div></div></div></a></div>"
       })
     document.getElementById('cards').innerHTML = cards
   }

@@ -4,9 +4,6 @@ import { useState } from 'react';
 import axios from "axios";
 import bcrypt from 'bcryptjs'
 
-// SALT should be created ONE TIME upon sign up
-const salt = bcrypt.genSaltSync(10)
-
 const Registration = () => {
     const [validated, setValidated] = useState(false);  
     const handleSubmit = (event) => {
@@ -41,7 +38,7 @@ const Registration = () => {
             newsletter:event.target[5].checked
         };
         function hashPassword(password) {
-            return bcrypt.hashSync(password, salt) // hash created previously created upon sign up
+            return bcrypt.hashSync(password, "$2a$10$G1aQn.Tn1jDpUJPLJ2JnEO") // hash created previously created upon sign up
     
         }
         
