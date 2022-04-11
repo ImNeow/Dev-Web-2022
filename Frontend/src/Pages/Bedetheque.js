@@ -1,4 +1,4 @@
-import { Card,Row, Col , Container } from "react-bootstrap"
+import { Row, Col , Container } from "react-bootstrap"
 import { useEffect, useState} from 'react'
 import Media from 'react-media';
 
@@ -13,7 +13,6 @@ const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':
 
 
 const Bedetheque = (props) => {
-  const [listBD, setlistBD] = useState([])
   const [nbrBookPerRow, setnbrBookPerRow] = useState(5); /*Min : 1 , Max : 6*/
   const [filtre, setFiltre] = useState('alphaAsc');
   const type= props.type
@@ -22,6 +21,7 @@ const Bedetheque = (props) => {
   const animationSrc = Animation[type][1]
   
 
+  
   useEffect(()=>{
     /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
     PRE : /
@@ -32,10 +32,25 @@ const Bedetheque = (props) => {
         return res.json()
       }
     }).then(jsonResponse => {
-      setlistBD(jsonResponse)
+      refreshListBooks(jsonResponse)
     })
   })
 
+  function refreshListBooks(resp){
+    /* Cette fonction permet de reactualiser la liste des livres affichée en fonction du filtre
+    PRE : la réponse de la DB
+    POST : /
+    */
+    let cards = ''
+    
+    resp.map((myBD,index) => {
+      let nameBD= " ";
+      nameBD = myBD.name;
+        cards += "<div class='col' key='Col'+"+index+" style='margin-bottom:5px'><a href='/detail/books/"+myBD._id+"' style='text-decoration:none;color:black'><div class='card' key="+myBD._id+"><img class='card-img' variant='top' src='"+myBD.link+"'/><div class='card-body' style='background-color:hsl(52, 97%, 55%)'><div class='card-title' style='min-height:2em,font-size:20px,color:black'>"+nameBD+"</div><div class='card-text priceBD'>"+myBD.price+"€</div></div></div></a></div>"
+      })
+    document.getElementById('cards').innerHTML = cards
+  }
+  
 
   useEffect(() => {
     window.matchMedia("(min-width: 768px)").addEventListener('change', () => setnbrBookPerRow(2));
@@ -61,26 +76,8 @@ const Bedetheque = (props) => {
               </select>
             </Col>
           </Row>
-          <Row xs={1} md={nbrBookPerRow}>
-            {
-              listBD.map((myBD,index) => {
-                let nameBD= " ";
-                nameBD = myBD.name;
-                return (
-                  <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                    <a href={'/detail/books/'+myBD._id} style={{textDecoration:'none'}}>
-                      <Card key={myBD._id}>
-                        <Card.Img variant="top" src={myBD.link}/>
-                        <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
-                          <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{nameBD}</Card.Title>
-                          <Card.Text  className="priceBD">{myBD.price}€</Card.Text>
-                        </Card.Body>
-                      </Card>
-                    </a>
-                  </Col>
-                )
-              })  
-            }
+          <Row id='cards' xs={1} md={nbrBookPerRow}>
+            
           </Row>
         </Container>
       </div>
