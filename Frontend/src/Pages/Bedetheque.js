@@ -82,7 +82,7 @@ const Bedetheque = (props) => {
           <Row>
             <Col>
             <select id="filterSelect" defaultValue={"alphaAsc"} className="filter" onChange={e => setFiltre(e.target.selectedOptions[0].value)}>
-                <option value="alphaAsc" >Nom: A-Z</option>
+                <option value="alphaAsc" selected >Nom: A-Z</option>
                 <option value="alphaDesc" >Nom: Z-A</option>
                 <option value="priceAsc" >Prix: par ordre croissant</option>
                 <option value="priceDesc" >Prix: par ordre décroissant</option>

@@ -1,16 +1,26 @@
 import { Row, Col , Container } from "react-bootstrap"
 import { useEffect, useState} from 'react'
+import Media from 'react-media';
 
 import "../Assets/Styles/App.css"
+
+import '../Assets/Styles/Animation.css'
+import marsup from '../Assets/Images/marsupilami-down.png'
+import gaston_hello from '../Assets/Images/gaston_hello.gif'
+
+const Animation = {'statuette':["anim-gaston",gaston_hello]};
 
 const Objets = (props) => {
   const [filtre, setFiltre] = useState('alphaAsc');
   const [nbrObjetsPerRow, setnbrObjetsPerRow] = useState(5); /*Min : 1 , Max : 6*/
   const type= props.type
 
+  /*const animationClassname = Animation[type][0]*/
+  /*const animationSrc = Animation[type][1]*/
+
 
   useEffect(()=>{
-    /* Cette fonction fait un appel à l'API pour récuperer les objets des Objets par rapport à leurs types
+    /* Cette fonction fait un appel à l'API pour récupérer les objets des Objets par rapport à leurs types
     PRE : /
     POST : /
     */
@@ -47,22 +57,27 @@ const Objets = (props) => {
   }, []);
   
 
-    return <div className="ListContent">
-              <Container>
-                <Row>
-                  <Col>
-                    <select id="filterSelect" defaultValue={"alphaAsc"} className="filter" onChange={e => setFiltre(e.target.selectedOptions[0].value)}>
-                      <option value="alphaAsc" >Nom: A-Z</option>
-                      <option value="alphaDesc" >Nom: Z-A</option>
-                      <option value="priceAsc" >Prix: par ordre croissant</option>
-                      <option value="priceDesc" >Prix: par ordre décroissant</option>
-                    </select>
-                  </Col>
-                </Row>
-                <Row id='cards' xs={1} md={nbrObjetsPerRow}>
+    return<>
+      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className='anim' src={gaston_hello} ></img></div>)}/>
+              
+      <div className="ListContent">
+
+        <Container>
+          <Row>
+            <Col>
+            <select id="filterSelect" defaultValue={"alphaAsc"} className="filter" onChange={e => setFiltre(e.target.selectedOptions[0].value)}>
+                <option value="alphaAsc" >Nom: A-Z</option>
+                <option value="alphaDesc" >Nom: Z-A</option>
+                <option value="priceAsc" >Prix: par ordre croissant</option>
+                <option value="priceDesc" >Prix: par ordre décroissant</option>
+              </select>
+            </Col>
+          </Row>
+          <Row id='cards' xs={1} md={nbrObjetsPerRow}>
                   
-                </Row>
-              </Container>
-            </div>
+          </Row>
+        </Container>
+      </div>
+      </>
     }
     export default Objets
