@@ -102,3 +102,16 @@
     opacity: 0;
   }
 }
+
+
+/*gaston animé*/
+.anim-gaston{
+  animation-name:  gaston-anim ;
+  animation-duration: 100s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: normal;
+  animation-delay: 0s; 
+
+  position:absolute
+}
