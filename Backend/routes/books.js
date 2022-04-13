@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 let Book = require('../models/books.model')
 
+const nbrBookPerRequest = 15;
 
 /* 
     GET /books/ 
@@ -21,34 +22,46 @@ router.get('/', function(req, res, next) {
 */
 router.get('/BD', function(req, res, next) {
   /*Requête à la DB*/
-  Book.find({type:'BD'},(err, DBres)=>{
-      if (err) return handleError(err);
-      res.send(DBres);
-  })
+  Book.find({type:'BD'}).exec(function(err,docs){
+    if (err) return handleError(err);
+    res.send(docs)
+  });
 });
-router.get('/BD/:filter', function(req, res, next) {
+router.get('/BD/count', function(req, res, next) {
+  /*Requête à la DB*/
+  Book.estimatedDocumentCount(function (err, count) {
+    if (err){
+        console.log(err)
+    }else{
+        res.send(''+count)
+    }
+});
+
+});
+router.get('/BD/:filter/:page', function(req, res, next) {
   const filter = req.params.filter
+  const page = parseInt(req.params.page)
   switch(filter){
     case 'alphaAsc':
-      Book.find({type:'BD'}).sort({'name':'asc'}).exec(function(err,docs){
+      Book.find({type:'BD'}).sort({'name':'asc'}).skip(nbrBookPerRequest*(page-1)).limit(nbrBookPerRequest).exec(function(err,docs){
         if (err) return handleError(err);
         res.send(docs)
       });
       break;
     case 'alphaDesc':
-      Book.find({type:'BD'}).sort({'name':'desc'}).exec(function(err,docs){
+      Book.find({type:'BD'}).sort({'name':'desc'}).skip(nbrBookPerRequest*(page-1)).limit(nbrBookPerRequest).exec(function(err,docs){
         if (err) return handleError(err);
         res.send(docs)
       });
         break;
     case 'priceAsc':
-      Book.find({type:'BD'}).sort({'price':'asc'}).exec(function(err,docs){
+      Book.find({type:'BD'}).sort({'price':'asc'}).skip(nbrBookPerRequest*(page-1)).limit(nbrBookPerRequest).exec(function(err,docs){
         if (err) return handleError(err);
         res.send(docs)
       });
       break;
       case 'priceDesc':
-        Book.find({type:'BD'}).sort({'price':'desc'}).exec(function(err,docs){
+        Book.find({type:'BD'}).sort({'price':'desc'}).skip(nbrBookPerRequest*(page-1)).limit(nbrBookPerRequest).exec(function(err,docs){
           if (err) return handleError(err);
           res.send(docs)
         });

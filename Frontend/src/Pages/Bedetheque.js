@@ -1,5 +1,6 @@
-import { Row, Col , Container } from "react-bootstrap"
+import { Row, Col , Container,Pagination } from "react-bootstrap"
 import { useEffect, useState} from 'react'
+import   {useParams} from "react-router-dom";
 import Media from 'react-media';
 
 import "../Assets/Styles/App.css"
@@ -16,24 +17,33 @@ const Bedetheque = (props) => {
   const [nbrBookPerRow, setnbrBookPerRow] = useState(5); /*Min : 1 , Max : 6*/
   const [filtre, setFiltre] = useState('alphaAsc');
   const type= props.type
+  const [page,setPage] = useState(1);
+  const [nbrPage,setNbrPage] = useState([1,2]);
 
   const animationClassname = Animation[type][0]
   const animationSrc = Animation[type][1]
   
 
-  
+  fetch("/books/"+type+'/count').then(res =>{
+    if(res.ok){
+      return res.json()
+    }
+  }).then(jsonResponse => {
+    console.log(jsonResponse)
+  })
+ 
+
   useEffect(()=>{
     /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
     PRE : /
     POST : /
     */
-    fetch("/books/"+type+'/'+filtre).then(res =>{
+    fetch("/books/"+type+'/'+filtre+'/'+page).then(res =>{
       if(res.ok){
         return res.json()
       }
     }).then(jsonResponse => {
       refreshListBooks(jsonResponse)
-      console.log(jsonResponse)
     })
   })
 
@@ -51,8 +61,7 @@ const Bedetheque = (props) => {
       })
     document.getElementById('cards').innerHTML = cards
   }
-  
-
+ 
   useEffect(() => {
     window.matchMedia("(min-width: 768px)").addEventListener('change', () => setnbrBookPerRow(2));
     window.matchMedia("(min-width: 1000px)").addEventListener('change', () => setnbrBookPerRow(3));
@@ -60,6 +69,9 @@ const Bedetheque = (props) => {
     window.matchMedia("(min-width: 1400px)").addEventListener('change', () => setnbrBookPerRow(5));
   }, []);
   
+
+
+ 
 
     return<>
       <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className={animationClassname} src={animationSrc} ></img></div>)}/>
@@ -79,6 +91,23 @@ const Bedetheque = (props) => {
           </Row>
           <Row id='cards' xs={1} md={nbrBookPerRow}>
             
+          </Row>
+          <Row className="justify-content-md-center mb-4">
+              <Col md="auto">
+                <Pagination>
+                {
+                nbrPage.map((number) => {
+                  return(
+                    <Pagination.Item onClick={(e)=>setPage(e.currentTarget.innerHTML)} key={number} active={number == page}>
+                    {number}
+                    </Pagination.Item>
+                 );
+                })
+                
+                }
+
+                </Pagination>
+              </Col>
           </Row>
         </Container>
       </div>

@@ -1,28 +1,33 @@
 import React from 'react';
 import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import axios from "axios";
 import bcrypt from 'bcryptjs'
 
 const Registration = () => {
+    let navigate = useNavigate();
     const [validated, setValidated] = useState(false);  
     const handleSubmit = (event) => {
         /*Cette fonction vérifie si le champ est rempli
         PRE : les informations envoyé par le formulaire
         POST : /
         */ 
+       
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
         else{
+            
             sendForm(event);  
-
+            navigate('/account')
         }
         setValidated(true);
         
     };
+
 
     const sendForm = (event) =>{
         /*Cette fonction va envoyer les informations sur un utilisateur à la base de données
@@ -42,10 +47,10 @@ const Registration = () => {
     
         }
         
-        
+
         axios
         .post("/users/", user)
-        .then(res => console.log(res))
+        .then(res => console.log(res) )
         .catch(err => console.log(err));
   };
 
