@@ -1,9 +1,9 @@
 import React from 'react';
 import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 import { useState } from 'react';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 import axios from "axios";
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
 
 const Registration = () => {
     let navigate = useNavigate();
