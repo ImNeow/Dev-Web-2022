@@ -1,22 +1,45 @@
-import { Row, Col , Container } from "react-bootstrap"
+import { Row, Col , Container, Card, Pagination} from "react-bootstrap"
 import { useEffect, useState} from 'react'
 import Media from 'react-media';
 
 import "../Assets/Styles/App.css"
 
 import '../Assets/Styles/Animation.css'
-import marsup from '../Assets/Images/marsupilami-down.png'
 import gaston_hello from '../Assets/Images/gaston_hello.gif'
 
 const Animation = {'statuette':["anim-gaston",gaston_hello]};
 
 const Objets = (props) => {
+  const nbrObjetPerPage = 15
   const [filtre, setFiltre] = useState('alphaAsc');
   const [nbrObjetsPerRow, setnbrObjetsPerRow] = useState(5); /*Min : 1 , Max : 6*/
+  const [listObjets,setlistObjets] = useState([])
+  const [activePage,setActivePage] = useState(1);
+  const [nbrPage,setNbrPage] = useState([]);
   const type= props.type
 
   /*const animationClassname = Animation[type][0]*/
   /*const animationSrc = Animation[type][1]*/
+
+  useEffect(()=>{
+    /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
+    PRE : /
+    POST : /
+    */
+    fetch("/objets/"+type+'/count').then(res =>{
+      if(res.ok){
+        return res.json()
+      }
+    }).then(jsonResponse => {
+      const items = []
+      for(let i = 0; i<jsonResponse/nbrObjetPerPage;i++){
+        items.push(i+1)
+      }
+      if(items.length!==1){
+        setNbrPage(items)
+      }
+    })
+  },[type])
 
 
   useEffect(()=>{
@@ -24,29 +47,14 @@ const Objets = (props) => {
     PRE : /
     POST : /
     */
-    fetch("/objets/"+type+"/"+filtre).then(res =>{
+    fetch("/objets/"+type+"/"+filtre+'/'+activePage).then(res =>{
       if(res.ok){
         return res.json()
       }
     }).then(jsonResponse => {
-      refreshListObjets(jsonResponse)
+      setlistObjets(jsonResponse)
     })
-  })
-
-  function refreshListObjets(resp){
-    /* Cette fonction permet de reactualiser la liste des livres affichée en fonction du filtre
-    PRE : la réponse de la DB
-    POST : /
-    */
-    let cards = ''
-    
-    resp.map((myObjet,index)=>{
-      let nameObjet= " ";
-      nameObjet = myObjet.name;
-        cards += "<div class='col' key='Col'+"+index+" style='margin-bottom:5px'><a href='/detail/objets/"+myObjet._id+"' style='text-decoration:none;color:black'><div class='card' key="+myObjet._id+"><img class='card-img' variant='top' src='"+myObjet.link+"'/><div class='card-body' style='background-color:hsl(52, 97%, 55%)'><div class='card-title' style='min-height:2em,font-size:20px,color:black'>"+nameObjet+"</div><div class='card-text priceBD'>"+myObjet.price+"€</div></div></div></a></div>"
-      })
-    document.getElementById('cards').innerHTML = cards
-  }
+  },[type,filtre,activePage])
 
 
   useEffect(() => {
@@ -74,7 +82,40 @@ const Objets = (props) => {
             </Col>
           </Row>
           <Row id='cards' xs={1} md={nbrObjetsPerRow}>
-                  
+          {
+              listObjets.map((myObject,index) => {
+                return (
+                  <Col key={"Col"+index} style={{marginBottom:'5px'}}>
+                    <a href={'/detail/objets/'+myObject._id} style={{textDecoration:'none'}}>
+                      <Card key={myObject._id}>
+                        <Card.Img variant="top" src={myObject.link}/>
+                        <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
+                          <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{myObject.name}</Card.Title>
+                          <Card.Text  className="priceBD">7.50€</Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </a>
+                  </Col>
+                )
+              })  
+            }     
+          </Row>
+          <Row className="justify-content-md-center mb-4">
+              <Col md="auto">
+                <Pagination>
+                {
+                nbrPage.map((number) => {
+                  return(
+                    <Pagination.Item onClick={(e)=>setActivePage(e.currentTarget.innerHTML)} key={number} active={number == activePage}>
+                    {number}
+                    </Pagination.Item>
+                 );
+                })
+                
+                }
+
+                </Pagination>
+              </Col>
           </Row>
         </Container>
       </div>

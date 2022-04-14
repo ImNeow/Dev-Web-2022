@@ -1,6 +1,5 @@
-import { Row, Col , Container,Pagination } from "react-bootstrap"
+import { Row, Col , Container,Pagination, Card } from "react-bootstrap"
 import { useEffect, useState} from 'react'
-import   {useParams} from "react-router-dom";
 import Media from 'react-media';
 
 import "../Assets/Styles/App.css"
@@ -14,53 +13,49 @@ const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':
 
 
 const Bedetheque = (props) => {
+  const type= props.type
+  const nbrBookPerPage = 15
   const [nbrBookPerRow, setnbrBookPerRow] = useState(5); /*Min : 1 , Max : 6*/
   const [filtre, setFiltre] = useState('alphaAsc');
-  const type= props.type
-  const [page,setPage] = useState(1);
-  const [nbrPage,setNbrPage] = useState([1,2]);
+  const [activePage,setActivePage] = useState(1);
+  const [nbrPage,setNbrPage] = useState([]);
+  const [listBooks,setListBooks] = useState([])
 
   const animationClassname = Animation[type][0]
   const animationSrc = Animation[type][1]
-  
-
-  fetch("/books/"+type+'/count').then(res =>{
-    if(res.ok){
-      return res.json()
-    }
-  }).then(jsonResponse => {
-    console.log(jsonResponse)
-  })
  
+  useEffect(()=>{
+    /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
+    PRE : /
+    POST : /
+    */
+    fetch("/books/"+type+'/count').then(res =>{
+      if(res.ok){
+        return res.json()
+      }
+    }).then(jsonResponse => {
+      const items = []
+      for(let i = 0; i<jsonResponse/nbrBookPerPage;i++){
+        items.push(i+1)
+      }
+      setNbrPage(items)
+    })
+  },[type])
 
   useEffect(()=>{
     /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
     PRE : /
     POST : /
     */
-    fetch("/books/"+type+'/'+filtre+'/'+page).then(res =>{
+    fetch("/books/"+type+'/'+filtre+'/'+activePage).then(res =>{
       if(res.ok){
         return res.json()
       }
     }).then(jsonResponse => {
-      refreshListBooks(jsonResponse)
+      setListBooks(jsonResponse)
     })
-  })
+  },[type,filtre,activePage])
 
-  function refreshListBooks(resp){
-    /* Cette fonction permet de reactualiser la liste des livres affichée en fonction du filtre
-    PRE : la réponse de la DB
-    POST : /
-    */
-    let cards = ''
-    
-    resp.map((myBD,index)=>{
-      let nameBD= " ";
-      nameBD = myBD.name;
-        cards += "<div class='col' key='Col'+"+index+" style='margin-bottom:5px'><a href='/detail/books/"+myBD._id+"' style='text-decoration:none;color:black'><div class='card' key="+myBD._id+"><img class='card-img' variant='top' src='"+myBD.link+"'/><div class='card-body' style='background-color:hsl(52, 97%, 55%)'><div class='card-title' style='min-height:2em,font-size:20px,color:black'>"+nameBD+"</div><div class='card-text priceBD'>"+myBD.price+"€</div></div></div></a></div>"
-      })
-    document.getElementById('cards').innerHTML = cards
-  }
  
   useEffect(() => {
     window.matchMedia("(min-width: 768px)").addEventListener('change', () => setnbrBookPerRow(2));
@@ -82,7 +77,7 @@ const Bedetheque = (props) => {
           <Row>
             <Col>
             <select id="filterSelect" defaultValue={"alphaAsc"} className="filter" onChange={e => setFiltre(e.target.selectedOptions[0].value)}>
-                <option value="alphaAsc" selected >Nom: A-Z</option>
+                <option value="alphaAsc" >Nom: A-Z</option>
                 <option value="alphaDesc" >Nom: Z-A</option>
                 <option value="priceAsc" >Prix: par ordre croissant</option>
                 <option value="priceDesc" >Prix: par ordre décroissant</option>
@@ -90,7 +85,23 @@ const Bedetheque = (props) => {
             </Col>
           </Row>
           <Row id='cards' xs={1} md={nbrBookPerRow}>
-            
+            {
+              listBooks.map((myBook,index) => {
+                return (
+                  <Col key={"Col"+index} style={{marginBottom:'5px'}}>
+                    <a href={'/detail/books/'+myBook._id} style={{textDecoration:'none'}}>
+                      <Card key={myBook._id}>
+                        <Card.Img variant="top" src={myBook.link}/>
+                        <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
+                          <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{myBook.name}</Card.Title>
+                          <Card.Text  className="priceBD">{myBook.price}€</Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </a>
+                  </Col>
+                )
+              })  
+            }
           </Row>
           <Row className="justify-content-md-center mb-4">
               <Col md="auto">
@@ -98,7 +109,7 @@ const Bedetheque = (props) => {
                 {
                 nbrPage.map((number) => {
                   return(
-                    <Pagination.Item onClick={(e)=>setPage(e.currentTarget.innerHTML)} key={number} active={number == page}>
+                    <Pagination.Item className="custom-pagination" onClick={(e)=>setActivePage(e.currentTarget.innerHTML)} key={number} disabled={number == activePage} active={number == activePage}>
                     {number}
                     </Pagination.Item>
                  );

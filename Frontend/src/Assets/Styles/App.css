@@ -53,3 +53,21 @@ padding-top: 3%;
   font-size: 45px;
   text-align: center;
 }
+
+
+.page-link {
+  position: relative;
+  display: block;
+  color: black;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #ffa600;
+  border-color: #ffa600;
+}
