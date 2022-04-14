@@ -5,22 +5,31 @@ import { useRef } from 'react';
 
 
 const Contact = () => {
-    const form = useRef();
+    const formData = useRef();
+    const [validated, setValidated] = useState(false);  
     
     const handleSubmit = (event) => {
         /*Cette fonction vérifie si le champ est rempli
         PRE : l'évènement qui envoie le formulaire
         POST : /
         */ 
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
-            emailjs.sendForm('service_rse51yv', 'template_13on8q2', form.current, 'JioyY1I1MU-1KwY60')
+        }
+        else{
+            event.preventDefault();
+            emailjs.sendForm('service_rse51yv', 'template_13on8q2', formData.current, 'JioyY1I1MU-1KwY60')
                 .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById("answerSendMail").innerHTML="<div class='justify-content-md-center mb-4 row'><div class='col-md-auto'><h3 style='color:green'>Votre mail a bien été envoyé !</h3></div></div><div class='justify-content-md-center mb-4 row'><div class='col-md-auto'><h4 style='color:green'>Nous vous répondrons dans les plus briefs délais.</h4></div></div>";
                 }, function(error) {
-                console.log('FAILED...', error);
+                    document.getElementById("answerSendMail").innerHTML="<div class='justify-content-md-center mb-4 row'><div class='col-md-auto'><h3 style='color:red'>Votre mail n'a pas été envoyé !</h3></div></div><div class='justify-content-md-center mb-4 row'><div class='col-md-auto'><h4 style='color:red'>Rééssayez plus tard...</h4></div></div>";
                 });
             event.target.reset();
+        }
+        setValidated(true);
+
 
     };
 
@@ -32,12 +41,15 @@ const Contact = () => {
                 <Col md="auto">
                     <h2>Contactez-Nous</h2>
                 </Col>
+                
             </Row>
-            <Form ref={form} onSubmit={handleSubmit}>
+            <div id="answerSendMail">
+            </div>
+            <Form noValidate validated={validated} ref={formData} onSubmit={handleSubmit}>
                 <Row className="justify-content-md-center mb-4">
                     <Col xs lg="3">
                         <Form.Group  controlId="validationCustom01">
-                            <Form.Control required type="text" placeholder="Nom" name="form_name"/>
+                            <Form.Control required type="text" placeholder="Nom" name="form_name" minLength="2" maxLength="25"/>
                             <Form.Control.Feedback type="invalid">
                             Veuillez indiquer un nom de référence
                             </Form.Control.Feedback>
@@ -45,7 +57,7 @@ const Contact = () => {
                     </Col>
                     <Col xs lg="3">
                         <Form.Group  controlId="validationCustom02">
-                            <Form.Control required type="email" placeholder="Email" name="form_email"/>
+                            <Form.Control required type="email" placeholder="Email" name="form_email" minLength="5" maxLength="35"/>
                             <Form.Control.Feedback type="invalid">
                             Veuillez indiquer une adresse e-mail valide
                             </Form.Control.Feedback>
@@ -55,7 +67,7 @@ const Contact = () => {
                 <Row className="justify-content-md-center mb-4">
                     <Col xs lg="6">
                         <Form.Group  controlId="validationCustom03">
-                            <Form.Control required type="text" placeholder="Sujet" name="form_subject"/>
+                            <Form.Control required type="text" placeholder="Sujet" name="form_subject" maxLength="25"/>
                             <Form.Control.Feedback type="invalid">
                             Veuillez indiquer un titre à votre message
                             </Form.Control.Feedback>
@@ -65,9 +77,9 @@ const Contact = () => {
                 <Row className="justify-content-md-center">
                 <Col xs lg="6">
                     <Form.Group className="mb-3" controlId="Mail_Message">
-                        <Form.Control required placeholder="Message" as="textarea" rows={3}  name="form_message"/>
+                        <Form.Control required placeholder="Message" as="textarea" rows={3}  name="form_message" minLength="10" maxLength="150"/>
                         <Form.Control.Feedback type="invalid">
-                            Veuillez indiquer votre message
+                            Veuillez indiquer votre message de minimum 10 caractères
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
