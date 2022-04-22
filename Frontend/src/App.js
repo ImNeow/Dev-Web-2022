@@ -51,7 +51,7 @@ function App() {
         <Route path="/search/:name" element={<Search/>}/>
         <Route path="/propos" element={<Propos/>}/>
         <Route path="/contact" element={<Contact/>}/>
-        <Route path="/account" element={<Connect/>}/>
+        <Route path="/login" element={<Connect/>}/>
         <Route path="/registration" element={<Registration/>}/>
         <Route path="/cgv" element={<CGV/>}/>
         <Route path="/PageNotFound" element={<NotFound/>}></Route>

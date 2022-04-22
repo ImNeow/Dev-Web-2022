@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
+const crypto = require('crypto');
+var bcrypt = require('bcrypt');
 
 require('dotenv').config();
 const port = process.env.PORT
@@ -14,6 +16,8 @@ var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var curiositeRouter = require('./routes/curiosite');
 var objetsRouter = require('./routes/objets');
+
+let User = require('./models/users.model')
 
 var app = express();
 
@@ -39,6 +43,80 @@ app.use('/users', usersRouter);
 app.use('/books',booksRouter);
 app.use('/curiosite',curiositeRouter);
 app.use('/objets',objetsRouter);
+
+
+
+
+/*Authentification */
+
+const authTokens = {};
+
+
+const generateAuthToken = ()  =>{
+  return crypto.randomBytes(30).toString('hex');
+}
+
+
+function getHashedPassword(password) {
+  return bcrypt.hashSync(password, "$2a$10$G1aQn.Tn1jDpUJPLJ2JnEO") // hash created previously created upon sign up
+}
+
+
+
+app.use('/login',(req, res, next) => {
+  // Get auth token from the cookies
+  const authToken = req.cookies['AuthToken'];
+
+  // Inject the user to the request
+  req.user = authTokens[authToken];
+
+  next();
+});
+
+
+
+/*
+
+      SIGN  IN
+
+*/
+app.post('/login',(req, res) =>{
+  const email = req.body.email
+  const password = req.body.password
+
+  const hashedPassword = getHashedPassword(password);
+
+   User.find({email:email,password:hashedPassword}).exec(function(err,user){
+      if (user.length){
+        const authToken = generateAuthToken();
+        // Store authentication token
+        authTokens[authToken] = user;
+
+        // Setting the auth token in cookies
+        res.cookie('AuthToken', authToken,{
+          expires : new Date(Date.now()+7230000),//9000000
+          httpOnly: true,
+          secure: false
+        });
+
+        // Redirect user to the protected page
+        res.send('ok')
+      }else {
+        res.send('notok')
+      }
+      });
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 // catch 404 and forward to error handler

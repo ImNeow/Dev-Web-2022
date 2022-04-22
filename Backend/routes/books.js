@@ -97,7 +97,6 @@ router.get('/search/:name', function(req, res, next) {
 router.get('/detail/:id' , function(req,res,next) {
 
   const id = req.params.id
-  console.log(id)
   Book.findById(id , (err,DBres)=>{
     res.send(DBres)
   })

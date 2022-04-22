@@ -44,12 +44,11 @@ const Registration = () => {
         };
         function hashPassword(password) {
             return bcrypt.hashSync(password, "$2a$10$G1aQn.Tn1jDpUJPLJ2JnEO") // hash created previously created upon sign up
-    
         }
         
 
         axios
-        .post("/users/", user)
+        .post("/users/register", user)
         .then(res => console.log(res) )
         .catch(err => console.log(err));
   };

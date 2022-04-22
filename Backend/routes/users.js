@@ -2,15 +2,14 @@ var express = require('express');
 var router = express.Router();
 let User = require('../models/users.model')
 
-/* GET users. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
 
-/* 
-    POST /users/
+/*
+
+      SIGN  UP
+
 */
-router.route('/').post((req, res) =>{
+
+router.route('/register').post((req, res) =>{
   
   /* Récupération des arguments dans la requete */
   const newLastName = req.body.lastname;

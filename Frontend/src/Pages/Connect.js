@@ -1,14 +1,37 @@
 import { Container,  Row, Col, Form, Button } from 'react-bootstrap'
+import {useNavigate} from 'react-router-dom';
+import axios from "axios";
+import Cookies from 'js-cookie'
+import { useEffect, useState } from 'react';
 
 const Connect = () => {
-    const sendForm = (event) =>{
-        /*Cette fonction va vérifier que les informations sur l'utilisateur coincident avec les informations dans la DB
+    const [authenticated,setAuthenticated] = useState([])
+
+    const handleSubmit = (event) => {
+        /*Cette fonction vérifie si le champ est rempli
         PRE : les informations envoyé par le formulaire
         POST : /
         */ 
-       event.preventDefault();
-        console.log(event);
-    }
+        event.preventDefault();
+        sendForm(event);  
+    };
+
+    
+    const sendForm = (event) =>{
+        /*Cette fonction va envoyer les informations sur un utilisateur à la base de données
+        PRE : les informations envoyé par le formulaire
+        POST : /
+        */ 
+        const user ={
+            email: event.target[0].value,
+            password: event.target[1].value
+        };
+
+
+        axios.post("/login", user , { withCredentials: true })
+        .then(res => console.log('res'+res.json()))
+        .catch(err => console.log(err));
+  };
     return (
     <div className="Connect">
         <Container>   
@@ -40,7 +63,7 @@ const Connect = () => {
             <br />
             <Row className="justify-content-md-center">
                 <Col md="auto">
-                    <a href='/registration'>Vous n'avez pas encore de compte ? Cliquez ici pour vous en créer un !</a>
+                    <a href='/registration'> Vous n'avez pas encore de compte ? Cliquez ici pour vous en créer un !</a>
                 </Col>
             </Row>
         </Container>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Row, Col, Button ,Image} from "react-bootstrap"
+import {Row, Col, Button ,Image, Container} from "react-bootstrap"
 import {useState} from 'react'
 import   {useParams} from "react-router-dom";
 
@@ -11,6 +11,7 @@ const Detail = (props) => {
     const type = props.type;
     const [item, setItem] = useState("");
     const [ReservedButton,setReservedButton] = useState()
+    
     useEffect(()=>{
       fetch("/"+type+"/detail/"+id).then(res =>{
         if(res.ok){
@@ -18,10 +19,8 @@ const Detail = (props) => {
         }
       }).then(jsonResponse => {
           setItem(jsonResponse)
-          console.log(item)
           if (type === "books" || type === "objets"){
-              setReservedButton(<Button variant="warning" style={{minWidth:"100%", fontSize:"20px", fontWeight:"bolder"}}>Réserver</Button>)
-            
+              setReservedButton(<Button variant="warning" style={{minWidth:"100%", fontSize:"20px", fontWeight:"bolder"}}>Réserver</Button>)    
           }
       })
     },[])
@@ -30,9 +29,10 @@ const Detail = (props) => {
         <div>
             <h1 id='titleDetail'>{item.name}</h1>
             <hr/>
+            <Container>
             <Row md="auto">
                 <Col md='6' style={{textAlign:"center"}} >
-                    <Image src={""+item.link} alt='Image du livre' style={{maxWidth:"40%"}} />
+                    <Image src={""+item.link} alt='Image du livre' style={{maxWidth:"60%"}} />
                 </Col>
                 <Col md='6' style={{marginTop:"5%"}}>
                     <h4 style={{textDecoration:"underline", margin: "15px  0"}}>Description</h4>
@@ -43,6 +43,7 @@ const Detail = (props) => {
 
                 </Col>
             </Row>
+            </Container>
         </div>
     );
 };
