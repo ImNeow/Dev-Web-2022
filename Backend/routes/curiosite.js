@@ -24,6 +24,38 @@ router.get('/detail/:id' , function(req,res,next) {
   });
 
 
+/*
+UPDATE /objets/
+*/
+router.put('/:id', function(req, res, next) {
+  id = req.params.id 
+
+  /*Requête à la DB*/
+  Curiosite.updateOne({_id:id},{name:req.body.name,link:req.body.link,description:req.body.description},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(200);
+  })
+});
+
+
+
+/*
+DELETE /objets/
+*/
+router.delete('/:id', function(req, res, next) {
+  id = req.params.id 
+
+  /*Requête à la DB*/
+  Curiosite.deleteOne({_id:id},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(200);
+  })
+});
+
+
+
+
+
 
 /* 
     POST /curiosite/
@@ -45,8 +77,10 @@ router.route('/').post((req, res) =>{
 
     /* Envoi du nouveau livre à la DB */
     newCuriosite.save()
-    .then(() => res.json('Curiosite ajouté'))
+    .then(() => res.json(200))
     .catch(err => res.status(400).json('Error ' + err)) 
 })
+
+
 
 module.exports = router;

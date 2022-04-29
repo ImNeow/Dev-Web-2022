@@ -5,9 +5,40 @@ import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 import bcrypt from 'bcryptjs';
 
+
+
+
 const Registration = () => {
     let navigate = useNavigate();
     const [validated, setValidated] = useState(false);  
+
+
+    function isCorrect(str){
+        for(let i=0;i<str.length;i++){
+            if(!((str[i].charCodeAt()>65 && str[i].charCodeAt()<90) || ( str[i].charCodeAt()>97 && str[i].charCodeAt()<122))){ //65:90 - 97:122
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function checkNameValidity(prenom,nom){ 
+        
+        if(isCorrect(prenom) && isCorrect(nom)){
+            return true;
+        }
+        return false;   
+    }
+
+    function  checkPasswordValidity(mdp1,mdp2){ 
+        
+        if(mdp1 === mdp2){
+            return true;
+        }
+        return false;   
+    }
+   
+
     const handleSubmit = (event) => {
         /*Cette fonction vérifie si le champ est rempli
         PRE : les informations envoyé par le formulaire
@@ -15,14 +46,23 @@ const Registration = () => {
         */ 
        
         const form = event.currentTarget;
+        console.log(form)
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
         else{
+            event.preventDefault();
+
+            if (checkNameValidity(event.target[0].value,event.target[1].value,event.target[2].value,event.target[3].value) || checkPasswordValidity(event.target[3].value,event.target[4].value)){
+                sendForm(event);  
+                navigate('/accueil')
+
+            }else{
+                
+                document.getElementById('errorDiv').innerText= 'Nom ou prénom erronée '
+            }
             
-            sendForm(event);  
-            navigate('/account')
         }
         setValidated(true);
         
@@ -61,6 +101,11 @@ const Registration = () => {
                 <Row className="justify-content-md-center mb-4">
                     <Col md="auto">
                         <h2>Inscription</h2>
+                    </Col>
+                </Row>
+                <Row className="justify-content-md-center mb-4">
+                    <Col md="auto">
+                        <p id="errorDiv"> </p>
                     </Col>
                 </Row>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>

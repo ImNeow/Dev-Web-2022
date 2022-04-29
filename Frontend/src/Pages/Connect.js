@@ -16,7 +16,9 @@ const Connect = () => {
         sendForm(event);  
     };
 
-    
+    useEffect(()=>{
+        console.log(authenticated)
+    },[authenticated])
     const sendForm = (event) =>{
         /*Cette fonction va envoyer les informations sur un utilisateur à la base de données
         PRE : les informations envoyé par le formulaire
@@ -29,7 +31,7 @@ const Connect = () => {
 
 
         axios.post("/login", user , { withCredentials: true })
-        .then(res => console.log('res'+res.json()))
+        .then(res => setAuthenticated(Cookies['AuthToken']))
         .catch(err => console.log(err));
   };
     return (

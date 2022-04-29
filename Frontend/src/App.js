@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Assets/Styles/App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Container from 'react-bootstrap/Container'
 import CustomNavBar from './Components/CustomNavBar';
 import CustomFooter from './Components/CustomFooter';
 
