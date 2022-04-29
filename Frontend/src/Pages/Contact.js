@@ -39,8 +39,8 @@ const Contact = () => {
             <Row className="justify-content-md-center mb-4">
                 <Col md="auto">
                     <h2>Contactez-Nous</h2>
-                </Col>
-                
+                    
+                </Col>                
             </Row>
             <div id="contentForm">
                 <Form noValidate validated={validated} ref={formData} onSubmit={handleSubmit}>
