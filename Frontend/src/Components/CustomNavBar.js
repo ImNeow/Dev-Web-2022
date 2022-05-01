@@ -1,14 +1,28 @@
 import "../Assets/Styles/CustomNavBar.css"
 import {Navbar,Nav,Container,NavDropdown,Form,FormControl,Button,Image} from 'react-bootstrap';
-import { useState } from "react";
+import { useState} from 'react'
+
 import logo from "../Assets/Images/logo-original.png"
 import searchbutton from "../Assets/Images/search-button.png"
 import accountbutton from "../Assets/Images/login.png"
 
+
+
 function CustomNavBar() {
-    
   const [searchInput, setSearchInput] = useState("")
-  
+
+  function handleKeyDown(event){
+    /*
+      Cette fonction récupère les entrées du clavier 
+      PRE : l'evenement correspondant aux entrées clavier 
+      POST : /
+    */
+    if(event.key === 'Enter'){
+      event.preventDefault();
+      document.getElementById('searchButton').click()
+    }
+  }
+
   return(<>
     <Navbar bg='dark' className="navbar" expand="lg" >
     <Container>
@@ -49,8 +63,9 @@ function CustomNavBar() {
               aria-label="Search"
               value={searchInput.val}
               onChange={event => setSearchInput(event.target.value)}
+              onKeyDown={handleKeyDown}
             />
-            <Button id='searchButton' className='search-button' href={"/search/"+searchInput}>
+            <Button id='searchButton' className='search-button' href={'/search/'+searchInput} >
               <Image width={30} height={30} src={searchbutton} >
               </Image>
             </Button>

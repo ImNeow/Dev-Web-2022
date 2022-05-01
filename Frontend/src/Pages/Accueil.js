@@ -3,7 +3,7 @@ import image_vitrine from '../Assets/Images/vitrine.png'
 
 const Accueil = () => {
     return (
-        <div class="Accueil">
+        <div className="Accueil">
         <Container>
             <Row className="justify-content-center">
                 <Col md="auto">
