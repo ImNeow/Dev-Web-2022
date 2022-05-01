@@ -40,7 +40,7 @@ const Bedetheque = (props) => {
       }
       setNbrPage(items)
     })
-  },[type])
+  } ,[type])
 
   useEffect(()=>{
     /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
