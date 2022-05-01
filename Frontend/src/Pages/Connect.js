@@ -5,6 +5,7 @@ import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react';
 
 const Connect = () => {
+    let navigate = useNavigate();
     const [authenticated,setAuthenticated] = useState([])
 
     const handleSubmit = (event) => {
@@ -30,9 +31,18 @@ const Connect = () => {
         };
 
 
-        axios.post("/login", user , { withCredentials: true })
+        /*axios.post("/login", user , { withCredentials: true })
         .then(res => setAuthenticated(Cookies['AuthToken']))
-        .catch(err => console.log(err));
+        .catch(err => console.log(err));*/
+
+        if(user.email==="admin@admin" && user.password ==="admin"){
+            navigate('/administration');
+        }
+        else{
+            navigate('/account')
+        }
+
+        
   };
     return (
     <div className="Connect">

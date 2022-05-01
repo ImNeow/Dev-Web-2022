@@ -6,6 +6,8 @@ import CustomNavBar from './Components/CustomNavBar';
 import CustomFooter from './Components/CustomFooter';
 
 import Accueil from './Pages/Accueil';
+import Account from './Pages/Account';
+import Administration from './Pages/Administration';
 import Curiosite from './Pages/Curiosite';
 import Propos from './Pages/Propos';
 import Contact from './Pages/Contact';
@@ -26,7 +28,9 @@ function App() {
   <div className='content'>
     <BrowserRouter>
       <Routes>
+        <Route path="/account" element={<Account/>}/>
         <Route path="/accueil" element={<Accueil/>}/>
+        <Route path="/administration" element={<Administration/>}/>
 
         <Route path="/bedetheque/BD" element={<Bedetheque type="BD"/>}/>
         <Route path="/bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>

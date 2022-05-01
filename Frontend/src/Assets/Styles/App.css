@@ -71,3 +71,10 @@ padding-top: 3%;
   background-color: #ffa600;
   border-color: #ffa600;
 }
+
+.listAccount{
+  color: black;
+  background-color: rgb(255, 253, 236);
+  border: solid black 5px;  
+  margin: 0 7% 4% 7%;
+}
