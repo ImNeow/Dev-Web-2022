@@ -93,4 +93,4 @@ const Contact = () => {
         </div>
     );
 }
-    export default Contact
+    export {Contact}

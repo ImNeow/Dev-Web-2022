@@ -82,4 +82,4 @@ function CustomNavBar() {
   );  
   }
   
-  export default CustomNavBar;
+  export {CustomNavBar};

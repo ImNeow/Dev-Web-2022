@@ -124,4 +124,4 @@ const Bedetheque = (props) => {
       </div>
       </> 
     }
-    export default Bedetheque
+    export {Bedetheque}

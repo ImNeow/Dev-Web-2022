@@ -7,4 +7,4 @@ const UsersManagement = () => {
         </div>
     );
  }
-export default UsersManagement
+export {UsersManagement}

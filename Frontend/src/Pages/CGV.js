@@ -140,4 +140,4 @@ const CGV = () => {
     </Container> 
     </div>
 }
-    export default CGV
+    export {CGV}

@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import CustomCarousel from "../Components/CustomCarousel";
+import {CustomCarousel} from "../Components/CustomCarousel";
 const Propos = () => {
     
     return (
@@ -45,4 +45,4 @@ const Propos = () => {
 
     );
     }
-    export default Propos
+    export {Propos}

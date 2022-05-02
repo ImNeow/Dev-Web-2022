@@ -121,4 +121,4 @@ const Objets = (props) => {
       </div>
       </>
     }
-    export default Objets
+    export {Objets}

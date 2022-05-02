@@ -1,0 +1,36 @@
+.menu{
+    color: black;
+    background-color: rgb(255, 253, 236);
+    border: solid black 5px;  
+    margin-top: 7%;
+    cursor:pointer;
+}
+.deco-button{
+    background-color:#f0560e;
+}
+
+.custom-row{
+    margin-left:10px; 
+    margin-top:10px;
+}
+
+.custom-tab-menu{
+    text-align:center;
+    margin-top:3%;
+    margin-left:3%;
+    padding-bottom:3%;
+    border:solid black 4px;
+    background-color:#ffc917;
+    border-radius:30px;
+
+}
+
+.custom-tab-content{
+    text-align:center;
+    width:60%;
+    margin-top:3%;
+    margin-left:5%;
+    border:solid black 4px;
+    border-radius:30px;
+    background-color:#ffc917;
+}

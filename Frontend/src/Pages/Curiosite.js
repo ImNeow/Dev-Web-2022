@@ -58,5 +58,5 @@ const Curiosite = () => {
                 </Container>
               </div>
       }
-      export default Curiosite
+      export {Curiosite}
   

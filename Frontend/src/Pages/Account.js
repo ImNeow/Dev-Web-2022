@@ -1,10 +1,10 @@
 import { Row, Col , Container } from "react-bootstrap"
 
-const Accueil = () => {
+const Account = () => {
     return (
         <div className="Account">
             Account
         </div>
     );
  }
-export default Accueil
+export {Account}

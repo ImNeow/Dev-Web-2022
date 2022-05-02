@@ -2,23 +2,23 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Assets/Styles/App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import CustomNavBar from './Components/CustomNavBar';
-import CustomFooter from './Components/CustomFooter';
+import {CustomNavBar} from './Components/CustomNavBar';
+import {CustomFooter} from './Components/CustomFooter';
 
-import Accueil from './Pages/Accueil';
-import Account from './Pages/Account';
-import Administration from './Pages/Administration';
-import Curiosite from './Pages/Curiosite';
-import Propos from './Pages/Propos';
-import Contact from './Pages/Contact';
-import Bedetheque from './Pages/Bedetheque';
-import Objets from './Pages/Objets';
-import Connect  from './Pages/Connect'
-import Registration from './Pages/Registration';
-import CGV from './Pages/CGV'
-import NotFound from './Pages/NotFound';
-import Detail from './Pages/Detail';
-import Search from './Pages/Search';
+import {Accueil} from './Pages/Accueil';
+import {Account} from './Pages/Account';
+import {Administration} from './Pages/Administration';
+import {Curiosite} from './Pages/Curiosite';
+import {Propos} from './Pages/Propos';
+import {Contact} from './Pages/Contact';
+import {Bedetheque} from './Pages/Bedetheque';
+import {Objets} from './Pages/Objets';
+import {Connect}  from './Pages/Connect'
+import {Registration} from './Pages/Registration';
+import {CGV} from './Pages/CGV'
+import {NotFound} from './Pages/NotFound';
+import {Detail} from './Pages/Detail';
+import {Search} from './Pages/Search';
 
 
 function App() {
@@ -75,6 +75,6 @@ function App() {
   ;  
 }
 
-export default App;
+export {App};
 
  

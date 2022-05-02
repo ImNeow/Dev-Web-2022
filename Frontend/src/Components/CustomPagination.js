@@ -29,4 +29,4 @@ items.push(
   );  
   }
   
-  export default CustomPagination;
+  export {CustomPagination};

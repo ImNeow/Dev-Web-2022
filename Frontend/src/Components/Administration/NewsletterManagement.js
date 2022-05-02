@@ -7,4 +7,4 @@ const NewsletterManagement = () => {
         </div>
     );
  }
-export default NewsletterManagement
+export {NewsletterManagement}

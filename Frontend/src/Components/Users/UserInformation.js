@@ -1,10 +1,10 @@
 import { Row, Col , Container } from "react-bootstrap"
 
-const userInformation = () => {
+const UserInformation = () => {
     return (
         <div className="userInformation">
             user Information
         </div>
     );
  }
-export default userInformation
+export {UserInformation}

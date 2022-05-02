@@ -14,4 +14,4 @@ const Accueil = () => {
         </div>
     );
  }
-export default Accueil
+export {Accueil}
