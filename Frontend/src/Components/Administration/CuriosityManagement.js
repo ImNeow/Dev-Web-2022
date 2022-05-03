@@ -74,4 +74,13 @@ const CuriosityManagement = () => {
         </div>  
     );
  }
-export {CuriosityManagement}
+
+
+ const EditCuriosity = () => {
+    return (
+        <div>test</div>
+    )
+}
+
+
+export {CuriosityManagement,EditCuriosity}

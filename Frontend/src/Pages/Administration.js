@@ -4,8 +4,8 @@ import {useNavigate} from 'react-router-dom';
 import {UserInformation} from '../Components/Users/UserInformation'
 import {UserHistory} from '../Components/Users/UserHistory'
 
-import {ObjectManagement} from '../Components/Administration/ObjectManagement'
-import {CuriosityManagement} from '../Components/Administration/CuriosityManagement'
+import {ObjectManagement,EditObjet} from '../Components/Administration/ObjectManagement'
+import {CuriosityManagement,EditCuriosity} from '../Components/Administration/CuriosityManagement'
 import {UsersManagement} from '../Components/Administration/UsersManagement'
 import {NewsletterManagement} from '../Components/Administration/NewsletterManagement'
 
@@ -21,9 +21,9 @@ const Administration = () => {
 
     return (
         <div className="Administration">
-            <Tab.Container id="" defaultActiveKey="Informations">
+            <Tab.Container defaultActiveKey="Informations">
                 
-                <Row md="auto" className="custom-row">
+                <Row md="auto" className="justify-content-center custom-row">
                     <Col md='3' className="custom-tab-menu">
                         <Nav variant="" className="flex-column">
                             {
@@ -34,6 +34,7 @@ const Administration = () => {
                                         </Nav.Item>
                                             )
                                     })}
+
                                 <Nav.Item>
                                     <Nav.Link className="deco-button menu" eventKey="deconnexionButton" onClick={e=>navigate('/accueil')}>Deconnexion</Nav.Link>
                                 </Nav.Item>
@@ -61,6 +62,12 @@ const Administration = () => {
                         </Tab.Pane>
                         <Tab.Pane eventKey="Newsletter" >
                                 <NewsletterManagement/>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="editObjet" >
+                                <EditObjet/>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="editCuriosite" >
+                                <EditCuriosity/>
                         </Tab.Pane>
 
                     </Tab.Content>

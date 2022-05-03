@@ -16,6 +16,29 @@ router.get('/', function(req, res, next) {
   })
 });
 
+/* 
+    GET /books/search/
+*/
+router.get('/search/', function(req, res, next) {
+
+  let name = req.query.name ;
+  let type = req.query.type ;
+  if(!(name.length<1 && type.length<1)){
+    /*Requête à la DB*/
+    Objet.find({name:{ "$regex":name, "$options": "i" },type:{ "$regex":type, "$options": "i" }},(err, DBres)=>{
+      res.send(DBres);
+    })
+  }else{
+    /*Requête à la DB*/
+    Objet.find({},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+})
+  }
+  
+});
+
+
 router.get('/detail/:id' , function(req,res,next) {
 
   const id = req.params.id
@@ -26,6 +49,7 @@ router.get('/detail/:id' , function(req,res,next) {
   })
 
 });
+
 router.get('/:type/count', function(req, res, next) {
 
   const type = req.params.type
@@ -81,7 +105,6 @@ router.get('/:type/:filter/:page', function(req, res, next) {
   }
 
 });
-
 
 
 
