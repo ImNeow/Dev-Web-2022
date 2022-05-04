@@ -23,6 +23,7 @@ const Edit = (props) => {
     },[])
 
       function sendForm(){
+
         const newObjet ={
             type: Type,
             name: Name,
@@ -31,15 +32,15 @@ const Edit = (props) => {
             price: Price,
         };
 
-        console.log(newObjet)
-
         axios.put("/objets/"+Id, newObjet)
-        .then(res => console.log(res))
+        .then((res) =>{
+            console.log(res);
+        })
         .catch(err => console.log(err));
         
       }
 
-    return (
+    return (<>
         <div className="Edit">
             <Container >
                 <Row className="justify-content-md-center mb-4">
@@ -65,7 +66,10 @@ const Edit = (props) => {
 
             </Container>
 
+           
+
         </div>
+    </>
     );
  }
 export {Edit}

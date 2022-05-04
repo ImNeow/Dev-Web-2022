@@ -29,7 +29,7 @@ const Administration = () => {
                             {
                                 Menus.map((myMenu)=>{
                                     return (
-                                        <Nav.Item  key={myMenu}>
+                                        <Nav.Item key={myMenu}>
                                             <Nav.Link className="menu" eventKey={myMenu}>{myMenu}</Nav.Link>
                                         </Nav.Item>
                                             )

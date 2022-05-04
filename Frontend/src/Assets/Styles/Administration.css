@@ -4,7 +4,9 @@
     border: solid black 5px;  
     margin-top: 7%;
     cursor:pointer;
+    border-radius: 10px;
 }
+
 .deco-button{
     background-color:#f0560e;
 }

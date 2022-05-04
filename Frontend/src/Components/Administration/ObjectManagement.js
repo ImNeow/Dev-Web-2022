@@ -75,6 +75,7 @@ const ObjectManagement = () => {
     function showEditForm(index){
         setEditObjet(listObjets[index])
         setEditForm(!editForm)
+        setRefreshList(!refreshList)
     } 
         
 
@@ -83,8 +84,7 @@ const ObjectManagement = () => {
     return (
         <div className="justify-content-center">
             <h1>Gestion des Objets</h1>
-            <Row>
-                
+            <Row className="justify-content-md-center mb-4">
                 <Col md="3">
                     <Form>
                         <FormControl
@@ -110,6 +110,9 @@ const ObjectManagement = () => {
                         onKeyDown={handleKeyDown}
                         />
                     </Form>
+                </Col>
+                <Col md='3'>
+                    <Button variant='secondary' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
                 </Col>
 
             </Row>
@@ -147,12 +150,13 @@ const ObjectManagement = () => {
                     }
                 </tbody>
             </Table>
+
             <Modal show={editForm} onHide={showEditForm}>
-                <Modal.Header closeButton>
+                <Modal.Header className="custom-modal" closeButton>
                     <Modal.Title>Modification</Modal.Title>
-                </Modal.Header>
-                    <Modal.Body><Edit myObjet={EditObjet}/></Modal.Body>
-                <Modal.Footer>
+                </Modal.Header >
+                    <Modal.Body className="custom-modal"><Edit myObjet={EditObjet}/></Modal.Body>
+                <Modal.Footer className="custom-modal">
                     <Button variant="secondary" onClick={showEditForm}>
                         Fermer
                     </Button>

@@ -1,8 +1,22 @@
 table,td,th{
-
     border: 1px solid #333;
 }
+tbody{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 
 .del-button{
     background-color:#f0560e;
+}
+
+.custom-modal{
+    background-color: #ffc917;
+}
+
+.toast-container{
+    z-index: 2;
+    float: right;
+    position: sticky !important;
 }
