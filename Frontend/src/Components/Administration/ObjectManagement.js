@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
-import { Button, Row, Col, Form, FormControl, Table} from "react-bootstrap"
+import { Button, Row, Col, Form, FormControl, Table, Modal} from "react-bootstrap"
+
+import { Edit } from "./Edit"
 
 import axios from 'axios'
 import '../../Assets/Styles/Management.css'
@@ -7,9 +9,12 @@ import '../../Assets/Styles/Management.css'
 const ObjectManagement = () => {
     const [listObjets,setlistObjets] = useState([])
     const [refreshList,setRefreshList] = useState(false)
+    const [editForm,setEditForm] = useState(false)
+    const [EditObjet,setEditObjet] = useState('')
 
     const [nameInput, setNameInput] = useState("")
     const [TypeInput, setTypeInput] = useState("")
+
 
     useEffect(()=>{
         /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
@@ -67,6 +72,10 @@ const ObjectManagement = () => {
         }
       }
 
+    function showEditForm(index){
+        setEditObjet(listObjets[index])
+        setEditForm(!editForm)
+    } 
         
 
       
@@ -126,7 +135,7 @@ const ObjectManagement = () => {
                                 <td>{myObject.name}</td>
                                 <td>{myObject.type}</td>
                                 <td>
-                                    <Button  variant="success" href={"/administration/objet/"+myObject._id}>/</Button>
+                                    <Button  variant="success" onClick={e=>showEditForm(index)}>/</Button>
                                 </td>
                                 <td>
                                     <Button  variant="danger" className="del-button" onClick={e=> DelObjet(myObject._id)}>X</Button>
@@ -138,6 +147,17 @@ const ObjectManagement = () => {
                     }
                 </tbody>
             </Table>
+            <Modal show={editForm} onHide={showEditForm}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modification</Modal.Title>
+                </Modal.Header>
+                    <Modal.Body><Edit myObjet={EditObjet}/></Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={showEditForm}>
+                        Fermer
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>  
     );
  }

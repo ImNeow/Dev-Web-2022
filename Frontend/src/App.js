@@ -32,8 +32,6 @@ function App() {
         <Route path="/account" element={<Account/>}/>
         <Route path="/accueil" element={<Accueil/>}/>
         <Route path="/administration" element={<Administration/>}/>
-        <Route path="/administration/objet/:id" element={<Edit type='objets'/>}/>
-        <Route path="/administration/curiosity/:id" element={<Edit type='curiosite'/>}/>
 
         <Route path="/bedetheque/BD" element={<Bedetheque type="BD"/>}/>
         <Route path="/bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>
