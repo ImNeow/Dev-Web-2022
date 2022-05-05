@@ -63,4 +63,4 @@ const Search = () => {
               </Container>
             </div>
     }
-    export default Search
+    export {Search}

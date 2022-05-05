@@ -33,4 +33,4 @@ const CustomFooter = () => {
 };
 
 
-export default CustomFooter;
+export {CustomFooter};

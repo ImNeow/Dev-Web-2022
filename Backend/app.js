@@ -11,14 +11,6 @@ require('dotenv').config();
 const port = process.env.PORT
 const uri = process.env.ATLAS_URI
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var booksRouter = require('./routes/books');
-var curiositeRouter = require('./routes/curiosite');
-var objetsRouter = require('./routes/objets');
-
-let User = require('./models/users.model')
-
 var app = express();
 
 // view engine setup
@@ -31,13 +23,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+/* MONGODB CONNECTION */
 mongoose.connect(uri, { useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once('open', ()=>{
   console.log('MongoDB connected')
 })
 
+
 /* Routing */
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var booksRouter = require('./routes/books');
+var curiositeRouter = require('./routes/curiosite');
+var objetsRouter = require('./routes/objets');
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books',booksRouter);
@@ -48,6 +49,7 @@ app.use('/objets',objetsRouter);
 
 
 /*Authentification */
+let User = require('./models/users.model')
 
 const authTokens = {};
 

@@ -16,14 +16,14 @@
     animation-delay: 0s;  /*30s*/
   
     position: absolute;
-    top: -100%;
+    top: -200%;
   }  
   @keyframes marsup-anim {
-    0% {top: -100%;}
+    0% {top: -200%;}
     10% {
       transform: translateX(0%);
       transform-origin: 50% 50%;
-      top: -100%;
+      top: -200%;
     }
   
     2.5% {

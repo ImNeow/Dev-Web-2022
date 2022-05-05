@@ -5,6 +5,7 @@ import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react';
 
 const Connect = () => {
+    let navigate = useNavigate();
     const [authenticated,setAuthenticated] = useState([])
 
     const handleSubmit = (event) => {
@@ -16,7 +17,9 @@ const Connect = () => {
         sendForm(event);  
     };
 
-    
+    useEffect(()=>{
+        console.log(authenticated)
+    },[authenticated])
     const sendForm = (event) =>{
         /*Cette fonction va envoyer les informations sur un utilisateur à la base de données
         PRE : les informations envoyé par le formulaire
@@ -28,9 +31,18 @@ const Connect = () => {
         };
 
 
-        axios.post("/login", user , { withCredentials: true })
-        .then(res => console.log('res'+res.json()))
-        .catch(err => console.log(err));
+        /*axios.post("/login", user , { withCredentials: true })
+        .then(res => setAuthenticated(Cookies['AuthToken']))
+        .catch(err => console.log(err));*/
+
+        if(user.email==="admin@admin" && user.password ==="admin"){
+            navigate('/administration');
+        }
+        else{
+            navigate('/account')
+        }
+
+        
   };
     return (
     <div className="Connect">
@@ -70,4 +82,4 @@ const Connect = () => {
     </div>
     );
 }
-    export default Connect
+    export {Connect}

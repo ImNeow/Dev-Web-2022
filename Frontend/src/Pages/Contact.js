@@ -39,14 +39,14 @@ const Contact = () => {
             <Row className="justify-content-md-center mb-4">
                 <Col md="auto">
                     <h2>Contactez-Nous</h2>
-                </Col>
-                
+                    
+                </Col>                
             </Row>
             <div id="contentForm">
                 <Form noValidate validated={validated} ref={formData} onSubmit={handleSubmit}>
                     <Row className="justify-content-md-center mb-4">
                         <Col xs lg="3">
-                            <Form.Group  controlId="validationCustom01">
+                            <Form.Group >
                                 <Form.Control required type="text" placeholder="Nom" name="form_name" minLength="2" maxLength="25"/>
                                 <Form.Control.Feedback type="invalid">
                                 Veuillez indiquer un nom de référence
@@ -93,4 +93,4 @@ const Contact = () => {
         </div>
     );
 }
-    export default Contact
+    export {Contact}

@@ -16,6 +16,29 @@ router.get('/', function(req, res, next) {
   })
 });
 
+/* 
+    GET /books/search/
+*/
+router.get('/search/', function(req, res, next) {
+
+  let name = req.query.name ;
+  let type = req.query.type ;
+  if(!(name.length<1 && type.length<1)){
+    /*Requête à la DB*/
+    Objet.find({name:{ "$regex":name, "$options": "i" },type:{ "$regex":type, "$options": "i" }},(err, DBres)=>{
+      res.send(DBres);
+    })
+  }else{
+    /*Requête à la DB*/
+    Objet.find({},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+})
+  }
+  
+});
+
+
 router.get('/detail/:id' , function(req,res,next) {
 
   const id = req.params.id
@@ -26,6 +49,7 @@ router.get('/detail/:id' , function(req,res,next) {
   })
 
 });
+
 router.get('/:type/count', function(req, res, next) {
 
   const type = req.params.type
@@ -84,6 +108,39 @@ router.get('/:type/:filter/:page', function(req, res, next) {
 
 
 
+
+
+/*
+UPDATE /objets/
+*/
+router.put('/:id', function(req, res, next) {
+  id = req.params.id 
+
+  /*Requête à la DB*/
+  Objet.updateOne({_id:id},{name:req.body.name,link:req.body.link,type:req.body.type,description:req.body.description,price:req.body.price},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(200);
+  })
+});
+
+
+
+/*
+DELETE /objets/
+*/
+router.delete('/:id', function(req, res, next) {
+  id = req.params.id 
+
+  /*Requête à la DB*/
+  Objet.deleteOne({_id:id},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(200);
+  })
+});
+
+
+
+
 /* 
     POST /objets/
 */
@@ -107,9 +164,14 @@ router.route('/').post((req, res) =>{
 
   /* Envoi du nouveau Objet à la DB */
   newObjet.save()
-  .then(() => res.json('Objet ajouté'))
+  .then(() => res.json(200))
   .catch(err => res.status(400).json('Error ' + err)) 
 })
+
+
+
+
+
 
 
 module.exports = router;

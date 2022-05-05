@@ -2,22 +2,24 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Assets/Styles/App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Container from 'react-bootstrap/Container'
-import CustomNavBar from './Components/CustomNavBar';
-import CustomFooter from './Components/CustomFooter';
+import {CustomNavBar} from './Components/CustomNavBar';
+import {CustomFooter} from './Components/CustomFooter';
 
-import Accueil from './Pages/Accueil';
-import Curiosite from './Pages/Curiosite';
-import Propos from './Pages/Propos';
-import Contact from './Pages/Contact';
-import Bedetheque from './Pages/Bedetheque';
-import Objets from './Pages/Objets';
-import Connect  from './Pages/Connect'
-import Registration from './Pages/Registration';
-import CGV from './Pages/CGV'
-import NotFound from './Pages/NotFound';
-import Detail from './Pages/Detail';
-import Search from './Pages/Search';
+import {Accueil} from './Pages/Accueil';
+import {Account} from './Pages/Account';
+import {Administration} from './Pages/Administration';
+import {Curiosite} from './Pages/Curiosite';
+import {Propos} from './Pages/Propos';
+import {Contact} from './Pages/Contact';
+import {Bedetheque} from './Pages/Bedetheque';
+import {Objets} from './Pages/Objets';
+import {Connect}  from './Pages/Connect'
+import {Registration} from './Pages/Registration';
+import {CGV} from './Pages/CGV'
+import {NotFound} from './Pages/NotFound';
+import {Detail} from './Pages/Detail';
+import {Search} from './Pages/Search';
+import {Edit} from './Components/Administration/Edit';
 
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
   <div className='content'>
     <BrowserRouter>
       <Routes>
+        <Route path="/account" element={<Account/>}/>
         <Route path="/accueil" element={<Accueil/>}/>
+        <Route path="/administration" element={<Administration/>}/>
 
         <Route path="/bedetheque/BD" element={<Bedetheque type="BD"/>}/>
         <Route path="/bedetheque/Manga" element={<Bedetheque type="Manga"/>}/>
@@ -72,6 +76,6 @@ function App() {
   ;  
 }
 
-export default App;
+export {App};
 
  
