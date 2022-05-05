@@ -26,7 +26,7 @@ const ObjectManagement = () => {
             return res.json()
           }
         }).then(jsonResponse => {
-            setlistObjets(jsonResponse)
+            setlistObjets(jsonResponse) 
         })
       },[refreshList])
 
@@ -122,6 +122,7 @@ const ObjectManagement = () => {
                         <th>#</th>
                         <th>Nom</th>
                         <th>Type</th>
+                        <th>Prix</th>
                         <th>Modifier</th>
                         <th>Supprimer</th>
                     </tr>                    
@@ -137,11 +138,12 @@ const ObjectManagement = () => {
                                 <td>{index+1}</td>
                                 <td>{myObject.name}</td>
                                 <td>{myObject.type}</td>
+                                <td>{myObject.price}€   </td>
                                 <td>
-                                    <Button  variant="success" onClick={e=>showEditForm(index)}>/</Button>
+                                    <Button  variant="success" onClick={e=>showEditForm(index)}>📝</Button>
                                 </td>
                                 <td>
-                                    <Button  variant="danger" className="del-button" onClick={e=> DelObjet(myObject._id)}>X</Button>
+                                    <Button  variant="danger" className="del-button" onClick={e=> DelObjet(myObject._id)}>🗑️</Button>
                                 </td>
                             </tr>
 
@@ -156,24 +158,10 @@ const ObjectManagement = () => {
                     <Modal.Title>Modification</Modal.Title>
                 </Modal.Header >
                     <Modal.Body className="custom-modal"><Edit myObjet={EditObjet}/></Modal.Body>
-                <Modal.Footer className="custom-modal">
-                    <Button variant="secondary" onClick={showEditForm}>
-                        Fermer
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </div>  
     );
  }
 
 
- const EditObjet = (props) => {
-   return (
-       <div> test = {props.name}</div>
-   )
- }
-
-
-
-
-export {ObjectManagement,EditObjet}
+export {ObjectManagement}

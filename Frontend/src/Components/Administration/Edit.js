@@ -20,6 +20,7 @@ const Edit = (props) => {
         setLink(Objet.link);
         setDescription(Objet.description);
         setPrice(Objet.price)
+        console.log(Objet)
     },[])
 
       function sendForm(){
@@ -32,6 +33,7 @@ const Edit = (props) => {
             price: Price,
         };
 
+        console.log(newObjet)
         axios.put("/objets/"+Id, newObjet)
         .then((res) =>{
             console.log(res);
@@ -47,12 +49,12 @@ const Edit = (props) => {
                     <Col md="auto">
                         <Table borderless>
                             <tbody>
-                                <tr><td>ID : </td><td>{Id}</td></tr> 
-                                <tr><td>Name : </td><td><input defaultValue={Name} onChange={e=>setName(e.target.value)}></input></td></tr> 
-                                <tr><td>Link : </td><td><input defaultValue={Link} onChange={e=>setLink(e.target.value)}></input></td></tr> 
-                                <tr><td>Type : </td><td><input defaultValue={Type} onChange={e=>setType(e.target.value)}></input></td></tr>  
-                                <tr><td>Description : </td><td><input defaultValue={Description} onChange={e=>setDescription(e.target.value)}></input></td></tr> 
-                                <tr><td>Prix : </td><td><input defaultValue={Price} onChange={e=>setPrice(e.target.value)}></input></td></tr> 
+                                <tr><td>ID : </td><td data-testid="id">{Id}</td></tr> 
+                                <tr><td>Name : </td><td data-testid="name"><input defaultValue={Name} onChange={e=>setName(e.target.value)}></input></td></tr> 
+                                <tr><td>Link : </td><td data-testid="link"><input defaultValue={Link} onChange={e=>setLink(e.target.value)}></input></td></tr> 
+                                <tr><td>Type : </td><td data-testid="type"><input defaultValue={Type} onChange={e=>setType(e.target.value)}></input></td></tr>  
+                                <tr><td>Description : </td><td data-testid="description"><input defaultValue={Description} onChange={e=>setDescription(e.target.value)}></input></td></tr> 
+                                <tr><td>Prix : </td><td data-testid="prix"><input defaultValue={Price} onChange={e=>setPrice(e.target.value)}></input></td></tr> 
                             </tbody>
                         </Table>
                     </Col>

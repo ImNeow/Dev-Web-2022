@@ -4,8 +4,8 @@ import {useNavigate} from 'react-router-dom';
 import {UserInformation} from '../Components/Users/UserInformation'
 import {UserHistory} from '../Components/Users/UserHistory'
 
-import {ObjectManagement,EditObjet} from '../Components/Administration/ObjectManagement'
-import {CuriosityManagement,EditCuriosity} from '../Components/Administration/CuriosityManagement'
+import {ObjectManagement} from '../Components/Administration/ObjectManagement'
+import {CuriosityManagement} from '../Components/Administration/CuriosityManagement'
 import {UsersManagement} from '../Components/Administration/UsersManagement'
 import {NewsletterManagement} from '../Components/Administration/NewsletterManagement'
 
@@ -63,13 +63,6 @@ const Administration = () => {
                         <Tab.Pane eventKey="Newsletter" >
                                 <NewsletterManagement/>
                         </Tab.Pane>
-                        <Tab.Pane eventKey="editObjet" >
-                                <EditObjet/>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="editCuriosite" >
-                                <EditCuriosity/>
-                        </Tab.Pane>
-
                     </Tab.Content>
                     </Col>
                 </Row>
