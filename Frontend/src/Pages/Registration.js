@@ -12,8 +12,94 @@ const Registration = () => {
     let navigate = useNavigate();
     const [validated, setValidated] = useState(false);  
 
+    function testValues(event){
+        if(!(checkNameValidity(event.target[0].value,event.target[1].value))){
+            document.getElementById('errorDiv').innerText= "Nom et/ou prénom erroné(s)";
+            return false;
+        
+        }
+        else if(!(isNameCharactersEnough(event.target[0].value,event.target[1].value))){
+            document.getElementById('errorDiv').innerText= "La longueur de votre nom et/ou votre prénom n'est pas suffisante";
+            return false;
+        }
+        else if(!(isEmailCharactersEnough(event.target[2].value))){
+            document.getElementById('errorDiv').innerText= "La longueur de votre email n'est pas suffisante";
+            return false;
+        }
+        else if(!(checkEmailValidity(event.target[2].value))){
+            document.getElementById('errorDiv').innerText= "Votre email n'est pas valide";
+            return false;
+        }
+        else if(!(checkPasswordValidity(event.target[3].value,event.target[4].value))){
+            document.getElementById('errorDiv').innerText= "La confirmation du mot de passe a échoué";
+            return false;
+        }
+        else if(!(isPasswordCharactersEnough(event.target[3].value))){
+            document.getElementById('errorDiv').innerText= "La longueur de votre mot de passe n'est pas suffisante";
+            return false;
+        }
+        else if(!(isNewsletterBoolean(event.target[5].checked))){
+            document.getElementById('errorDiv').innerText= "Problème avec la newsletter";
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
-    function isCorrect(str){
+    function checkNameValidity(prenom,nom){ 
+        
+        if(isStringCorrect(prenom) && isStringCorrect(nom)){
+            return true;
+        }
+        return false;   
+    }
+
+    function isNameCharactersEnough(prenom, nom){
+        if(prenom.length >= 2 && nom.length >= 2){
+            return true;
+        }
+        return false;
+    }
+    function isEmailCharactersEnough(email){
+        if(email.length >= 5){
+            return true;
+        }
+        return false;
+    }
+    function checkEmailValidity(email) {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+        {
+            return true;
+        }else{
+            return false;
+        }
+            
+    }
+    function isPasswordCharactersEnough(password){
+        if(password.length >= 8){
+            return true;
+        }
+        return false;
+    }
+
+    function  checkPasswordValidity(mdp1,mdp2){ 
+        if(mdp1 === mdp2){
+            return true;
+        }
+        return false;   
+    }
+
+    function isNewsletterBoolean(newsletter){
+        if(typeof newsletter === "boolean"){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function isStringCorrect(str){
         for(let i=0;i<str.length;i++){
             if(!((str[i].charCodeAt()>65 && str[i].charCodeAt()<90) || ( str[i].charCodeAt()>97 && str[i].charCodeAt()<122))){ //65:90 - 97:122
                 return false;
@@ -22,21 +108,8 @@ const Registration = () => {
         return true;
     }
 
-    function checkNameValidity(prenom,nom){ 
-        
-        if(isCorrect(prenom) && isCorrect(nom)){
-            return true;
-        }
-        return false;   
-    }
 
-    function  checkPasswordValidity(mdp1,mdp2){ 
-        
-        if(mdp1 === mdp2){
-            return true;
-        }
-        return false;   
-    }
+
    
 
     const handleSubmit = (event) => {
@@ -46,7 +119,6 @@ const Registration = () => {
         */ 
        
         const form = event.currentTarget;
-        console.log(form)
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
@@ -54,13 +126,10 @@ const Registration = () => {
         else{
             event.preventDefault();
 
-            if (checkNameValidity(event.target[0].value,event.target[1].value,event.target[2].value,event.target[3].value) || checkPasswordValidity(event.target[3].value,event.target[4].value)){
+            if (testValues(event)){
                 sendForm(event);  
                 navigate('/accueil')
 
-            }else{
-                
-                document.getElementById('errorDiv').innerText= 'Nom ou prénom erronée '
             }
             
         }
@@ -105,7 +174,7 @@ const Registration = () => {
                 </Row>
                 <Row className="justify-content-md-center mb-4">
                     <Col md="auto">
-                        <p id="errorDiv"> </p>
+                        <h4 id="errorDiv" style={{color:"red", fontWeight:"bold" }}> </h4>
                     </Col>
                 </Row>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -164,7 +233,7 @@ const Registration = () => {
                         <Col md="auto">
                             <Form.Group className="mb-3">
                                 <Form.Check
-                                label="Je souhaite m'inscrire à la newsletter" defaultChecked={true}
+                                label="Je souhaite m'inscrire à la newsletter" defaultChecked={true} 
                                 />
                             </Form.Group>
                         </Col>
