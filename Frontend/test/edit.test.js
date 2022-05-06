@@ -1,6 +1,5 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
 
 import Edit from "../src/Components/Administration/Edit"
 
@@ -17,8 +16,8 @@ afterEach(() => {
 });
 
 
-it("Test du composant Edit.js", () => {
-  TestObjet = {
+it("Test des props du composant Edit.js", () => {
+  const TestObjet = {
     "_id": "123",
     "name": "Test",
     "link": "https://www.test.com/",
@@ -26,9 +25,10 @@ it("Test du composant Edit.js", () => {
     "description": "Test description",
     "price": 10
 }
-  act(() => {
-    render(<Edit myObjet={TestObjet}/>, container);
-  });
+
+  render(<Edit myObjet={TestObjet}/>, container);
+
+  
   expect(container.querySelector('data-testid="id"').textContent).toBe(TestObjet._id);
   expect(container.querySelector('data-testid="name"').textContent).toBe(TestObjet.name);
   expect(container.querySelector('data-testid="link"').textContent).toBe(TestObjet.link);
