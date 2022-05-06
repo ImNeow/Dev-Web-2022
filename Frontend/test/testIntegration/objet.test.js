@@ -1,7 +1,7 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 
-import {Objets} from "../src/Pages/Objets";
+import {Objets} from "../../src/Pages/Objets";
 
 
 //Création d'un container 

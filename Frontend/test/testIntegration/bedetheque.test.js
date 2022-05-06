@@ -1,7 +1,7 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 
-import {Bedetheque} from "../src/Pages/Bedetheque";
+import {Bedetheque} from "../../src/Pages/Bedetheque";
 
 
 //Création d'un container 

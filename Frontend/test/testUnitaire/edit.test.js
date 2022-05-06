@@ -1,7 +1,7 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 
-import Edit from "../src/Components/Administration/Edit"
+import Edit from "../../src/Components/Administration/Edit"
 
 let container = null;
 beforeEach(() => {
