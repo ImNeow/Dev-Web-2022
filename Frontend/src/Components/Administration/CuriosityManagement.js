@@ -39,7 +39,7 @@ const CuriosityManagement = () => {
       
     return (
         <div className="justify-content-center">
-            <h1>Gestion des Objets</h1>
+            <h1>Gestion des Curiosités</h1>
             <table className="table table-responsive">
                 <thead>
                     <tr>
@@ -75,12 +75,4 @@ const CuriosityManagement = () => {
     );
  }
 
-
- const EditCuriosity = () => {
-    return (
-        <div>test</div>
-    )
-}
-
-
-export {CuriosityManagement,EditCuriosity}
+export {CuriosityManagement}

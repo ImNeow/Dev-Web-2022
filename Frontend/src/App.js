@@ -19,7 +19,6 @@ import {CGV} from './Pages/CGV'
 import {NotFound} from './Pages/NotFound';
 import {Detail} from './Pages/Detail';
 import {Search} from './Pages/Search';
-import {Edit} from './Components/Administration/Edit';
 
 
 function App() {
@@ -64,7 +63,7 @@ function App() {
         element={<Navigate to="/accueil" />}
         />
         <Route
-        path="/ds"
+        path="*"
         element={<Navigate to="/PageNotFound" />}
         />
       </Routes>

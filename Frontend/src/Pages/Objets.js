@@ -6,6 +6,7 @@ import "../Assets/Styles/App.css"
 
 import '../Assets/Styles/Animation.css'
 import gaston_hello from '../Assets/Images/gaston_hello.gif'
+import imageNotFound from "../Assets/Images/image-non-disponible.webp"
 
 const Animation = {'statuette':["anim-gaston",gaston_hello]};
 
@@ -66,7 +67,7 @@ const Objets = (props) => {
   
 
     return<>
-      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className='anim' src={gaston_hello} ></img></div>)}/>
+      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className='anim' alt="gaston" src={Animation.statuette[1]} ></img></div>)}/>
               
       <div className="ListContent">
 
@@ -86,12 +87,12 @@ const Objets = (props) => {
               listObjets.map((myObject,index) => {
                 return (
                   <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                    <a href={'/detail/objets/'+myObject._id} style={{textDecoration:'none'}}>
-                      <Card key={myObject._id}>
-                        <Card.Img variant="top" src={myObject.link}/>
-                        <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
-                          <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{myObject.name}</Card.Title>
-                          <Card.Text  className="priceBD">{myObject.price}€</Card.Text>
+                    <a data-testid="card-link" href={myObject._id[0]!=='-' ? '/detail/objets/'+myObject._id : "/PageNotFound"} style={{textDecoration:'none'}}>
+                      <Card data-testid="card" key={myObject._id}>
+                        <Card.Img data-testid="card-img" variant="top" src={(myObject.link.startsWith("https://") ? myObject.link : imageNotFound)}/>
+                        <Card.Body data-testid="card-body" style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
+                          <Card.Title data-testid="card-title" style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{myObject.name.length>0 ? myObject.name : "Nom Introuvable"}</Card.Title>
+                          <Card.Text data-testid="card-text" className="priceBD">{ (myObject.price>=0 ? myObject.price+"€": "Prix indisponible") }</Card.Text>
                         </Card.Body>
                       </Card>
                     </a>
@@ -106,7 +107,7 @@ const Objets = (props) => {
                 {
                 nbrPage.map((number) => {
                   return(
-                    <Pagination.Item onClick={(e)=>setActivePage(e.currentTarget.innerHTML)} key={number} active={number == activePage}>
+                    <Pagination.Item onClick={(e)=>setActivePage(e.currentTarget.innerHTML)} key={number} active={number === activePage}>
                     {number}
                     </Pagination.Item>
                  );

@@ -8,6 +8,7 @@ import '../Assets/Styles/Animation.css'
 import marsup from '../Assets/Images/marsupilami-down.png'
 import dbz from '../Assets/Images/dbzcloud.png'
 import batsignal from '../Assets/Images/batsignal.png'
+import imageNotFound from "../Assets/Images/image-non-disponible.webp"
 
 const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-signalbat",batsignal]};
 
@@ -69,7 +70,7 @@ const Bedetheque = (props) => {
  
 
     return<>
-      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className={animationClassname} src={animationSrc} ></img></div>)}/>
+      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className={animationClassname} alt="animation" src={animationSrc} ></img></div>)}/>
 
       <div className="ListContent"> 
         
@@ -89,12 +90,12 @@ const Bedetheque = (props) => {
               listBooks.map((myBook,index) => {
                 return (
                   <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                    <a href={'/detail/books/'+myBook._id} style={{textDecoration:'none'}}>
-                      <Card key={myBook._id}>
-                        <Card.Img variant="top" src={myBook.link}/>
-                        <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
-                          <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{myBook.name}</Card.Title>
-                          <Card.Text  className="priceBD">{myBook.price}€</Card.Text>
+                    <a data-testid="card-link" href={(myBook._id[0]!=='-' ? '/detail/books/'+myBook._id : "/PageNotFound")} style={{textDecoration:'none'}}>
+                      <Card data-testid="card" key={myBook._id}>
+                        <Card.Img data-testid="card-img" variant="top" src={(myBook.link.startsWith("https://") ? myBook.link : imageNotFound)}/>
+                        <Card.Body data-testid="card-body" style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
+                          <Card.Title data-testid="card-title" style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{myBook.name.length>0 ? myBook.name : "Nom Introuvable"}</Card.Title>
+                          <Card.Text data-testid="card-text" className="priceBD">{ (myBook.price>=0 ? myBook.price+"€": "Prix indisponible") }</Card.Text>
                         </Card.Body>
                       </Card>
                     </a>
@@ -109,7 +110,7 @@ const Bedetheque = (props) => {
                 {
                 nbrPage.map((number) => {
                   return(
-                    <Pagination.Item className="custom-pagination" onClick={(e)=>setActivePage(e.currentTarget.innerHTML)} key={number} disabled={number == activePage} active={number == activePage}>
+                    <Pagination.Item className="custom-pagination" onClick={(e)=>setActivePage(e.currentTarget.innerHTML)} key={number} disabled={number === activePage} active={number === activePage}>
                     {number}
                     </Pagination.Item>
                  );
