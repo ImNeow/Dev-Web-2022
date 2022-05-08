@@ -20,79 +20,16 @@ afterEach(() => {
   container = null;
 });
 
-it("Affichage des cartes dans une configuration normale de la page Bedetheque", async () => {
-
-  const fakeResponse = [
-    {
-        "_id": "123",
-        "type": "BD",
-        "name": "Tintin au Tibet",
-        "link": "https://www.test.com/imagetest1.jpg",
-        "description": "Ceci est un cas",
-        "price": 1,
-        "__v": 0
-    },
-    {
-        "_id": "456",
-        "type": "BD",
-        "name": "Tintin chez Mémé",
-        "link": "https://www.test.com/imagetest2.jpg",
-        "description": "Ceci est un deuxième cas",
-        "price": 2,
-        "__v": 0
-    }
-];
-
-  jest.spyOn(global, "fetch").mockImplementation(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(fakeResponse)
-    })
-  );
-
-  
-  render(<Bedetheque  type="BD" />, container);
-
-  ////////////////////////////////
-  //                            //
-  //  Vérification des cartes   //
-  //                            //
-  ////////////////////////////////
-
-  for(let i=0;i<fakeResponse.length;i++){
-
-    //Test du lien 
-    expect(container.querySelector("[data-testid='card-link']")[i].getAttribute("href")).toEqual("/detail/books/123");
-    
-    //Test de la clé de la carte 
-    expect(container.querySelector("[data-testid='card']")[i].getAttribute("key")).toEqual(fakeResponse[i]._id);
-    
-    //Test du lien de l'image
-    expect(container.querySelector("[data-testid='card-img']")[i].getAttribute("src")).toEqual(fakeResponse[i].link);
-
-    //Test du nom de la carte 
-    expect(container.querySelector("[data-testid='card-title']")[i].textContent).toEqual(fakeResponse[i].name);
-
-    //Test du prix de la carte
-    expect(container.querySelector("[data-testid='card-text']")[i].textContent).toEqual(fakeResponse[i].price);  
-
-    
-    // Vérification de la variable Type 
-    expect(fakeResponse[i].type).toEqual("BD");
-  }
-
-  
-  
-  global.fetch.mockRestore();
-});
 
 
-it("Affichage du nom des cartes inexistant", async () => {
+
+it("Affichage du nom des cartes", async () => {
 
   const fakeResponse = [
     {
       "_id": "123",
       "type": "BD",
-      "name": "",
+      "name": "Tintin au Tibet",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
@@ -102,6 +39,15 @@ it("Affichage du nom des cartes inexistant", async () => {
       "_id": "456",
       "type": "BD",
       "name": "",
+      "link": "https://www.test.com/imagetest2.jpg",
+      "description": "Ceci est un deuxième cas",
+      "price": 2,
+      "__v": 0
+  },
+  {
+      "_id": "456",
+      "type": "BD",
+      "name": "Ce nom de carte est beaucoup trop grand pour être affiché correctement dans la page Objet du site web de la librairie Jaune2",
       "link": "https://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
       "price": 2,
@@ -124,27 +70,15 @@ it("Affichage du nom des cartes inexistant", async () => {
   //                           //
   ///////////////////////////////
 
-  for(let i=0;i<fakeResponse.length;i++){
 
-    //Test du lien 
-    expect(container.querySelector("[data-testid='card-link']")[i].getAttribute("href")).toEqual("/detail/Bedetheque/"+fakeResponse[i]._id);
+    //Test du nom de la carte normal
+    expect(container.querySelector("[data-testid='card-title']")[0].textContent).toEqual("Tintin au Tibet");
     
-    //Test de la clé de la carte 
-    expect(container.querySelector("[data-testid='card']")[i].getAttribute("key")).toEqual(fakeResponse[i]._id);
-    
-    //Test du lien de l'image
-    expect(container.querySelector("[data-testid='card-img']")[i].getAttribute("src")).toEqual(fakeResponse[i].link);
+    //Test du nom de la carte inexistant
+    expect(container.querySelector("[data-testid='card-title']")[1].textContent).toEqual("Nom Introuvable");
 
-    //Test du nom de la carte
-    expect(container.querySelector("[data-testid='card-title']")[i].textContent).toEqual("Nom Introuvable");
-
-    //Test du prix de la carte
-    expect(container.querySelector("[data-testid='card-text']")[i].textContent).toEqual(fakeResponse[i].price);  
-
-    
-    // Vérification de la variable Type 
-    expect(fakeResponse[i].type).toEqual("BD");
-  }
+    //Test du nom de la carte trop long
+    expect(container.querySelector("[data-testid='card-title']")[2].textContent).toEqual('Ce nom de carte est beaucoup trop grand pour être affiché correctement dans la page Objet du site...');
 
   
   
@@ -152,77 +86,13 @@ it("Affichage du nom des cartes inexistant", async () => {
 });
 
 
-it("Affichage du nom des cartes trop grand", async () => {
-
-  const fakeResponse = [
-  {
-    "_id": "123",
-    "type": "BD",
-    "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "link": "https://www.test.com/imagetest1.jpg",
-    "description": "Ceci est un cas",
-    "price": 1,
-    "__v": 0
-},
-{
-    "_id": "456",
-    "type": "BD",
-    "name": "Ce nom de carte est beaucoup trop grand pour être affiché correctement dans la page Objet du site web de la librairie Jaune2",
-    "link": "https://www.test.com/imagetest2.jpg",
-    "description": "Ceci est un deuxième cas",
-    "price": 2,
-    "__v": 0
-}
-];
-
-  jest.spyOn(global, "fetch").mockImplementation(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(fakeResponse)
-    })
-  );
-
-  
-  render(<Bedetheque  type="BD" />, container);
-
-  //////////////////////////////
-  //                          //
-  //  Vérification des cartes //
-  //                          //
-  //////////////////////////////
-
-  for(let i=0;i<fakeResponse.length;i++){
-
-    //Test du lien 
-    expect(container.querySelector("[data-testid='card-link']")[i].getAttribute("href")).toEqual("/detail/books/"+fakeResponse[i]._id);
-    
-    //Test de la clé de la carte 
-    expect(container.querySelector("[data-testid='card']")[i].getAttribute("key")).toEqual(fakeResponse[i]._id);
-    
-    //Test du lien de l'image
-    expect(container.querySelector("[data-testid='card-img']")[i].getAttribute("src")).toEqual(fakeResponse[i].link);
-
-    //Test du nom de la carte
-    expect(container.querySelector("[data-testid='card-title']")[i].textContent).toEqual( fakeResponse.name.slice(0,97)+'...' );
-
-    //Test du prix de la carte
-    expect(container.querySelector("[data-testid='card-text']")[i].textContent).toEqual(fakeResponse[i].price);  
-
-    
-    // Vérification de la variable Type 
-    expect(fakeResponse[i].type).toEqual("BD");
-  }
-
-  
-  
-  global.fetch.mockRestore();
-});
 
 
 it("Lien vers la page Detail", async () => {
 
   const fakeResponse = [
     {
-      "_id": "-123",
+      "_id": "123",
       "type": "BD",
       "name": "Tintin au Tibet",
       "link": "https://www.test.com/imagetest1.jpg",
@@ -248,6 +118,15 @@ it("Lien vers la page Detail", async () => {
     "price": 1,
     "__v": 0
 },
+{
+  "_id": "-123",
+  "type": "BD",
+  "name": "Tintin au Tibet",
+  "link": "https://www.test.com/imagetest1.jpg",
+  "description": "Ceci est un cas",
+  "price": 1,
+  "__v": 0
+}
 
 ];
 
@@ -266,27 +145,19 @@ it("Lien vers la page Detail", async () => {
   //                          //
   //////////////////////////////
 
-  for(let i=0;i<fakeResponse.length;i++){
 
-    //Test du lien 
-    expect(container.querySelector("[data-testid='card-link']")[i].getAttribute("href")).toEqual("/PageNotFound");
+  //Test du lien lorsqu'il y a un ID correcte
+  expect(container.querySelector("[data-testid='card-link']")[0].getAttribute("href")).toEqual("/details/book/123");
     
-    //Test de la clé de la carte 
-    expect(container.querySelector("[data-testid='card']")[i].getAttribute("key")).toEqual(fakeResponse[i]._id);
-    
-    //Test du lien de l'image
-    expect(container.querySelector("[data-testid='card-img']")[i].getAttribute("src")).toEqual(fakeResponse[i].link);
-
-    //Test du nom de la carte
-    expect(container.querySelector("[data-testid='card-title']")[i].textContent).toEqual( fakeResponse[i].name );
-
-    //Test du prix de la carte
-    expect(container.querySelector("[data-testid='card-text']")[i].textContent).toEqual(fakeResponse[i].price);  
-
-    
-    // Vérification de la variable Type 
-    expect(fakeResponse[i].type).toEqual("BD");
-  }
+  //Test du lien lorsque l'ID est une chaine de caractère
+  expect(container.querySelector("[data-testid='card-link']")[1].getAttribute("href")).toEqual("/PageNotFound");
+ 
+  //Test du lien lorsqu'il n'y a pas d'ID
+  expect(container.querySelector("[data-testid='card-link']")[2].getAttribute("href")).toEqual("/PageNotFound");
+     
+  //Test du lien lorsque l'ID est un nombre négatif
+  expect(container.querySelector("[data-testid='card-link']")[3].getAttribute("href")).toEqual("/PageNotFound");
+     
 
   
   
@@ -303,7 +174,7 @@ it("Image de la carte Objet", async () => {
       "_id": "123",
       "type": "BD",
       "name": "Tintin au Tibet",
-      "link": "www.test.com/imagetest1.jpg",
+      "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
       "__v": 0
@@ -325,6 +196,24 @@ it("Image de la carte Objet", async () => {
     "description": "Ceci est un cas",
     "price": 1,
     "__v": 0
+},
+{
+  "_id": "123",
+  "type": "BD",
+  "name": "Tintin au Tibet",
+  "link": "www.test.com",
+  "description": "Ceci est un cas",
+  "price": 1,
+  "__v": 0
+},
+{
+  "_id": "123",
+  "type": "BD",
+  "name": "Tintin au Tibet",
+  "link": "https://www.test.com/imagetest1.jg",
+  "description": "Ceci est un cas",
+  "price": 1,
+  "__v": 0
 }
 ];
 
@@ -343,28 +232,21 @@ it("Image de la carte Objet", async () => {
   //                          //
   //////////////////////////////
 
-  for(let i=0;i<fakeResponse.length;i++){
 
-    //Test du lien 
-    expect(container.querySelector("[data-testid='card-link']")[i].getAttribute("href")).toEqual("/detail/books/"+fakeResponse[i]._id);
-    
-    //Test de la clé de la carte 
-    expect(container.querySelector("[data-testid='card']")[i].getAttribute("key")).toEqual(fakeResponse[i]._id);
-    
-    //Test du lien de l'image
-    expect(container.querySelector("[data-testid='card-img']")[i].getAttribute("src")).toEqual("imageNotFound");
-
-    //Test du nom de la carte
-    expect(container.querySelector("[data-testid='card-title']")[i].textContent).toEqual( fakeResponse[i].name);
-
-    //Test du prix de la carte
-    expect(container.querySelector("[data-testid='card-text']")[i].textContent).toEqual(fakeResponse[i].price);  
-
-    
-    // Vérification de la variable Type 
-    expect(fakeResponse[i].type).toEqual("BD");
-  }
-
+  //Test du lien de l'image
+  expect(container.querySelector("[data-testid='card-img']")[0].getAttribute("src")).toEqual("https://www.test.com/imagetest1.jpg");
+  
+  //Test du lien de l'image lorsque https est mal écrit
+  expect(container.querySelector("[data-testid='card-img']")[1].getAttribute("src")).toEqual("imageNotFound");
+  
+  //Test du lien de l'image lorsqu'il n'y a pas de lien
+  expect(container.querySelector("[data-testid='card-img']")[2].getAttribute("src")).toEqual("imageNotFound");
+  
+  //Test du lien de l'image lorsqu'il manque le https et l'extension
+  expect(container.querySelector("[data-testid='card-img']")[3].getAttribute("src")).toEqual("imageNotFound");
+  
+  //Test du lien de l'image lorsque l'extension est mal écrite
+  expect(container.querySelector("[data-testid='card-img']")[4].getAttribute("src")).toEqual("imageNotFound");
   
   
   global.fetch.mockRestore();
@@ -374,13 +256,13 @@ it("Image de la carte Objet", async () => {
 it("Prix de la carte Objet", async () => {
 
   const fakeResponse = [
-    {
+   {
       "_id": "123",
       "type": "BD",
       "name": "Tintin au Tibet",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
-      "price": -1,
+      "price": 1,
       "__v": 0
   },
   {
@@ -391,7 +273,8 @@ it("Prix de la carte Objet", async () => {
       "description": "Ceci est un deuxième cas",
       "price": 0,
       "__v": 0
-  }, {
+  }, 
+  {
     "_id": "123",
     "type": "BD",
     "name": "Tintin au Tibet",
@@ -399,7 +282,16 @@ it("Prix de la carte Objet", async () => {
     "description": "Ceci est un cas",
     "price": -10.5,
     "__v": 0
-}
+  }, 
+  {
+    "_id": "123",
+    "type": "BD",
+    "name": "Tintin au Tibet",
+    "link": "https://www.test.com/imagetest1.jpg",
+    "description": "Ceci est un cas",
+    "price": -1,
+    "__v": 0
+  }
 ];
 
   jest.spyOn(global, "fetch").mockImplementation(() =>
@@ -417,28 +309,18 @@ it("Prix de la carte Objet", async () => {
   //                          //
   //////////////////////////////
 
-  for(let i=0;i<fakeResponse.length;i++){
 
-    //Test du lien 
-    expect(container.querySelector("[data-testid='card-link']")[i].getAttribute("href")).toEqual("/detail/books/"+fakeResponse[i]._id);
+  //Test du prix de la carte
+  expect(container.querySelector("[data-testid='card-text']")[0].textContent).toEqual("1€");  
+  
+  //Test du prix de la carte losqu'il est égale à 0
+  expect(container.querySelector("[data-testid='card-text']")[1].textContent).toEqual("Prix indisponible");  
+  
+  //Test du prix de la carte lorsqu'il est un nombre à virgule négatif 
+  expect(container.querySelector("[data-testid='card-text']")[2].textContent).toEqual("Prix indisponible");  
     
-    //Test de la clé de la carte 
-    expect(container.querySelector("[data-testid='card']")[i].getAttribute("key")).toEqual(fakeResponse[i]._id);
-    
-    //Test du lien de l'image
-    expect(container.querySelector("[data-testid='card-img']")[i].getAttribute("src")).toEqual(fakeResponse.link);
-
-    //Test du nom de la carte
-    expect(container.querySelector("[data-testid='card-title']")[i].textContent).toEqual( fakeResponse[i].name );
-
-    //Test du prix de la carte
-    expect(container.querySelector("[data-testid='card-text']")[i].textContent).toEqual("Prix indisponible");  
-
-    
-    // Vérification de la variable Type 
-    expect(fakeResponse[i].type).toEqual("BD");
-  }
-
+  //Test du prix de la carte lorsqu'il est négatif
+  expect(container.querySelector("[data-testid='card-text']")[3].textContent).toEqual("Prix indisponible");  
   
   
   global.fetch.mockRestore();

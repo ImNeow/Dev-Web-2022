@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Button, Row, Col, Form, FormControl, Table, Modal, Toast, ToastContainer} from "react-bootstrap"
 
-import { Edit } from "./Edit"
+import { CustomTable } from "./CustomTable"
 
 import axios from 'axios'
 import '../../Assets/Styles/Management.css'
@@ -147,7 +147,7 @@ const ObjectManagement = () => {
                
                                 <tr key={myObject._id}>
                                 <td>{index+1}</td>
-                                <td>{myObject.name}</td>
+                                <td style={{fontFamily: "cursive"}}>{myObject.name}</td>
                                 <td>{myObject.type}</td>
                                 <td>{myObject.price}€   </td>
                                 <td>
@@ -168,7 +168,7 @@ const ObjectManagement = () => {
                 <Modal.Header className="custom-modal" closeButton>
                     <Modal.Title>Modification</Modal.Title>
                 </Modal.Header >
-                    <Modal.Body className="custom-modal"><Edit hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
+                    <Modal.Body className="custom-modal"><CustomTable hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
             </Modal>
         </div>  
     );

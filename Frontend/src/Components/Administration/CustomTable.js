@@ -3,7 +3,7 @@ import { Row, Col , Container, Button, Table} from "react-bootstrap"
 
 import axios from "axios";
 
-const Edit = (props) => {
+const CustomTable = (props) => {
     const Objet = props.myObjet
     
     const hidingFunction = props.hiddenFunction
@@ -24,8 +24,8 @@ const Edit = (props) => {
         setLink(Objet.link);
         setDescription(Objet.description);
         setPrice(Objet.price)
-        console.log(Objet)
     },[])
+
 
       function sendForm(){
 
@@ -37,22 +37,32 @@ const Edit = (props) => {
             price: Price,
         };
 
-        console.log(newObjet)
-        axios.put("/objets/"+Id, newObjet)
-        .then((res) =>{
-            console.log(res);
-            hidingFunction();
-            CorrectFunction();
-        })
-        .catch(err =>{
-            console.log(err);
-            WrongFunction();
-        } );
+        if(checkFormValidity(newObjet)){
+           /* axios.put("/objets/"+Id, newObjet)
+            .then((res) =>{
+                console.log(res);
+                hidingFunction();
+                CorrectFunction();
+            })
+            .catch(err =>{
+                console.log(err);
+                WrongFunction();
+            } );*/
+            console.log('Tout Va Bien')
+        }else{
+            console.log('erreur')
+        }
+        
         
       }
 
+      function checkFormValidity(objet){
+        
+
+      }
+
     return (<>
-        <div className="Edit">
+        <div className="CustomTable">
             <Container >
                 <Row className="justify-content-md-center mb-4">
                     <Col md="auto">
@@ -83,4 +93,4 @@ const Edit = (props) => {
     </>
     );
  }
-export {Edit}
+export {CustomTable}

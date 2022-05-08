@@ -66,6 +66,9 @@ const Bedetheque = (props) => {
   }, []);
   
 
+  function isImage(url) {
+    return /^https?:\/\/.+\.(jpg|JPG|jpeg|png|webp|avif|gif|svg)$/.test(url);
+  }
 
  
 
@@ -92,7 +95,7 @@ const Bedetheque = (props) => {
                   <Col key={"Col"+index} style={{marginBottom:'5px'}}>
                     <a data-testid="card-link" href={(myBook._id[0]!=='-' ? '/detail/books/'+myBook._id : "/PageNotFound")} style={{textDecoration:'none'}}>
                       <Card data-testid="card" key={myBook._id}>
-                        <Card.Img data-testid="card-img" variant="top" src={(myBook.link.startsWith("https://") ? myBook.link : imageNotFound)}/>
+                        <Card.Img data-testid="card-img" variant="top" src={(isImage(myBook.link) ? myBook.link : imageNotFound)}/>
                         <Card.Body data-testid="card-body" style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
                           <Card.Title data-testid="card-title" style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{ myBook.name.length<100 ? myBook.name.length>=0 ? myBook.name : "Nom Introuvable" : myBook.name.slice(0,97)+'...'  }</Card.Title>
                           <Card.Text data-testid="card-text" className="priceBD">{ (myBook.price>=0 ? myBook.price+"€": "Prix indisponible") }</Card.Text>

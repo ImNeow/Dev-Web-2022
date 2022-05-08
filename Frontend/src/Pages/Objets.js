@@ -65,6 +65,10 @@ const Objets = (props) => {
     window.matchMedia("(min-width: 1400px)").addEventListener('change', () => setnbrObjetsPerRow(5));
   }, []);
   
+  function isImage(url) {
+    return /^https?:\/\/.+\.(jpg|JPG|jpeg|png|webp|avif|gif|svg)$/.test(url);
+  }
+
 
     return<>
       <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className='anim' alt="gaston" src={Animation.statuette[1]} ></img></div>)}/>
@@ -89,7 +93,7 @@ const Objets = (props) => {
                   <Col key={"Col"+index} style={{marginBottom:'5px'}}>
                     <a data-testid="card-link" href={myObject._id[0]!=='-' ? '/detail/objets/'+myObject._id : "/PageNotFound"} style={{textDecoration:'none'}}>
                       <Card data-testid="card" key={myObject._id}>
-                        <Card.Img data-testid="card-img" variant="top" src={(myObject.link.startsWith("https://") ? myObject.link : imageNotFound)}/>
+                        <Card.Img data-testid="card-img" variant="top" src={isImage(myObject.link) ? myObject.link : imageNotFound}/>
                         <Card.Body data-testid="card-body" style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
                           <Card.Title data-testid="card-title" style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{ myObject.name.length<100 ? myObject.name.length>=0 ? myObject.name : "Nom Introuvable" : myObject.name.slice(0,97)+'...'  }</Card.Title>
                           <Card.Text data-testid="card-text" className="priceBD">{ (myObject.price>0 ? myObject.price+"€": "Prix indisponible") }</Card.Text>
