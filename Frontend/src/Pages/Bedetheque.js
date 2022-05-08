@@ -94,7 +94,7 @@ const Bedetheque = (props) => {
                       <Card data-testid="card" key={myBook._id}>
                         <Card.Img data-testid="card-img" variant="top" src={(myBook.link.startsWith("https://") ? myBook.link : imageNotFound)}/>
                         <Card.Body data-testid="card-body" style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
-                          <Card.Title data-testid="card-title" style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{myBook.name.length>0 ? myBook.name : "Nom Introuvable"}</Card.Title>
+                          <Card.Title data-testid="card-title" style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{ myBook.name.length<100 ? myBook.name.length>=0 ? myBook.name : "Nom Introuvable" : myBook.name.slice(0,97)+'...'  }</Card.Title>
                           <Card.Text data-testid="card-text" className="priceBD">{ (myBook.price>=0 ? myBook.price+"€": "Prix indisponible") }</Card.Text>
                         </Card.Body>
                       </Card>

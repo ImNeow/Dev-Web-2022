@@ -14,9 +14,11 @@ const Propos = () => {
                     <Col md="5">
                         <CustomCarousel />
                     </Col>
+                    
                 </Row>
             </Container>
             <Container fluid>
+       
                 <Row >
                     <Col style={{textAlign : 'left', fontWeight : 'bold'}}>1984</Col>
                 </Row>

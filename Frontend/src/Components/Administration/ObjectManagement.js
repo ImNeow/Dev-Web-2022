@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Button, Row, Col, Form, FormControl, Table, Modal} from "react-bootstrap"
+import { Button, Row, Col, Form, FormControl, Table, Modal, Toast, ToastContainer} from "react-bootstrap"
 
 import { Edit } from "./Edit"
 
@@ -11,6 +11,10 @@ const ObjectManagement = () => {
     const [refreshList,setRefreshList] = useState(false)
     const [editForm,setEditForm] = useState(false)
     const [EditObjet,setEditObjet] = useState('')
+
+    const [showRightToast,setShowRightToast] = useState(true)
+    const [showWrongToast,setShowWrongToast] = useState(false)
+
 
     const [nameInput, setNameInput] = useState("")
     const [TypeInput, setTypeInput] = useState("")
@@ -78,6 +82,13 @@ const ObjectManagement = () => {
         setRefreshList(!refreshList)
     } 
         
+    function fnShowRightToast(){
+        setShowRightToast(!showRightToast);
+    }
+
+    function fnShowWrongToast(){
+        setShowWrongToast(!showWrongToast);
+    }
 
       
       
@@ -157,7 +168,7 @@ const ObjectManagement = () => {
                 <Modal.Header className="custom-modal" closeButton>
                     <Modal.Title>Modification</Modal.Title>
                 </Modal.Header >
-                    <Modal.Body className="custom-modal"><Edit myObjet={EditObjet}/></Modal.Body>
+                    <Modal.Body className="custom-modal"><Edit hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
             </Modal>
         </div>  
     );

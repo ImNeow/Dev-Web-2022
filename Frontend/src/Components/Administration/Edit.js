@@ -6,6 +6,10 @@ import axios from "axios";
 const Edit = (props) => {
     const Objet = props.myObjet
     
+    const hidingFunction = props.hiddenFunction
+    const CorrectFunction = props.correctFunction
+    const WrongFunction = props.wrongFunction
+
     const [Id,SetId] = useState(0)
     const [Name,setName] = useState("");
     const [Link,setLink] = useState("");
@@ -37,8 +41,13 @@ const Edit = (props) => {
         axios.put("/objets/"+Id, newObjet)
         .then((res) =>{
             console.log(res);
+            hidingFunction();
+            CorrectFunction();
         })
-        .catch(err => console.log(err));
+        .catch(err =>{
+            console.log(err);
+            WrongFunction();
+        } );
         
       }
 
