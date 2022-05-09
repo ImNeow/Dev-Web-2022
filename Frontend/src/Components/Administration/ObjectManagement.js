@@ -168,7 +168,7 @@ const ObjectManagement = () => {
                 <Modal.Header className="custom-modal" closeButton>
                     <Modal.Title>Modification</Modal.Title>
                 </Modal.Header >
-                    <Modal.Body className="custom-modal"><CustomTable hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
+                    <Modal.Body className="custom-modal"><CustomTable type="objets" hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
             </Modal>
         </div>  
     );

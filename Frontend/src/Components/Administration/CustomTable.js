@@ -5,7 +5,8 @@ import axios from "axios";
 
 const CustomTable = (props) => {
     const Objet = props.myObjet
-    
+    const type = props.type
+    console.log(type)
     const hidingFunction = props.hiddenFunction
     const CorrectFunction = props.correctFunction
     const WrongFunction = props.wrongFunction
@@ -38,7 +39,7 @@ const CustomTable = (props) => {
         };
 
         if(checkFormValidity(newObjet)){
-           /* axios.put("/objets/"+Id, newObjet)
+            axios.put("/"+type+"/"+Id, newObjet)
             .then((res) =>{
                 console.log(res);
                 hidingFunction();
@@ -47,7 +48,7 @@ const CustomTable = (props) => {
             .catch(err =>{
                 console.log(err);
                 WrongFunction();
-            } );*/
+            } );
             console.log('Tout Va Bien')
         }else{
             console.log('erreur')
@@ -57,7 +58,7 @@ const CustomTable = (props) => {
       }
 
       function checkFormValidity(objet){
-        
+        return true
 
       }
 
@@ -71,9 +72,9 @@ const CustomTable = (props) => {
                                 <tr><td>ID : </td><td data-testid="id">{Id}</td></tr> 
                                 <tr><td>Name : </td><td data-testid="name"><input defaultValue={Name} onChange={e=>setName(e.target.value)}></input></td></tr> 
                                 <tr><td>Link : </td><td data-testid="link"><input defaultValue={Link} onChange={e=>setLink(e.target.value)}></input></td></tr> 
-                                <tr><td>Type : </td><td data-testid="type"><input defaultValue={Type} onChange={e=>setType(e.target.value)}></input></td></tr>  
+                                <tr><td>Type : </td><td data-testid="type"><input disabled={type==="curiosite"} defaultValue={Type} onChange={e=>setType(e.target.value)}></input></td></tr>
                                 <tr><td>Description : </td><td data-testid="description"><input defaultValue={Description} onChange={e=>setDescription(e.target.value)}></input></td></tr> 
-                                <tr><td>Prix : </td><td data-testid="prix"><input defaultValue={Price} onChange={e=>setPrice(e.target.value)}></input></td></tr> 
+                                <tr><td>Prix : </td><td data-testid="prix"><input disabled={type==="curiosite"} defaultValue={Price} onChange={e=>setPrice(e.target.value)}></input></td></tr> 
                             </tbody>
                         </Table>
                     </Col>
