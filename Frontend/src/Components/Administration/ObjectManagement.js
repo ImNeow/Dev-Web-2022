@@ -15,6 +15,7 @@ const ObjectManagement = () => {
     const [showRightToast,setShowRightToast] = useState(true)
     const [showWrongToast,setShowWrongToast] = useState(false)
 
+    const [listType, setListType] = useState([])
 
     const [nameInput, setNameInput] = useState("")
     const [TypeInput, setTypeInput] = useState("")
@@ -31,6 +32,7 @@ const ObjectManagement = () => {
           }
         }).then(jsonResponse => {
             setlistObjets(jsonResponse) 
+            setListType(jsonResponse.map((types)=>{return (types.type)}))
         })
       },[refreshList])
 
@@ -123,7 +125,7 @@ const ObjectManagement = () => {
                     </Form>
                 </Col>
                 <Col md='3'>
-                    <Button variant='secondary' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
+                    <Button variant='success' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
                 </Col>
 
             </Row>

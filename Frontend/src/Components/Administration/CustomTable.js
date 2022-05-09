@@ -6,7 +6,7 @@ import axios from "axios";
 const CustomTable = (props) => {
     const Objet = props.myObjet
     const type = props.type
-    console.log(type)
+
     const hidingFunction = props.hiddenFunction
     const CorrectFunction = props.correctFunction
     const WrongFunction = props.wrongFunction
@@ -18,6 +18,10 @@ const CustomTable = (props) => {
     const [Description,setDescription] = useState("");
     const [Price,setPrice] = useState("");
 
+    const [newType,setNewType] = useState(false);
+
+    const [listType, setListType] = useState([])
+
     useEffect(()=>{
         SetId(Objet._id)
         setName(Objet.name);
@@ -25,6 +29,8 @@ const CustomTable = (props) => {
         setLink(Objet.link);
         setDescription(Objet.description);
         setPrice(Objet.price)
+        setListType()
+
     },[])
 
 
@@ -59,7 +65,7 @@ const CustomTable = (props) => {
 
       function checkFormValidity(objet){
         return true
-
+            //
       }
 
     return (<>
@@ -72,8 +78,22 @@ const CustomTable = (props) => {
                                 <tr><td>ID : </td><td data-testid="id">{Id}</td></tr> 
                                 <tr><td>Name : </td><td data-testid="name"><input defaultValue={Name} onChange={e=>setName(e.target.value)}></input></td></tr> 
                                 <tr><td>Link : </td><td data-testid="link"><input defaultValue={Link} onChange={e=>setLink(e.target.value)}></input></td></tr> 
-                                <tr><td>Type : </td><td data-testid="type"><input disabled={type==="curiosite"} defaultValue={Type} onChange={e=>setType(e.target.value)}></input></td></tr>
-                                <tr><td>Description : </td><td data-testid="description"><input defaultValue={Description} onChange={e=>setDescription(e.target.value)}></input></td></tr> 
+                                <tr><td>Type : </td><td data-testid="type">
+                                                                <select hidden={newType}>
+                                                                    <option selected defaultValue={"Statuette"}>Statuette</option>
+                                                                    <option defaultValue={"Poster"}>Posters</option>
+                                                                    <option defaultValue={"Montre"}>Montres</option>
+                                                                    <option defaultValue={"Vaisselles"}>Vaisselles</option>
+                                                                    <option defaultValue={"JeudeCarte"}>Jeu de cartes</option>
+                                                                    <option defaultValue={"CartesPOstales"}>Cartes Postales</option>
+                                                                    <option defaultValue={"Gadgets"}>Gadgets</option>
+                                                                </select>
+                                                                <id>
+                                                                <input id='newTypeInput' hidden={!newType} disabled={type==="curiosite"}  onChange={e=>setType(e.target.value)}></input>
+                                                                    <label for='newTypeCheckBoxValue' hidden={newType}>Nouveau Type ?</label> <input hidden={newType} id='newTypeCheckBoxValue' type='checkbox' onClick={e=>setNewType(!newType)}></input>
+                                                                </id>
+                                                                </td></tr>
+                                <tr><td>Description : </td><td data-testid="description"><textarea defaultValue={Description} style={{width:'300px', height:'100px'}} onChange={e=>setDescription(e.target.value)}></textarea></td></tr> 
                                 <tr><td>Prix : </td><td data-testid="prix"><input disabled={type==="curiosite"} defaultValue={Price} onChange={e=>setPrice(e.target.value)}></input></td></tr> 
                             </tbody>
                         </Table>

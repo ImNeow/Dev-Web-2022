@@ -10,7 +10,7 @@ import dbz from '../Assets/Images/dbzcloud.png'
 import batsignal from '../Assets/Images/batsignal.png'
 import imageNotFound from "../Assets/Images/image-non-disponible.webp"
 
-const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-signalbat",batsignal]};
+const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-signalbat",batsignal],'Occasion':["test",batsignal]};
 
 
 const Bedetheque = (props) => {
