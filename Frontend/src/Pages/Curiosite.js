@@ -42,11 +42,11 @@ const Curiosite = () => {
                         nameBD = myCuriosite.name;
                         return (
                           <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                            <a href={'/detail/curiosite/'+myCuriosite._id} style={{textDecoration:'none'}}>
-                              <Card key={myCuriosite._id}>
-                                <Card.Img variant="top" src={myCuriosite.link}/>
-                                <Card.Body style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
-                                  <Card.Title style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{nameBD}</Card.Title>
+                            <a data-testid="card-link" href={'/detail/curiosite/'+myCuriosite._id} style={{textDecoration:'none'}}>
+                              <Card data-testid="card" key={myCuriosite._id}>
+                                <Card.Img data-testid="card-img" variant="top" src={myCuriosite.link}/>
+                                <Card.Body data-testid="card-body" style={{backgroundColor:'hsl(52, 97%, 55%)'}}>
+                                  <Card.Title data-testid="card-title"style={{minHeight:"2em",fontSize:"20px",color:'black'}}>{nameBD}</Card.Title>
                                 </Card.Body>
                               </Card>
                             </a>
