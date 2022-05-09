@@ -28,8 +28,8 @@ it("Affichage du nom des cartes", async () => {
   const fakeResponse = [
     {
       "_id": "123",
-      "type": "BD",
-      "name": "Tintin au Tibet",
+      "type": "statuette",
+      "name": "Obélix et son menhir",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
@@ -37,7 +37,7 @@ it("Affichage du nom des cartes", async () => {
   },
   {
       "_id": "456",
-      "type": "BD",
+      "type": "statuette",
       "name": "",
       "link": "https://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
@@ -46,7 +46,7 @@ it("Affichage du nom des cartes", async () => {
   },
   {
       "_id": "456",
-      "type": "BD",
+      "type": "statuette",
       "name": "Ce nom de carte est beaucoup trop grand pour être affiché correctement dans la page Objet du site web de la librairie Jaune2",
       "link": "https://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
@@ -72,7 +72,7 @@ it("Affichage du nom des cartes", async () => {
 
 
     //Test du nom de la carte normal
-    expect(container.querySelector("[data-testid='card-title']")[0].textContent).toEqual("Tintin au Tibet");
+    expect(container.querySelector("[data-testid='card-title']")[0].textContent).toEqual("Obélix et son menhir");
     
     //Test du nom de la carte inexistant
     expect(container.querySelector("[data-testid='card-title']")[1].textContent).toEqual("Nom Introuvable");
@@ -93,8 +93,8 @@ it("Lien vers la page Detail", async () => {
   const fakeResponse = [
     {
       "_id": "123",
-      "type": "BD",
-      "name": "Tintin au Tibet",
+      "type": "statuette",
+      "name": "Obélix et son menhir",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
@@ -102,8 +102,8 @@ it("Lien vers la page Detail", async () => {
   },
   {
       "_id": "|{@[[^{#^{[",
-      "type": "BD",
-      "name": "Tintin chez Mémé",
+      "type": "statuette",
+      "name": "Obélix et son menhir",
       "link": "https://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
       "price": 2,
@@ -111,8 +111,8 @@ it("Lien vers la page Detail", async () => {
   },
   {
     "_id": "",
-    "type": "BD",
-    "name": "Tintin au Tibet",
+    "type": "statuette",
+    "name": "Obélix et son menhir",
     "link": "https://www.test.com/imagetest1.jpg",
     "description": "Ceci est un cas",
     "price": 1,
@@ -120,8 +120,8 @@ it("Lien vers la page Detail", async () => {
 },
 {
   "_id": "-123",
-  "type": "BD",
-  "name": "Tintin au Tibet",
+  "type": "statuette",
+  "name": "Obélix et son menhir",
   "link": "https://www.test.com/imagetest1.jpg",
   "description": "Ceci est un cas",
   "price": 1,
@@ -172,8 +172,8 @@ it("Image de la carte Objet", async () => {
   const fakeResponse = [
     {
       "_id": "123",
-      "type": "BD",
-      "name": "Tintin au Tibet",
+      "type": "statuette",
+      "name": "Obélix et son menhir",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
@@ -181,8 +181,8 @@ it("Image de la carte Objet", async () => {
   },
   {
       "_id": "456",
-      "type": "BD",
-      "name": "Tintin chez Mémé",
+      "type": "statuette",
+      "name": "Obélix et son menhir",
       "link": "ttps://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
       "price": 2,
@@ -190,8 +190,8 @@ it("Image de la carte Objet", async () => {
   },
   {
     "_id": "123",
-    "type": "BD",
-    "name": "Tintin au Tibet",
+    "type": "statuette",
+    "name": "Obélix et son menhir",
     "link": "",
     "description": "Ceci est un cas",
     "price": 1,
@@ -199,8 +199,8 @@ it("Image de la carte Objet", async () => {
 },
 {
   "_id": "123",
-  "type": "BD",
-  "name": "Tintin au Tibet",
+  "type": "statuette",
+  "name": "Obélix et son menhir",
   "link": "www.test.com",
   "description": "Ceci est un cas",
   "price": 1,
@@ -208,8 +208,8 @@ it("Image de la carte Objet", async () => {
 },
 {
   "_id": "123",
-  "type": "BD",
-  "name": "Tintin au Tibet",
+  "type": "statuette",
+  "name": "Obélix et son menhir",
   "link": "https://www.test.com/imagetest1.jg",
   "description": "Ceci est un cas",
   "price": 1,
@@ -258,8 +258,8 @@ it("Prix de la carte Objet", async () => {
   const fakeResponse = [
    {
       "_id": "123",
-      "type": "BD",
-      "name": "Tintin au Tibet",
+      "type": "statuette",
+      "name": "Obélix et son menhir",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
@@ -267,8 +267,8 @@ it("Prix de la carte Objet", async () => {
   },
   {
       "_id": "456",
-      "type": "BD",
-      "name": "Tintin chez Mémé",
+      "type": "statuette",
+      "name": "Obélix et son menhir",
       "link": "https://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
       "price": 0,
@@ -276,8 +276,8 @@ it("Prix de la carte Objet", async () => {
   }, 
   {
     "_id": "123",
-    "type": "BD",
-    "name": "Tintin au Tibet",
+    "type": "statuette",
+    "name": "Obélix et son menhir",
     "link": "https://www.test.com/imagetest1.jpg",
     "description": "Ceci est un cas",
     "price": -10.5,
@@ -285,8 +285,8 @@ it("Prix de la carte Objet", async () => {
   }, 
   {
     "_id": "123",
-    "type": "BD",
-    "name": "Tintin au Tibet",
+    "type": "statuette",
+    "name": "Obélix et son menhir",
     "link": "https://www.test.com/imagetest1.jpg",
     "description": "Ceci est un cas",
     "price": -1,
