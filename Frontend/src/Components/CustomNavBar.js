@@ -47,7 +47,7 @@ function CustomNavBar() {
                 <NavDropdown.Item href="/objets/vaisselle">Vaisselles</NavDropdown.Item>
                 <NavDropdown.Item href="/objets/jeudecarte">Jeu de Cartes</NavDropdown.Item>
                 <NavDropdown.Item href="/objets/cartepostale">Cartes postales</NavDropdown.Item>
-                <NavDropdown.Item href="/objets/gadget">Gadgets</NavDropdown.Item>
+                <NavDropdown.Item href="/objets/gadgets">Gadgets</NavDropdown.Item>
               </NavDropdown>
           </NavDropdown>
           <Nav.Link className="NavbarLink" href="/curiosite">Curiosités</Nav.Link>

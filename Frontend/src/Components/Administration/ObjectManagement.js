@@ -15,6 +15,7 @@ const ObjectManagement = () => {
     const [showRightToast,setShowRightToast] = useState(true)
     const [showWrongToast,setShowWrongToast] = useState(false)
 
+    const [listType, setListType] = useState([])
 
     const [nameInput, setNameInput] = useState("")
     const [TypeInput, setTypeInput] = useState("")
@@ -31,6 +32,7 @@ const ObjectManagement = () => {
           }
         }).then(jsonResponse => {
             setlistObjets(jsonResponse) 
+            setListType(jsonResponse.map((types)=>{return (types.type)}))
         })
       },[refreshList])
 
@@ -86,7 +88,7 @@ const ObjectManagement = () => {
                 "_id": "",
                 "name": "",
                 "link": "",
-                "type": "",
+                "type": "statuette",
                 "description": "",
                 "price": 0
             })
@@ -138,7 +140,7 @@ const ObjectManagement = () => {
                 <Col md='1'>
                     <Button variant='success' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
                 </Col>
-                <Col md='1'>
+                <Col md='2'>
                     <Button variant='success' onClick={e=>showEditForm(-1)}>Ajouter</Button>
                 </Col>
 
@@ -184,7 +186,7 @@ const ObjectManagement = () => {
                 <Modal.Header className="custom-modal" closeButton>
                     <Modal.Title>Modification</Modal.Title>
                 </Modal.Header >
-                    <Modal.Body className="custom-modal"><CustomTable hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
+                    <Modal.Body className="custom-modal"><CustomTable type="objets" hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
             </Modal>
         </div>  
     );

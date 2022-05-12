@@ -43,7 +43,7 @@ function App() {
         <Route path="/objets/vaisselle" element={<Objets type="vaisselle"/>}/>
         <Route path="/objets/jeudecarte" element={<Objets type="jeudecarte"/>}/>
         <Route path="/objets/cartepostale" element={<Objets type="cartepostale"/>}/>
-        <Route path="/objets/gadget" element={<Objets type="gadget"/>}/>
+        <Route path="/objets/gadgets" element={<Objets type="gadgets"/>}/>
 
         <Route path="/curiosite" element={<Curiosite/>}/>
 

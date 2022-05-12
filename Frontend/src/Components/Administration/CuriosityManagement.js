@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
-import { Button } from "react-bootstrap"
+import { Button, Row, Col, Form, FormControl, Table, Modal, Toast, ToastContainer} from "react-bootstrap"
+
+import { CustomTable } from "./CustomTable"
 
 import axios from 'axios'
 import '../../Assets/Styles/Management.css'
@@ -7,6 +9,11 @@ import '../../Assets/Styles/Management.css'
 const CuriosityManagement = () => {
     const [listObjets,setlistObjets] = useState([])
     const [refreshList,setRefreshList] = useState(false)
+    const [editForm,setEditForm] = useState(false)
+    const [EditObjet,setEditObjet] = useState('')
+
+    const [showRightToast,setShowRightToast] = useState(true)
+    const [showWrongToast,setShowWrongToast] = useState(false)
 
     useEffect(()=>{
         /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
@@ -24,7 +31,7 @@ const CuriosityManagement = () => {
 
       function DelObjet(id,index){
         if(id !== '' || id !== 0){
-            axios.delete("/objets/"+id)
+            axios.delete("/curiosite/"+id)
             .then(res =>{ 
                 if(res.status === 200){
                     setRefreshList(!refreshList)
@@ -36,10 +43,48 @@ const CuriosityManagement = () => {
     }
 
 
+    
+    function showEditForm(index){
+        if(index !== -1){
+            setEditObjet(listObjets[index])
+            setEditForm(!editForm)
+            setRefreshList(!refreshList)
+        }else{
+            setEditObjet({
+                "_id": "",
+                "name": "",
+                "link": "",
+                "type": "statuette",
+                "description": "",
+                "price": 0
+            })
+            setEditForm(!editForm)
+            setRefreshList(!refreshList)
+        }
+    }  
+        
+    function fnShowRightToast(){
+        setShowRightToast(!showRightToast);
+    }
+
+    function fnShowWrongToast(){
+        setShowWrongToast(!showWrongToast);
+    }
+
+
       
     return (
         <div className="justify-content-center">
             <h1>Gestion des Curiosités</h1>
+            <Row className="justify-content-md-center mb-4">
+                <Col md='1'>
+                    <Button variant='success' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
+                </Col>
+                <Col md='2'>
+                    <Button variant='success' onClick={e=>showEditForm(-1)}>Ajouter</Button>
+                </Col>
+
+            </Row>
             <table className="table table-responsive">
                 <thead>
                     <tr>
@@ -59,10 +104,10 @@ const CuriosityManagement = () => {
                                 <td>{index+1}</td>
                                 <td>{myObject.name}</td>
                                 <td>
-                                    <Button variant="success">Modifier</Button>
+                                    <Button  variant="success" onClick={e=>showEditForm(index)}>📝</Button>
                                 </td>
                                 <td>
-                                    <Button  variant="danger" style={{backgroundColor:'#f0560e'}} onClick={e=> DelObjet(myObject._id,index)}>Supprimer</Button>
+                                    <Button  variant="danger" className="del-button" onClick={e=> DelObjet(myObject._id)}>🗑️</Button>
                                 </td>
                             </tr>
 
@@ -71,6 +116,14 @@ const CuriosityManagement = () => {
                     }
                 </tbody>
             </table>
+
+            <Modal show={editForm} onHide={showEditForm}>
+                <Modal.Header className="custom-modal" closeButton>
+                    <Modal.Title>Modification</Modal.Title>
+                </Modal.Header >
+                    <Modal.Body className="custom-modal"><CustomTable type="curiosite" hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
+            </Modal>
+
         </div>  
     );
  }

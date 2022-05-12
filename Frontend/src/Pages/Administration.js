@@ -1,5 +1,6 @@
 import { Row, Col ,Tab ,Nav} from "react-bootstrap"
 import {useNavigate} from 'react-router-dom';
+import { useEffect, useState } from "react";
 
 import {UserInformation} from '../Components/Users/UserInformation'
 import {UserHistory} from '../Components/Users/UserHistory'
@@ -12,12 +13,18 @@ import {NewsletterManagement} from '../Components/Administration/NewsletterManag
 
 import "../Assets/Styles/Administration.css"
 
-const Menus = ["Informations","Historique","Gestion des Objets","Gestion des Curiosités","Gestion des Utilisateurs","Newsletter"]
 
+const Admin = true ;  
 
 const Administration = () => {
     let navigate = useNavigate();
+    const [menus,setMenu] = useState(["Informations","Historique"])
 
+    useEffect(() => {
+        if(Admin){
+            setMenu(["Informations","Gestion des Objets","Gestion des Curiosités","Gestion des Utilisateurs","Newsletter"]);
+        }
+    },[])
 
     return (
         <div className="Administration">
@@ -27,7 +34,7 @@ const Administration = () => {
                     <Col md='3' className="custom-tab-menu">
                         <Nav variant="" className="flex-column">
                             {
-                                Menus.map((myMenu)=>{
+                                menus.map((myMenu)=>{
                                     return (
                                         <Nav.Item key={myMenu}>
                                             <Nav.Link className="menu" eventKey={myMenu}>{myMenu}</Nav.Link>

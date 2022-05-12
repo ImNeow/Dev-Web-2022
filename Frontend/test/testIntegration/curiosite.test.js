@@ -1,7 +1,7 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 
-import {Objet} from "../../src/Pages/Objets";
+import {Curiosite} from "../../src/Pages/Curiosite";
 
 
 //Création d'un container 
@@ -28,8 +28,8 @@ it("Affichage du nom des cartes", async () => {
   const fakeResponse = [
     {
       "_id": "123",
-      "type": "statuette",
-      "name": "Obélix et son menhir",
+      "type": "BD",
+      "name": "Largo Winch",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
@@ -37,7 +37,7 @@ it("Affichage du nom des cartes", async () => {
   },
   {
       "_id": "456",
-      "type": "statuette",
+      "type": "BD",
       "name": "",
       "link": "https://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
@@ -46,8 +46,8 @@ it("Affichage du nom des cartes", async () => {
   },
   {
       "_id": "456",
-      "type": "statuette",
-      "name": "Ce nom de carte est beaucoup trop grand pour être affiché correctement dans la page Objet du site web de la librairie Jaune2",
+      "type": "BD",
+      "name": "Ce nom de carte est beaucoup trop grand pour être affiché correctement dans la page Curiosite du site web de la librairie Jaune2",
       "link": "https://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
       "price": 2,
@@ -62,7 +62,7 @@ it("Affichage du nom des cartes", async () => {
   );
 
   
-  render(<Objet  type="statuette" />, container);
+  render(<Curiosite/>, container);
 
   ///////////////////////////////
   //                           //
@@ -72,13 +72,13 @@ it("Affichage du nom des cartes", async () => {
 
 
     //Test du nom de la carte normal
-    expect(container.querySelector("[data-testid='card-title']")[0].textContent).toEqual("Obélix et son menhir");
+    expect(container.querySelector("[data-testid='card-title']")[0].textContent).toEqual("Tintin au Tibet");
     
     //Test du nom de la carte inexistant
     expect(container.querySelector("[data-testid='card-title']")[1].textContent).toEqual("Nom Introuvable");
 
     //Test du nom de la carte trop long
-    expect(container.querySelector("[data-testid='card-title']")[2].textContent).toEqual('Ce nom de carte est beaucoup trop grand pour être affiché correctement dans la page Objet du site...');
+    expect(container.querySelector("[data-testid='card-title']")[2].textContent).toEqual('Ce nom de carte est beaucoup trop grand pour être affiché correctement dans la page curisoite du site...');
 
   
   
@@ -92,18 +92,18 @@ it("Lien vers la page Detail", async () => {
 
   const fakeResponse = [
     {
-      "_id": "123",
-      "type": "statuette",
-      "name": "Obélix et son menhir",
+      "_id": "111",
+      "type": "BD",
+      "name": "Largo Winch",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
       "__v": 0
   },
   {
-      "_id": "|{@[[^{#^{[",
-      "type": "statuette",
-      "name": "Obélix et son menhir",
+      "_id": "@#@@|[[^^",
+      "type": "BD",
+      "name": "Largo Winch",
       "link": "https://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
       "price": 2,
@@ -111,17 +111,17 @@ it("Lien vers la page Detail", async () => {
   },
   {
     "_id": "",
-    "type": "statuette",
-    "name": "Obélix et son menhir",
+    "type": "BD",
+    "name": "Largo Winch",
     "link": "https://www.test.com/imagetest1.jpg",
     "description": "Ceci est un cas",
     "price": 1,
     "__v": 0
 },
 {
-  "_id": "-123",
-  "type": "statuette",
-  "name": "Obélix et son menhir",
+  "_id": "-145",
+  "type": "BD",
+  "name": "Largo Winch",
   "link": "https://www.test.com/imagetest1.jpg",
   "description": "Ceci est un cas",
   "price": 1,
@@ -137,7 +137,7 @@ it("Lien vers la page Detail", async () => {
   );
 
   
-  render(<Objet  type="statuette" />, container);
+  render(<Curiosite/>, container);
 
   //////////////////////////////
   //                          //
@@ -147,7 +147,7 @@ it("Lien vers la page Detail", async () => {
 
 
   //Test du lien lorsqu'il y a un ID correcte
-  expect(container.querySelector("[data-testid='card-link']")[0].getAttribute("href")).toEqual("/details/objets/123");
+  expect(container.querySelector("[data-testid='card-link']")[0].getAttribute("href")).toEqual("/details/curiosite/111");
     
   //Test du lien lorsque l'ID est une chaine de caractère
   expect(container.querySelector("[data-testid='card-link']")[1].getAttribute("href")).toEqual("/PageNotFound");
@@ -167,13 +167,13 @@ it("Lien vers la page Detail", async () => {
 
 
 
-it("Image de la carte Objet", async () => {
+it("Image de la carte curiosite", async () => {
 
   const fakeResponse = [
     {
       "_id": "123",
-      "type": "statuette",
-      "name": "Obélix et son menhir",
+      "type": "BD",
+      "name": "Largo Winch",
       "link": "https://www.test.com/imagetest1.jpg",
       "description": "Ceci est un cas",
       "price": 1,
@@ -181,8 +181,8 @@ it("Image de la carte Objet", async () => {
   },
   {
       "_id": "456",
-      "type": "statuette",
-      "name": "Obélix et son menhir",
+      "type": "BD",
+      "name": "Largo Winch",
       "link": "ttps://www.test.com/imagetest2.jpg",
       "description": "Ceci est un deuxième cas",
       "price": 2,
@@ -190,8 +190,8 @@ it("Image de la carte Objet", async () => {
   },
   {
     "_id": "123",
-    "type": "statuette",
-    "name": "Obélix et son menhir",
+    "type": "BD",
+    "name": "Largo Winch",
     "link": "",
     "description": "Ceci est un cas",
     "price": 1,
@@ -199,8 +199,8 @@ it("Image de la carte Objet", async () => {
 },
 {
   "_id": "123",
-  "type": "statuette",
-  "name": "Obélix et son menhir",
+  "type": "BD",
+  "name": "Largo Winch",
   "link": "www.test.com",
   "description": "Ceci est un cas",
   "price": 1,
@@ -208,8 +208,8 @@ it("Image de la carte Objet", async () => {
 },
 {
   "_id": "123",
-  "type": "statuette",
-  "name": "Obélix et son menhir",
+  "type": "BD",
+  "name": "Largo Winch",
   "link": "https://www.test.com/imagetest1.jg",
   "description": "Ceci est un cas",
   "price": 1,
@@ -224,7 +224,7 @@ it("Image de la carte Objet", async () => {
   );
 
   
-  render(<Objet  type="statuette" />, container);
+  render(<Curiosite/>, container);
 
   //////////////////////////////
   //                          //
@@ -247,80 +247,6 @@ it("Image de la carte Objet", async () => {
   
   //Test du lien de l'image lorsque l'extension est mal écrite
   expect(container.querySelector("[data-testid='card-img']")[4].getAttribute("src")).toEqual("imageNotFound");
-  
-  
-  global.fetch.mockRestore();
-});
-
-
-it("Prix de la carte Objet", async () => {
-
-  const fakeResponse = [
-   {
-      "_id": "123",
-      "type": "statuette",
-      "name": "Obélix et son menhir",
-      "link": "https://www.test.com/imagetest1.jpg",
-      "description": "Ceci est un cas",
-      "price": 1,
-      "__v": 0
-  },
-  {
-      "_id": "456",
-      "type": "statuette",
-      "name": "Obélix et son menhir",
-      "link": "https://www.test.com/imagetest2.jpg",
-      "description": "Ceci est un deuxième cas",
-      "price": 0,
-      "__v": 0
-  }, 
-  {
-    "_id": "123",
-    "type": "statuette",
-    "name": "Obélix et son menhir",
-    "link": "https://www.test.com/imagetest1.jpg",
-    "description": "Ceci est un cas",
-    "price": -10.5,
-    "__v": 0
-  }, 
-  {
-    "_id": "123",
-    "type": "statuette",
-    "name": "Obélix et son menhir",
-    "link": "https://www.test.com/imagetest1.jpg",
-    "description": "Ceci est un cas",
-    "price": -1,
-    "__v": 0
-  }
-];
-
-  jest.spyOn(global, "fetch").mockImplementation(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(fakeResponse)
-    })
-  );
-
-  
-  render(<Objet  type="statuette" />, container);
-
-  //////////////////////////////
-  //                          //
-  //  Vérification des cartes //
-  //                          //
-  //////////////////////////////
-
-
-  //Test du prix de la carte
-  expect(container.querySelector("[data-testid='card-text']")[0].textContent).toEqual("1€");  
-  
-  //Test du prix de la carte losqu'il est égale à 0
-  expect(container.querySelector("[data-testid='card-text']")[1].textContent).toEqual("Prix indisponible");  
-  
-  //Test du prix de la carte lorsqu'il est un nombre à virgule négatif 
-  expect(container.querySelector("[data-testid='card-text']")[2].textContent).toEqual("Prix indisponible");  
-    
-  //Test du prix de la carte lorsqu'il est négatif
-  expect(container.querySelector("[data-testid='card-text']")[3].textContent).toEqual("Prix indisponible");  
   
   
   global.fetch.mockRestore();
