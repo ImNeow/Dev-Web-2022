@@ -77,9 +77,22 @@ const ObjectManagement = () => {
       }
 
     function showEditForm(index){
-        setEditObjet(listObjets[index])
-        setEditForm(!editForm)
-        setRefreshList(!refreshList)
+        if(index !== -1){
+            setEditObjet(listObjets[index])
+            setEditForm(!editForm)
+            setRefreshList(!refreshList)
+        }else{
+            setEditObjet({
+                "_id": "",
+                "name": "",
+                "link": "",
+                "type": "",
+                "description": "",
+                "price": 0
+            })
+            setEditForm(!editForm)
+            setRefreshList(!refreshList)
+        }
     } 
         
     function fnShowRightToast(){
@@ -122,8 +135,11 @@ const ObjectManagement = () => {
                         />
                     </Form>
                 </Col>
-                <Col md='3'>
-                    <Button variant='secondary' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
+                <Col md='1'>
+                    <Button variant='success' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
+                </Col>
+                <Col md='1'>
+                    <Button variant='success' onClick={e=>showEditForm(-1)}>Ajouter</Button>
                 </Col>
 
             </Row>

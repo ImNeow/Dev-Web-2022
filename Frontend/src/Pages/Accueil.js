@@ -7,7 +7,7 @@ const Accueil = () => {
         <Container>
             <Row className="justify-content-center">
                 <Col md="auto">
-                    <img src={image_vitrine} alt="devanture du magasin" height={804} width={1148}/>
+                    <img src={image_vitrine} className="Logo-Background" alt="devanture du magasin" height={804} width={1148}/>
                 </Col>
             </Row>
         </Container>

@@ -38,7 +38,7 @@ const CustomTable = (props) => {
         };
 
         if(checkFormValidity(newObjet)){
-           /* axios.put("/objets/"+Id, newObjet)
+            axios.put("/objets/"+Id, newObjet)
             .then((res) =>{
                 console.log(res);
                 hidingFunction();
@@ -47,8 +47,7 @@ const CustomTable = (props) => {
             .catch(err =>{
                 console.log(err);
                 WrongFunction();
-            } );*/
-            console.log('Tout Va Bien')
+            } );
         }else{
             console.log('erreur')
         }
@@ -57,8 +56,7 @@ const CustomTable = (props) => {
       }
 
       function checkFormValidity(objet){
-        
-
+        return true
       }
 
     return (<>
@@ -68,7 +66,7 @@ const CustomTable = (props) => {
                     <Col md="auto">
                         <Table borderless>
                             <tbody>
-                                <tr><td>ID : </td><td data-testid="id">{Id}</td></tr> 
+                                {Id !== ""?<tr><td>ID : </td><td data-testid="id">{Id}</td></tr> : ""}
                                 <tr><td>Name : </td><td data-testid="name"><input defaultValue={Name} onChange={e=>setName(e.target.value)}></input></td></tr> 
                                 <tr><td>Link : </td><td data-testid="link"><input defaultValue={Link} onChange={e=>setLink(e.target.value)}></input></td></tr> 
                                 <tr><td>Type : </td><td data-testid="type"><input defaultValue={Type} onChange={e=>setType(e.target.value)}></input></td></tr>  
