@@ -36,7 +36,9 @@ const Connect = () => {
         .then(res => {
             console.log(res)
             if(res.data !== "notok"){
+                console.log(res)
                 localStorage.clear();
+                localStorage.setItem("id",res.data[0]._id);
                 localStorage.setItem("lastname",res.data[0].lastname);
                 localStorage.setItem("firstname",res.data[0].firstname);
                 localStorage.setItem("email",res.data[0].email);

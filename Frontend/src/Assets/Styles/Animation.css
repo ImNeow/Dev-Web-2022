@@ -80,7 +80,7 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-fill-mode: normal;
-  animation-delay: 10s;  /*30s*/
+  animation-delay: 0s;  /*30s*/
 
   opacity: 0;
   transform: rotate(0.5turn);
@@ -94,11 +94,8 @@
   1% {
     opacity: 1;
   }
-  4%{
+  9%{
     opacity: 1;
-  }
-  5%{
-    opacity: 0;
   }
   10%{
     opacity: 0;

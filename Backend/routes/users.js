@@ -34,3 +34,60 @@ router.route('/register').post((req, res) =>{
 })
 
 module.exports = router;
+
+
+
+/* 
+    GET /users/ 
+*/
+router.get('/', function(req, res, next) {
+  
+  /*Requête à la DB*/
+  User.find({},'lastname firstname email newsletter',(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(DBres);
+  })
+});
+
+
+
+
+/*
+UPDATE /users/  
+
+Modification de la newsletter
+*/
+router.put('/newsletter/:id', function(req, res, next) {
+  id = req.params.id 
+
+  /*Requête à la DB*/
+  User.updateOne({_id:id},{newsletter:req.body.newsletter},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(200);
+  })
+});
+
+//Modification du mot de passse
+router.put('/password/:id', function(req, res, next) {
+  id = req.params.id 
+
+  /*Requête à la DB*/
+  User.updateOne({_id:id},{password:req.body.password},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(200);
+  })
+});
+
+
+/*
+DELETE /users/
+*/
+router.delete('/:id', function(req, res, next) {
+  id = req.params.id 
+
+  /*Requête à la DB*/
+  User.deleteOne({_id:id},(err, DBres)=>{
+      if (err) return handleError(err);
+      res.send(200);
+  })
+});

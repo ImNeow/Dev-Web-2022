@@ -5,7 +5,7 @@ import '../Assets/Styles/App.css'
 
 const Accueil = () => {
     return (
-        <div className="Accueil">
+        <div className="Accueil" style={{BackgroundColor:"red"}}>
             <Container>
                 <Row  className="justify-content-center">
                     <Col md="4" style={{textAlign:"center", marginTop:"5%"}}>
