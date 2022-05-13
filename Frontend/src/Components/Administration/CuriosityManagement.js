@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Button, Row, Col, Form, FormControl, Table, Modal, Toast, ToastContainer} from "react-bootstrap"
+import { Button, Row, Col, Form, FormControl, Table, Modal, Container} from "react-bootstrap"
 
 import { CustomTable } from "./CustomTable"
 
@@ -75,9 +75,10 @@ const CuriosityManagement = () => {
       
     return (
         <div className="justify-content-center">
+            <Container>
             <h1>Gestion des Curiosités</h1>
             <Row className="justify-content-md-center mb-4">
-                <Col md='1'>
+                <Col md='2'>
                     <Button variant='success' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
                 </Col>
                 <Col md='2'>
@@ -85,7 +86,7 @@ const CuriosityManagement = () => {
                 </Col>
 
             </Row>
-            <table className="table table-responsive">
+            <Table responsive striped hover size="sm" >
                 <thead>
                     <tr>
                         <th>Numéro</th>
@@ -115,7 +116,7 @@ const CuriosityManagement = () => {
                         })
                     }
                 </tbody>
-            </table>
+            </Table>
 
             <Modal show={editForm} onHide={showEditForm}>
                 <Modal.Header className="custom-modal" closeButton>
@@ -123,7 +124,7 @@ const CuriosityManagement = () => {
                 </Modal.Header >
                     <Modal.Body className="custom-modal"><CustomTable type="curiosite" hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
             </Modal>
-
+            </Container>
         </div>  
     );
  }

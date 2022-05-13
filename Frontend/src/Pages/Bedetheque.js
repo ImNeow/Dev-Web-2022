@@ -7,10 +7,10 @@ import "../Assets/Styles/App.css"
 import '../Assets/Styles/Animation.css'
 import marsup from '../Assets/Images/marsupilami-down.png'
 import dbz from '../Assets/Images/dbzcloud.png'
-import batsignal from '../Assets/Images/batsignal.png'
+import batman from '../Assets/Images/batman.gif'
 import imageNotFound from "../Assets/Images/image-non-disponible.webp"
 
-const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-signalbat",batsignal],'Occasion':["test",batsignal]};
+const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-bat",batman],'Occasion':["test",imageNotFound]};
 
 
 const Bedetheque = (props) => {
@@ -113,7 +113,7 @@ const Bedetheque = (props) => {
                 {
                 nbrPage.map((number) => {
                   return(
-                    <Pagination.Item className="custom-pagination" onClick={(e)=>setActivePage(e.currentTarget.innerHTML)} key={number} disabled={number === activePage} active={number === activePage}>
+                    <Pagination.Item className="custom-pagination" onClick={(e)=>setActivePage(e.currentTarget.innerHTML)} key={number} disabled={number === activePage} active={number == activePage}>
                     {number}
                     </Pagination.Item>
                  );

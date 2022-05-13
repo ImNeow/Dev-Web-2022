@@ -73,29 +73,34 @@
 }
 
 
-/*SignalBat Animation*/
-.anim-signalbat{
-  animation-name:  signalbat-anim ;
-  animation-duration: 5s; /*10s*/
+/*Bat Animation*/
+.anim-bat{
+  animation-name:  bat-anim ;
+  animation-duration: 50s; /*10s*/
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-fill-mode: normal;
-  animation-delay: 0s;  /*30s*/
+  animation-delay: 10s;  /*30s*/
 
+  opacity: 0;
+  transform: rotate(0.5turn);
   position: absolute;
 }
-@keyframes signalbat-anim {
+@keyframes bat-anim {
   0% {
     opacity: 0;
   }
 
-  10% {
+  1% {
     opacity: 1;
   }
-  40%{
+  4%{
     opacity: 1;
   }
-  50%{
+  5%{
+    opacity: 0;
+  }
+  10%{
     opacity: 0;
   }
   100%{

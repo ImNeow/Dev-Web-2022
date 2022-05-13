@@ -14,14 +14,13 @@ import {NewsletterManagement} from '../Components/Administration/NewsletterManag
 import "../Assets/Styles/Administration.css"
 
 
-const Admin = true ;  
 
 const Administration = () => {
     let navigate = useNavigate();
     const [menus,setMenu] = useState(["Informations","Historique"])
 
     useEffect(() => {
-        if(Admin){
+        if(localStorage.getItem('role')==="admin"){
             setMenu(["Informations","Gestion des Objets","Gestion des Curiosités","Gestion des Utilisateurs","Newsletter"]);
         }
     },[])
@@ -32,7 +31,7 @@ const Administration = () => {
                 
                 <Row md="auto" className="justify-content-center custom-row">
                     <Col md='3' className="custom-tab-menu">
-                        <Nav variant="" className="flex-column">
+                        <Nav className="flex-column">
                             {
                                 menus.map((myMenu)=>{
                                     return (
@@ -43,7 +42,11 @@ const Administration = () => {
                                     })}
 
                                 <Nav.Item>
-                                    <Nav.Link className="deco-button menu" eventKey="deconnexionButton" onClick={e=>navigate('/accueil')}>Deconnexion</Nav.Link>
+                                    <Nav.Link className="deco-button menu" eventKey="deconnexionButton" onClick={e=>{
+                                        navigate('/accueil');
+                                        localStorage.clear();
+                                        window.location.reload()
+                                    }}>Deconnexion</Nav.Link>
                                 </Nav.Item>
 
                         </Nav>

@@ -30,17 +30,31 @@ const Connect = () => {
             password: event.target[1].value
         };
 
+        event.preventDefault()
 
-        /*axios.post("/login", user , { withCredentials: true })
-        .then(res => setAuthenticated(Cookies['AuthToken']))
-        .catch(err => console.log(err));*/
-
-        if(user.email==="admin@admin" && user.password ==="admin"){
-            navigate('/administration');
-        }
-        else{
-            navigate('/account')
-        }
+        axios.post("/login", user , { withCredentials: true })
+        .then(res => {
+            console.log(res)
+            if(res.data !== "notok"){
+                localStorage.clear();
+                localStorage.setItem("lastname",res.data[0].lastname);
+                localStorage.setItem("firstname",res.data[0].firstname);
+                localStorage.setItem("email",res.data[0].email);
+                localStorage.setItem("password",res.data[0].password);
+                localStorage.setItem("newsletter",res.data[0].newsletter);
+                console.log(res.data)
+                if(res.data[0].lastname==="admin"){
+                    localStorage.setItem("role","admin");
+                }else{
+                    localStorage.setItem("role","user");
+                }
+                navigate('/accueil');
+                window.location.reload()
+            }else{
+                console.log('Mot de Passe incorrecte')
+            }
+        })
+        .catch(err => console.log(err));
 
         
   };

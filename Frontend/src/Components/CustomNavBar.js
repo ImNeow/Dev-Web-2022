@@ -69,7 +69,7 @@ function CustomNavBar() {
               <Image width={30} height={30} src={searchbutton} >
               </Image>
             </Button>
-          <Button className='account-button' href="/login">
+          <Button className='account-button' href={  localStorage.length == 0 ? "/login":"/administration"  }>
             <Image width={30} height={30} src={accountbutton}>
             </Image>
           </Button>

@@ -97,8 +97,8 @@ const CustomTable = (props) => {
                                 <tr><td>Name : </td><td data-testid="name"><input defaultValue={Name} style={{width:"100%"}} onChange={e=>setName(e.target.value)}></input></td></tr> 
                                 <tr><td>Link : </td><td data-testid="link"><input defaultValue={Link} style={{width:"100%"}} onChange={e=>setLink(e.target.value)}></input></td></tr> 
                                 {type !== "curiosite"?<tr><td>Type : </td><td data-testid="type">
-                                                                <select hidden={newType} onChange={e=>setType(e.target.value)}>
-                                                                    <option value={"statuette"} selected defaultValue={"statuette"}>Statuette</option>
+                                                                <select hidden={newType} defaultValue={"statuette"} onChange={e=>setType(e.target.value)}>
+                                                                    <option value={"statuette"} defaultValue={"statuette"}>Statuette</option>
                                                                     <option value={"poster"} defaultValue={"poster"}>Posters</option>
                                                                     <option value={"montre"} defaultValue={"montre"}>Montres</option>
                                                                     <option value={"vaisselles"} defaultValue={"vaisselles"}>Vaisselles</option>

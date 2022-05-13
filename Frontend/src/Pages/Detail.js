@@ -3,6 +3,8 @@ import {Row, Col, Button ,Image, Container} from "react-bootstrap"
 import {useState} from 'react'
 import   {useParams} from "react-router-dom";
 
+import imageNotFound from "../Assets/Images/image-non-disponible.webp"
+
 import "../Assets/Styles/App.css"
 
 
@@ -25,6 +27,11 @@ const Detail = (props) => {
       })
     },[])
     
+    function isImage(url) {
+        return /^https?:\/\/.+\.(jpg|JPG|jpeg|png|webp|avif|gif|svg)$/.test(url);
+    }
+
+      
     return (
         <div>
             <h1 id='titleDetail'>{item.name}</h1>
@@ -32,13 +39,13 @@ const Detail = (props) => {
             <Container>
             <Row md="auto">
                 <Col md='6' style={{textAlign:"center"}} >
-                    <Image src={""+item.link} alt='Image du livre' style={{maxWidth:"60%"}} />
+                    <Image src={isImage(item.link) ? item.link : imageNotFound} alt='Image du livre' style={{maxWidth:"60%"}} />
                 </Col>
                 <Col md='6' style={{marginTop:"5%"}}>
                     <h4 style={{textDecoration:"underline", margin: "15px  0"}}>Description</h4>
                     <p>{item.description}
                     </p>
-                    <h4 style={{margin: "15px  0"}}><span style={{color: "red"}}>{item.price}</span></h4>
+                    <h4 style={{margin: "15px  0"}}><span style={{color: "red"}}>{(item.price>0 ? item.price+"€": "") }</span></h4>
                     {ReservedButton}
 
                 </Col>

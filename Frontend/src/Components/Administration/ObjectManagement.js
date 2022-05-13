@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Button, Row, Col, Form, FormControl, Table, Modal, Toast, ToastContainer} from "react-bootstrap"
+import { Button, Row, Col, Form, FormControl, Table, Modal, Container} from "react-bootstrap"
 
 import { CustomTable } from "./CustomTable"
 
@@ -109,8 +109,10 @@ const ObjectManagement = () => {
       
     return (
         <div className="justify-content-center">
+            <Container>
             <h1>Gestion des Objets</h1>
             <Row className="justify-content-md-center mb-4">
+                <Col style={{fontWeight:"bold",fontSize:'120%'}}>Rechcerche :</Col>
                 <Col md="3">
                     <Form>
                         <FormControl
@@ -137,7 +139,7 @@ const ObjectManagement = () => {
                         />
                     </Form>
                 </Col>
-                <Col md='1'>
+                <Col md='2'>
                     <Button variant='success' onClick={e=>setRefreshList(!refreshList)}> Refresh</Button>
                 </Col>
                 <Col md='2'>
@@ -145,7 +147,7 @@ const ObjectManagement = () => {
                 </Col>
 
             </Row>
-            <Table responsive striped hover size="sm" >
+            <Table responsive striped hover size="sm" style={{cursor:'pointer'}}>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -188,6 +190,7 @@ const ObjectManagement = () => {
                 </Modal.Header >
                     <Modal.Body className="custom-modal"><CustomTable type="objets" hiddenFunction={showEditForm} correctFunction={fnShowRightToast} wrongFunction={fnShowWrongToast} myObjet={EditObjet}/></Modal.Body>
             </Modal>
+            </Container>
         </div>  
     );
  }

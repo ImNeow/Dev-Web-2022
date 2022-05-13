@@ -100,9 +100,7 @@ app.post('/login',(req, res) =>{
           httpOnly: true,
           secure: false
         });
-
-        // Redirect user to the protected page
-        res.send('ok')
+        res.send(user)
       }else {
         res.send('notok')
       }
