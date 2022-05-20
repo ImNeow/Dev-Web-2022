@@ -17,7 +17,7 @@ const Propos = () => {
                     
                 </Row>
             </Container>
-            <Container fluid>
+            <Container>
        
                 <Row >
                     <Col style={{textAlign : 'left', fontWeight : 'bold'}}>1984</Col>

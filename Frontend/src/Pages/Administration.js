@@ -46,7 +46,7 @@ const Administration = () => {
                                         navigate('/accueil');
                                         localStorage.clear();
                                         window.location.reload()
-                                    }}>Deconnexion</Nav.Link>
+                                    }}>Déconnexion</Nav.Link>
                                 </Nav.Item>
 
                         </Nav>

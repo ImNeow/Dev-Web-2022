@@ -1,4 +1,4 @@
-import { Container,  Row, Col, Form, Button } from 'react-bootstrap'
+import { Container,  Row, Col, Form, Button, Table } from 'react-bootstrap'
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { useRef } from 'react';
@@ -89,6 +89,25 @@ const Contact = () => {
                     </Row>
                 </Form>
             </div>
+    
+            <Row style={{marginTop:'2%'}} className="justify-content-md-center">
+                <Col md="auto">
+            <iframe title="jaune2Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.275903316567!2d4.607511915967908!3d50.7148203761609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c17d750f12629d%3A0xe2a0c623d3108322!2sLibrairie%20Jaune%202!5e0!3m2!1sfr!2sbe!4v1653060499662!5m2!1sfr!2sbe" width="400" height="300" style={{border:"0"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </Col>
+                <Col md="auto">
+                    <Table className="infoHorraire">
+                            <tr><td colSpan={2} style={{textAlign:'center'}} >Horaire</td></tr>
+                            <tr><td>Lundi</td><td >14h00-18h30</td></tr>
+                            <tr><td>Mardi</td><td >11h00-18h30</td></tr>
+                            <tr><td>Mercredi</td><td>11h00-18h30</td></tr>
+                            <tr><td>Jeudi</td><td >11h00-18h30</td></tr>
+                            <tr><td>Vendredi</td><td >11h00-18h30</td></tr>
+                            <tr><td>Samedi</td><td>10h00-18h30</td></tr>
+                            <tr><td>Dimanche</td><td>Fermé</td></tr>
+                         
+                        </Table>
+                </Col>
+            </Row>
         </Container>
         </div>
     );

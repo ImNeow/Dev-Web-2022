@@ -106,6 +106,40 @@
 }
 
 
+
+
+
+/*Lucky Luke Animation*/
+.anim-luckyluke{
+  animation-name:  luckyluke-anim ;
+  animation-duration: 30s; /*10s*/
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: normal;
+  animation-delay: 0s;  /*30s*/
+
+  position: absolute;
+  bottom: -100%;
+}
+@keyframes luckyluke-anim {
+  0% {
+    bottom: -100%;
+  }
+  25%{
+    bottom: 0;
+  }
+  75%{
+    bottom: 0;
+  }
+  100%{
+    bottom: -100%;
+  }
+}
+
+
+
+
+
 /*gaston animé*/
 .anim-gaston{
   animation-name:  gaston-anim ;
@@ -115,5 +149,5 @@
   animation-fill-mode: normal;
   animation-delay: 0s; 
 
-  position:absolute
+  position:absolute;
 }

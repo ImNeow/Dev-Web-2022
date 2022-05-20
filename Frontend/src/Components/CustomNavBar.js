@@ -41,6 +41,7 @@ function CustomNavBar() {
           <NavDropdown menuVariant="dark" title="Objets" id="basic-nav-dropdown" >
               <NavDropdown.Item href="/objet/statuette">Statuettes</NavDropdown.Item>
               <NavDropdown.Item href="/objet/poster">Posters</NavDropdown.Item>
+              <NavDropdown.Item target="_blank" href="https://www.befr.ebay.be/sch/cejunito/m.html">Ebay</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown menuVariant="dark" title="Divers" id="dropdown-button-drop-end" drop='end'>
                 <NavDropdown.Item href="/objet/montre">Montres</NavDropdown.Item>

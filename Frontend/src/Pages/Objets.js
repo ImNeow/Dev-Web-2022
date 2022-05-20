@@ -71,7 +71,7 @@ const Objets = (props) => {
 
 
     return<>
-      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className='anim' alt="gaston" src={Animation.statuette[1]} ></img></div>)}/>
+      <Media query="(min-width: 992px) and (min-height : 600px)" render={() =>(<div className="animContainer"><img className='anim-gaston' alt="gaston" src={Animation.statuette[1]} ></img></div>)}/>
               
       <div className="ListContent">
 

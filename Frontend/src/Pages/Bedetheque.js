@@ -5,12 +5,13 @@ import Media from 'react-media';
 import "../Assets/Styles/App.css"
 
 import '../Assets/Styles/Animation.css'
+import imageNotFound from "../Assets/Images/image-non-disponible.webp"
 import marsup from '../Assets/Images/marsupilami-down.png'
 import dbz from '../Assets/Images/dbzcloud.png'
 import batman from '../Assets/Images/batman.gif'
-import imageNotFound from "../Assets/Images/image-non-disponible.webp"
+import luckyluke from "../Assets/Images/lucky-luke-tir.gif"
 
-const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-bat",batman],'Occasion':["test",imageNotFound]};
+const Animation = {'BD':["anim-marsup",marsup],'Manga':["anim-dbz",dbz],'Comic':["anim-bat",batman],'Occasion':["anim-luckyluke",luckyluke]};
 
 
 const Bedetheque = (props) => {
