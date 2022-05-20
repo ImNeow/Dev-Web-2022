@@ -42,7 +42,7 @@ var objetsRouter = require('./routes/objets');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books',booksRouter);
-app.use('/curiosite',curiositeRouter);
+app.use('/curiosites',curiositeRouter);
 app.use('/objets',objetsRouter);
 
 
@@ -65,7 +65,7 @@ function getHashedPassword(password) {
 
 
 
-app.use('/login',(req, res, next) => {
+app.use('/loginUser',(req, res, next) => {
   // Get auth token from the cookies
   const authToken = req.cookies['AuthToken'];
 
@@ -82,7 +82,7 @@ app.use('/login',(req, res, next) => {
       SIGN  IN
 
 */
-app.post('/login',(req, res) =>{
+app.post('/loginUser',(req, res) =>{
   const email = req.body.email
   const password = req.body.password
 

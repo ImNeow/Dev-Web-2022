@@ -20,7 +20,7 @@ const CuriosityManagement = () => {
         PRE : /
         POST : /
         */
-        fetch("/curiosite/").then(res =>{
+        fetch("/curiosites/").then(res =>{
           if(res.ok){
             return res.json()
           }
@@ -31,7 +31,7 @@ const CuriosityManagement = () => {
 
       function DelObjet(id,index){
         if(id !== '' || id !== 0){
-            axios.delete("/curiosite/"+id)
+            axios.delete("/curiosites/"+id)
             .then(res =>{ 
                 if(res.status === 200){
                     setRefreshList(!refreshList)

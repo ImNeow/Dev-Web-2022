@@ -39,15 +39,15 @@ function CustomNavBar() {
             <NavDropdown.Item href="/bedetheque/occasion">Occasions</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown menuVariant="dark" title="Objets" id="basic-nav-dropdown" >
-              <NavDropdown.Item href="/objets/statuette">Statuettes</NavDropdown.Item>
-              <NavDropdown.Item href="/objets/poster">Posters</NavDropdown.Item>
+              <NavDropdown.Item href="/objet/statuette">Statuettes</NavDropdown.Item>
+              <NavDropdown.Item href="/objet/poster">Posters</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown menuVariant="dark" title="Divers" id="dropdown-button-drop-end" drop='end'>
-                <NavDropdown.Item href="/objets/montre">Montres</NavDropdown.Item>
-                <NavDropdown.Item href="/objets/vaisselle">Vaisselles</NavDropdown.Item>
-                <NavDropdown.Item href="/objets/jeudecarte">Jeu de Cartes</NavDropdown.Item>
-                <NavDropdown.Item href="/objets/cartepostale">Cartes postales</NavDropdown.Item>
-                <NavDropdown.Item href="/objets/gadgets">Gadgets</NavDropdown.Item>
+                <NavDropdown.Item href="/objet/montre">Montres</NavDropdown.Item>
+                <NavDropdown.Item href="/objet/vaisselle">Vaisselles</NavDropdown.Item>
+                <NavDropdown.Item href="/objet/jeudecarte">Jeu de Cartes</NavDropdown.Item>
+                <NavDropdown.Item href="/objet/cartepostale">Cartes postales</NavDropdown.Item>
+                <NavDropdown.Item href="/objet/gadgets">Gadgets</NavDropdown.Item>
               </NavDropdown>
           </NavDropdown>
           <Nav.Link className="NavbarLink" href="/curiosite">Curiosités</Nav.Link>

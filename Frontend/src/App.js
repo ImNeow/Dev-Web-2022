@@ -22,7 +22,6 @@ import {Search} from './Pages/Search';
 
 
 function App() {
-
   return<>
   <CustomNavBar/>
   <div className='content'>
@@ -37,13 +36,13 @@ function App() {
         <Route path="/bedetheque/Comic" element={<Bedetheque type="Comic"/>}/>
         <Route path="/bedetheque/occasion" element={<Bedetheque type="Occasion"/>}/>
 
-        <Route path="/objets/statuette" element={<Objets type="statuette"/>}/>
-        <Route path="/objets/poster" element={<Objets type="poster"/>}/>
-        <Route path="/objets/montre" element={<Objets type="montre"/>}/>
-        <Route path="/objets/vaisselle" element={<Objets type="vaisselle"/>}/>
-        <Route path="/objets/jeudecarte" element={<Objets type="jeudecarte"/>}/>
-        <Route path="/objets/cartepostale" element={<Objets type="cartepostale"/>}/>
-        <Route path="/objets/gadgets" element={<Objets type="gadgets"/>}/>
+        <Route path="/objet/statuette" element={<Objets type="statuette"/>}/>
+        <Route path="/objet/poster" element={<Objets type="poster"/>}/>
+        <Route path="/objet/montre" element={<Objets type="montre"/>}/>
+        <Route path="/objet/vaisselle" element={<Objets type="vaisselle"/>}/>
+        <Route path="/objet/jeudecarte" element={<Objets type="jeudecarte"/>}/>
+        <Route path="/objet/cartepostale" element={<Objets type="cartepostale"/>}/>
+        <Route path="/objet/gadgets" element={<Objets type="gadgets"/>}/>
 
         <Route path="/curiosite" element={<Curiosite/>}/>
 

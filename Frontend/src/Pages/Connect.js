@@ -32,7 +32,7 @@ const Connect = () => {
 
         event.preventDefault()
 
-        axios.post("/login", user , { withCredentials: true })
+        axios.post("/loginUser", user , { withCredentials: true })
         .then(res => {
             console.log(res)
             if(res.data !== "notok"){

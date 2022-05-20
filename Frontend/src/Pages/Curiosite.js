@@ -16,7 +16,7 @@ const Curiosite = () => {
       PRE : /
       POST : /
       */
-      fetch("/curiosite/").then(res =>{
+      fetch("/curiosites/").then(res =>{
         if(res.ok){
           return res.json()
         }
