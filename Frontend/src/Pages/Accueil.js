@@ -22,10 +22,7 @@ const Accueil = () => {
                     <Media query="(max-width: 767px)" render={() =>(<img src={image_logo_portable}  alt="logo jaune 2" />)}/>
                     </Col>
                 </Row>
-            </Container>
-            
-
-            
+            </Container> 
         </div>
         </>
     );
