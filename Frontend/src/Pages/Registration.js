@@ -101,7 +101,7 @@ const Registration = () => {
 
     function isStringCorrect(str){
         for(let i=0;i<str.length;i++){
-            if(!((str[i].charCodeAt()>65 && str[i].charCodeAt()<90) || ( str[i].charCodeAt()>97 && str[i].charCodeAt()<122))){ //65:90 - 97:122
+            if(!((str[i].charCodeAt()>=65 && str[i].charCodeAt()<=90) || ( str[i].charCodeAt()>=97 && str[i].charCodeAt()<=122))){ //65:90 - 97:122
                 return false;
             }
         }
