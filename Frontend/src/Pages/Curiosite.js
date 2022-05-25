@@ -45,7 +45,7 @@ const Curiosite = () => {
                         nameBD = myCuriosite.name;
                         return (
                           <Col key={"Col"+index} style={{marginBottom:'5px'}}>
-                            <a data-testid="card-link" href={'/detail/curiosite/'+myCuriosite._id} style={{textDecoration:'none'}}>
+                            <a data-testid="card-link" href={'/detail/curiosites/'+myCuriosite._id} style={{textDecoration:'none'}}>
                               <Card data-testid="card" key={myCuriosite._id}>
                                 <Card.Img data-testid="card-img" variant="top" src={isImage(myCuriosite.link) ? myCuriosite.link : imageNotFound}/>
                                 <Card.Body data-testid="card-body" style={{backgroundColor:'hsl(52, 97%, 55%)'}}>

@@ -1,4 +1,5 @@
 var express = require('express');
+const { rawListeners } = require('../models/users.model');
 var router = express.Router();
 let User = require('../models/users.model')
 
@@ -42,6 +43,7 @@ module.exports = router;
 */
 router.get('/', function(req, res, next) {
   
+  console.log(req.res)
   /*Requête à la DB*/
   User.find({},'lastname firstname email newsletter',(err, DBres)=>{
       if (err) return handleError(err);

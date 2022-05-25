@@ -6,7 +6,6 @@ import {CustomNavBar} from './Components/CustomNavBar';
 import {CustomFooter} from './Components/CustomFooter';
 
 import {Accueil} from './Pages/Accueil';
-import {Account} from './Pages/Account';
 import {Administration} from './Pages/Administration';
 import {Curiosite} from './Pages/Curiosite';
 import {Propos} from './Pages/Propos';
@@ -27,7 +26,6 @@ function App() {
   <div className='content'>
     <BrowserRouter>
       <Routes>
-        <Route path="/account" element={<Account/>}/>
         <Route path="/accueil" element={<Accueil/>}/>
         <Route path="/administration" element={<Administration/>}/>
 
@@ -48,7 +46,7 @@ function App() {
 
         <Route path="/detail/books/:id" element={<Detail type="books"/>}/>
         <Route path="/detail/objets/:id" element={<Detail type="objets"/>}/>
-        <Route path="/detail/curiosite/:id" element={<Detail type="curiosite"/>}/>
+        <Route path="/detail/curiosites/:id" element={<Detail type="curiosites"/>}/>
 
         <Route path="/search/:name" element={<Search/>}/>
         <Route path="/propos" element={<Propos/>}/>
