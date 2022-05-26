@@ -29,7 +29,7 @@ const CuriosityManagement = () => {
         })
       },[refreshList])
 
-      function DelObjet(id,index){
+      function DelObjet(id){
         /* Cette fonction fait une requête à l'API pour supprimer un objet
         PRE : id est un entier
         POST : /
@@ -49,7 +49,7 @@ const CuriosityManagement = () => {
 
     
     function showEditForm(index){
-        /* Cette fonction permet de mettre à jour la liste des curiosités
+        /* Cette fonction permet d'afficher le formule de modification
         PRE : l'index de l'objet
         POST : /
         */

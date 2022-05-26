@@ -9,7 +9,7 @@ const UsersManagement = () => {
     const [refreshList,setRefreshList] = useState(false)
 
     useEffect(()=>{
-        /* Cette fonction fait un appel à l'API pour récuperer le nombre de users
+        /* Cette fonction fait un appel à l'API pour récuperer la liste des users
         PRE : /
         POST : /
         */

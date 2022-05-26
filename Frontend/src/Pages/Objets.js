@@ -19,11 +19,8 @@ const Objets = (props) => {
   const [nbrPage,setNbrPage] = useState([]);
   const type= props.type
 
-  /*const animationClassname = Animation[type][0]*/
-  /*const animationSrc = Animation[type][1]*/
-
   useEffect(()=>{
-    /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
+    /* Cette fonction fait un appel à l'API pour récuperer le nombre d'objets par rapport à leurs types
     PRE : /
     POST : /
     */
@@ -44,7 +41,7 @@ const Objets = (props) => {
 
 
   useEffect(()=>{
-    /* Cette fonction fait un appel à l'API pour récupérer les objets des Objets par rapport à leurs types
+    /* Cette fonction fait un appel à l'API pour récupérer les objets par rapport à leur type, filtres et le nombre de pages
     PRE : /
     POST : /
     */
@@ -59,6 +56,10 @@ const Objets = (props) => {
 
 
   useEffect(() => {
+  /* Cette fonction permet d'ajuster la page à une taille d'écran
+    PRE : /
+    POST : /
+    */ 
     window.matchMedia("(min-width: 768px)").addEventListener('change', () => setnbrObjetsPerRow(2));
     window.matchMedia("(min-width: 1000px)").addEventListener('change', () => setnbrObjetsPerRow(3));
     window.matchMedia("(min-width: 1200px)").addEventListener('change', () => setnbrObjetsPerRow(4));
@@ -66,6 +67,11 @@ const Objets = (props) => {
   }, []);
   
   function isImage(url) {
+      /* Cette fonction permet de vérifier si l'url est bien une image
+        PRE : une url
+        POST :  True => si l'url est valide
+                False = > si l'url est invalide
+    */
     return /^https?:\/\/.+\.(jpg|JPG|jpeg|png|webp|avif|gif|svg)$/.test(url);
   }
 

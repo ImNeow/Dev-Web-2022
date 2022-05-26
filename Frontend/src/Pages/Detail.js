@@ -15,6 +15,10 @@ const Detail = (props) => {
     const [ReservedButton,setReservedButton] = useState()
     
     useEffect(()=>{
+      /* Cette fonction fait un appel à l'API pour récuperer les détails d'un objet à partir de son ID
+      PRE : /
+      POST : /
+      */
       fetch("/"+type+"/detail/"+id).then(res =>{
         if(res.ok){
           return res.json()
@@ -28,6 +32,11 @@ const Detail = (props) => {
     },[])
     
     function isImage(url) {
+    /* Cette fonction permet de vérifier si l'url est bien une image
+        PRE : une url
+        POST :  True => si l'url est valide
+                False = > si l'url est invalide
+    */
         return /^https?:\/\/.+\.(jpg|JPG|jpeg|png|webp|avif|gif|svg)$/.test(url);
     }
 

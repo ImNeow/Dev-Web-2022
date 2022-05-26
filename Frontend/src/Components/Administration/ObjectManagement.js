@@ -22,7 +22,7 @@ const ObjectManagement = () => {
 
 
     useEffect(()=>{
-        /* Cette fonction fait un appel à l'API pour récuperer le nombre d'objets par rapport à leur type
+        /* Cette fonction fait un appel à l'API pour récuperer les objets
         PRE : /
         POST : /
         */
@@ -37,7 +37,7 @@ const ObjectManagement = () => {
       },[refreshList])
 
       useEffect(()=>{
-        /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leur type
+        /* Cette fonction fait un appel à l'API pour récuperer les objets par rapport à leurs noms ou leurs types
         PRE : /
         POST : /
         */
@@ -83,7 +83,7 @@ const ObjectManagement = () => {
       }
 
     function showEditForm(index){
-        /* Cette fonction permet de mettre à jour la liste des objets
+        /* Cette fonction permet d'afficher le formule de modification
         PRE : l'index de l'objet
         POST : /
         */

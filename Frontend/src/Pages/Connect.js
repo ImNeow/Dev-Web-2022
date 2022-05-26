@@ -1,28 +1,13 @@
 import { Container,  Row, Col, Form, Button } from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom';
 import axios from "axios";
-import Cookies from 'js-cookie'
-import { useEffect, useState } from 'react';
 
 const Connect = () => {
     let navigate = useNavigate();
-    const [authenticated,setAuthenticated] = useState([])
 
-    const handleSubmit = (event) => {
-        /*Cette fonction vérifie si le champ est rempli
-        PRE : les informations envoyé par le formulaire
-        POST : /
-        */ 
-        event.preventDefault();
-        sendForm(event);  
-    };
-
-    useEffect(()=>{
-        console.log(authenticated)
-    },[authenticated])
     const sendForm = (event) =>{
-        /*Cette fonction va envoyer les informations sur un utilisateur à la base de données
-        PRE : les informations envoyé par le formulaire
+        /*Cette fonction va envoyer les informations de l'utilisateur à la base de données et initier la session
+        PRE : l'evenement recu par le formulaire
         POST : /
         */ 
         const user ={

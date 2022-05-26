@@ -45,7 +45,7 @@ const Bedetheque = (props) => {
   } ,[type])
 
   useEffect(()=>{
-    /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leur type
+    /* Cette fonction fait un appel à l'API pour récuperer les Livres par rapport à leur type, le filtre et le numéro de la page
     PRE : /
     POST : /
     */
@@ -72,9 +72,10 @@ const Bedetheque = (props) => {
   
 
   function isImage(url) {
-    /* Cette fonction permet de retourner une image de bd
+    /* Cette fonction permet de vérifier si l'url est bien une image
     PRE : une url
-    POST : une image de bd
+    POST :  True => si l'url est valide
+            False = > si l'url est invalide
     */
     return /^https?:\/\/.+\.(jpg|JPG|jpeg|png|webp|avif|gif|svg)$/.test(url);
   }

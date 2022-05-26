@@ -20,6 +20,7 @@ const Administration = () => {
     const [menus,setMenu] = useState(["Informations","Historique"])
 
     useEffect(() => {
+        // Vérification du role d'administrateur et modification du menu
         if(localStorage.getItem('role')==="admin"){
             setMenu(["Informations","Gestion des Objets","Gestion des Curiosités","Gestion des Utilisateurs","Newsletter"]);
         }

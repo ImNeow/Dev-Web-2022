@@ -12,7 +12,7 @@ const Curiosite = () => {
   
   
     useEffect(()=>{
-      /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
+      /* Cette fonction fait un appel à l'API pour récuperer les curiosités
       PRE : /
       POST : /
       */
@@ -27,6 +27,10 @@ const Curiosite = () => {
   
   
     useEffect(() => {
+      /* Cette fonction permet d'ajuster la page à une taille d'écran
+    PRE : /
+    POST : /
+    */ 
       window.matchMedia("(min-width: 768px)").addEventListener('change', () => setnbrCuriositePerRow(2));
       window.matchMedia("(min-width: 1000px)").addEventListener('change', () => setnbrCuriositePerRow(3));
       window.matchMedia("(min-width: 1200px)").addEventListener('change', () => setnbrCuriositePerRow(4));
@@ -34,6 +38,11 @@ const Curiosite = () => {
     }, []);
     
     function isImage(url) {
+       /* Cette fonction permet de vérifier si l'url est bien une image
+        PRE : une url
+        POST :  True => si l'url est valide
+                False = > si l'url est invalide
+    */
       return /^https?:\/\/.+\.(jpg|JPG|jpeg|png|webp|avif|gif|svg)$/.test(url);
     }
       return <div className="ListContent">

@@ -10,7 +10,7 @@ const Search = () => {
   let { name } = useParams();
 
   useEffect(()=>{
-    /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
+    /* Cette fonction fait un appel à l'API pour récuperer les livres en fonction de leur nom
     PRE : /
     POST : /
     */
@@ -25,6 +25,10 @@ const Search = () => {
 
 
   useEffect(() => {
+      /* Cette fonction permet d'ajuster la page à une taille d'écran
+    PRE : /
+    POST : /
+    */ 
     window.matchMedia("(min-width: 768px)").addEventListener('change', () => setnbrBookPerRow(2));
     window.matchMedia("(min-width: 1000px)").addEventListener('change', () => setnbrBookPerRow(3));
     window.matchMedia("(min-width: 1200px)").addEventListener('change', () => setnbrBookPerRow(4));
