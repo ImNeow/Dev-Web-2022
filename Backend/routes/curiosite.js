@@ -3,7 +3,7 @@ var router = express.Router();
 let Curiosite = require('../models/curiosite.model')
 
 /* 
-    GET /curiosite/ 
+    GET /curiosites/ 
 */
 router.get('/', function(req, res, next) {
   

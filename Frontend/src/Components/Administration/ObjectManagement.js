@@ -120,7 +120,7 @@ const ObjectManagement = () => {
             <Container>
             <h1>Gestion des Objets</h1>
             <Row className="justify-content-md-center mb-4">
-                <Col style={{fontWeight:"bold",fontSize:'120%'}}>Rechcerche :</Col>
+                <Col style={{fontWeight:"bold",fontSize:'120%'}}>Recherche :</Col>
                 <Col md="3">
                     <Form>
                         <FormControl
