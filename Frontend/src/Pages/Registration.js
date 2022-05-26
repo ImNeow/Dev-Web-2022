@@ -13,6 +13,11 @@ const Registration = () => {
     const [validated, setValidated] = useState(false);  
 
     function testValues(event){
+        /*Cette fonction va effectuer des tests sur les différentes informations reçues
+        PRE : les informations envoyé par le formulaire
+        POST : True: si tout les tests sont passés
+               False: si au minimum, un des test n'est pas passé
+        */ 
         if(!(checkNameValidity(event.target[0].value,event.target[1].value))){
             document.getElementById('errorDiv').innerText= "Nom et/ou prénom erroné(s)";
             return false;
@@ -48,6 +53,12 @@ const Registration = () => {
     }
 
     function checkNameValidity(prenom,nom){ 
+        /*Cette fonction va appeler isStringCorrect pour tester si le nom et prénom sont valides
+        PRE : String prenom: prénom entré par le formulaire
+              String nom: nom entré par le formulaire
+        POST : True: si tout les tests sont passés
+               False: le test n'est pas passé
+        */ 
         
         if(isStringCorrect(prenom) && isStringCorrect(nom)){
             return true;
@@ -56,18 +67,34 @@ const Registration = () => {
     }
 
     function isNameCharactersEnough(prenom, nom){
+        /*Cette fonction va voir si le prénom et le nom sont de tailles suffisantes
+        PRE : String prenom: prénom entré par le formulaire
+              String nom: nom entré par le formulaire
+        POST : True: si la taille est respectée 
+               False: le test n'est pas passé
+        */ 
         if(prenom.length >= 2 && nom.length >= 2){
             return true;
         }
         return false;
     }
     function isEmailCharactersEnough(email){
+        /*Cette fonction va voir si l'email est d'une taille suffisante
+        PRE : String email: email entrée par le formulaire
+        POST : True: si la taille est respectée 
+               False: le test n'est pas passé
+        */
         if(email.length >= 5){
             return true;
         }
         return false;
     }
     function checkEmailValidity(email) {
+        /*Cette fonction va voir si l'email est d'un type correct
+        PRE : String email: email entrée par le formulaire
+        POST : True: si le type est respecté 
+               False: le test n'est pas passé
+        */
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
         {
             return true;
@@ -77,6 +104,11 @@ const Registration = () => {
             
     }
     function isPasswordCharactersEnough(password){
+        /*Cette fonction va voir si le mot de passe est d'une taille suffisante
+        PRE : String password: mot de passe entré par le formulaire
+        POST : True: si la taille est respectée 
+               False: le test n'est pas passé
+        */
         if(password.length >= 8){
             return true;
         }
@@ -84,6 +116,12 @@ const Registration = () => {
     }
 
     function  checkPasswordValidity(mdp1,mdp2){ 
+        /*Cette fonction va voir si la confirmation de mot de passe correspond au mot de passe de base
+        PRE : String mdp1: mot de passe entré par le formulaire
+              String mdp2: la confirmation du mot de passe entrée par le formulaire
+        POST : True: si les mots de passes correspondent 
+               False: le test n'est pas passé
+        */
         if(mdp1 === mdp2){
             return true;
         }
@@ -91,6 +129,11 @@ const Registration = () => {
     }
 
     function isNewsletterBoolean(newsletter){
+        /*Cette fonction va voir si le type de la variable newsletter est bien boolean
+        PRE : boolean newsletter: boolean indiquant si on veut la newsletter (true) ou pas (false)
+        POST : True: si le type est respecté
+               False: le test n'est pas passé
+        */
         if(typeof newsletter === "boolean"){
             return true;
         }
@@ -100,6 +143,11 @@ const Registration = () => {
     }
 
     function isStringCorrect(str){
+        /*Cette fonction va tester si la string est bien composée que de lettres
+        PRE : String: str représentant une chaine de caractéres
+        POST : True: si la string ne comporte que des lettres
+               False: le test n'est pas passé
+        */
         for(let i=0;i<str.length;i++){
             if(!((str[i].charCodeAt()>=65 && str[i].charCodeAt()<=90) || ( str[i].charCodeAt()>=97 && str[i].charCodeAt()<=122))){ //65:90 - 97:122
                 return false;
