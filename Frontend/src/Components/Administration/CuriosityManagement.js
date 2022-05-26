@@ -16,7 +16,7 @@ const CuriosityManagement = () => {
     const [showWrongToast,setShowWrongToast] = useState(false)
 
     useEffect(()=>{
-        /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
+        /* Cette fonction fait un appel à l'API pour récuperer le nombre d'objets par rapport à leur type
         PRE : /
         POST : /
         */
@@ -30,6 +30,10 @@ const CuriosityManagement = () => {
       },[refreshList])
 
       function DelObjet(id,index){
+        /* Cette fonction fait une requête à l'API pour supprimer un objet
+        PRE : id est un entier
+        POST : /
+        */
         if(id !== '' || id !== 0){
             axios.delete("/curiosites/"+id)
             .then(res =>{ 
@@ -45,6 +49,10 @@ const CuriosityManagement = () => {
 
     
     function showEditForm(index){
+        /* Cette fonction permet de mettre à jour la liste des curiosités
+        PRE : l'index de l'objet
+        POST : /
+        */
         if(index !== -1){
             setEditObjet(listObjets[index])
             setEditForm(!editForm)

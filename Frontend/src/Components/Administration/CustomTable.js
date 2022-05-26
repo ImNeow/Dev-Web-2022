@@ -23,6 +23,10 @@ const CustomTable = (props) => {
     const [listType, setListType] = useState([])
 
     useEffect(()=>{
+        /* Cette fonction permet de définir les différents champs d'un objet
+        PRE /
+        POST : /
+        */
         SetId(Objet._id)
         setName(Objet.name);
         setType(Objet.type);
@@ -35,6 +39,10 @@ const CustomTable = (props) => {
 
 
       function sendForm(){
+          /* Cette fonction permet d'enregistrer ou de modifier un objet à envoyer à la db
+          PRE : /
+          POST : /
+          */
 
         const newObjet ={
             type: Type,

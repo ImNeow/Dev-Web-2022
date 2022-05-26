@@ -22,7 +22,7 @@ const ObjectManagement = () => {
 
 
     useEffect(()=>{
-        /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
+        /* Cette fonction fait un appel à l'API pour récuperer le nombre d'objets par rapport à leur type
         PRE : /
         POST : /
         */
@@ -37,7 +37,7 @@ const ObjectManagement = () => {
       },[refreshList])
 
       useEffect(()=>{
-        /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
+        /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leur type
         PRE : /
         POST : /
         */
@@ -54,6 +54,10 @@ const ObjectManagement = () => {
     
 
       function DelObjet(id){
+          /* Cette fonction fait une requête à l'API pour supprimer un objet
+          PRE : id est un entier
+          POST : /
+          */ 
         if(id !== '' || id !== 0){
             axios.delete("/objets/"+id)
             .then(res =>{ 
@@ -79,6 +83,10 @@ const ObjectManagement = () => {
       }
 
     function showEditForm(index){
+        /* Cette fonction permet de mettre à jour la liste des objets
+        PRE : l'index de l'objet
+        POST : /
+        */
         if(index !== -1){
             setEditObjet(listObjets[index])
             setEditForm(!editForm)

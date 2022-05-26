@@ -27,7 +27,7 @@ const Bedetheque = (props) => {
   const animationSrc = Animation[type][1]
  
   useEffect(()=>{
-    /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
+    /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livres par rapport à leur type
     PRE : /
     POST : /
     */
@@ -45,7 +45,7 @@ const Bedetheque = (props) => {
   } ,[type])
 
   useEffect(()=>{
-    /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leurs types
+    /* Cette fonction fait un appel à l'API pour récuperer les objets des BDs par rapport à leur type
     PRE : /
     POST : /
     */
@@ -60,6 +60,10 @@ const Bedetheque = (props) => {
 
  
   useEffect(() => {
+    /* Cette fonction permet d'ajuster la page à une taille d'écran
+    PRE : /
+    POST : /
+    */ 
     window.matchMedia("(min-width: 768px)").addEventListener('change', () => setnbrBookPerRow(2));
     window.matchMedia("(min-width: 1000px)").addEventListener('change', () => setnbrBookPerRow(3));
     window.matchMedia("(min-width: 1200px)").addEventListener('change', () => setnbrBookPerRow(4));
@@ -68,6 +72,10 @@ const Bedetheque = (props) => {
   
 
   function isImage(url) {
+    /* Cette fonction permet de retourner une image de bd
+    PRE : une url
+    POST : une image de bd
+    */
     return /^https?:\/\/.+\.(jpg|JPG|jpeg|png|webp|avif|gif|svg)$/.test(url);
   }
 

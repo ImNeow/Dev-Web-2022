@@ -9,7 +9,7 @@ const UsersManagement = () => {
     const [refreshList,setRefreshList] = useState(false)
 
     useEffect(()=>{
-        /* Cette fonction fait un appel à l'API pour récuperer le nombre de Livre par rapport à leurs types
+        /* Cette fonction fait un appel à l'API pour récuperer le nombre de users
         PRE : /
         POST : /
         */
@@ -24,8 +24,11 @@ const UsersManagement = () => {
     
 
     function ChangeNewsletter(event,id){
+        /* Cette fonction permet de changer l'état de la checkbox pour la newsletter
+        PRE : /
+        POST : /
+        */ 
 
-    
         const newNewsletter={
             newsletter: event.target.checked
         }
@@ -41,6 +44,11 @@ const UsersManagement = () => {
     }
 
     function DelUser(id){
+        /* Cette fonction permet de supprimer un user
+        PRE : id est un entier
+        POST : /
+        */
+         
         if(id !== '' || id !== 0){
             axios.delete("/users/"+id)
             .then(res =>{ 
